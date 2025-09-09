@@ -1,0 +1,115 @@
+<nav
+  class="navbar navbar-expand-lg c888-nav fixed-top py-2"
+  [class.scrolled]="isScrolled"
+>
+  <div class="container align-items-center">
+    <!-- Brand -->
+    <a class="navbar-brand d-flex align-items-center me-2" routerLink="/">
+      <img src="images/logo.png" alt="Connected888" class="c888-logo" />
+    </a>
+
+    <!-- Toggler (mobile) -->
+    <button
+      class="navbar-toggler border-0"
+      type="button"
+      aria-label="Toggle navigation"
+      (click)="toggleNav()"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible zone -->
+    <div class="collapse navbar-collapse" id="navMain">
+      <!-- LEFT: menu right next to logo on lg+ -->
+      <ul
+        class="navbar-nav ms-lg-3 me-lg-auto gap-lg-4 mt-3 mt-lg-0 align-items-lg-center"
+      >
+        <li class="nav-item">
+          <a
+            class="nav-link c888-link"
+            routerLink="/about"
+            routerLinkActive="active"
+            (click)="closeNav()"
+            >{{ "Navbar.ABOUT" | translate }}</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link c888-link"
+            routerLink="/register"
+            routerLinkActive="active"
+            (click)="closeNav()"
+            >{{ "Navbar.REGISTER" | translate }}</a
+          >
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link c888-link dropdown-toggle"
+            id="contributeDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {{ "Navbar.CONTRIBUTE" | translate }}
+          </a>
+          <ul
+            class="dropdown-menu"
+            aria-labelledby="contributeDropdown"
+          >
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/donate"
+                (click)="closeNav()"
+              >
+                {{ "Navbar.DONATE" | translate }}</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/volunteer"
+                (click)="closeNav()"
+              >
+                {{ "Navbar.VOLUNTEER" | translate }}</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- RIGHT: compact sign-in + beautified language -->
+      <div
+        class="d-flex align-items-center gap-2 gap-lg-3 ms-lg-3 mt-3 mt-lg-0 justify-content-center"
+      >
+        <a
+          routerLink="/signin"
+          class="btn c888-gold-btn-sm rounded-pill px-3 fw-bold"
+          (click)="closeNav()"
+          >{{ "Navbar.SIGN_IN" | translate }}</a
+        >
+
+        <!-- pretty language select -->
+        <div class="dropdown c888-lang-wrap">
+          <button
+            class="btn btn-sm dropdown-toggle text-white d-flex align-items-center gap-2 lang-btn"
+            type="button"
+            data-bs-toggle="dropdown"
+          >
+            <i class="bi bi-globe2"></i> {{langName}}
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end btng">
+            <li *ngFor="let lang of languages">
+              <a
+                class="dropdown-item d-flex align-items-center gap-2"
+                (click)="switchLanguage(lang)"
+              >
+                {{ lang.label }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

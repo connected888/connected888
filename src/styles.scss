@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+  --energy-primary: #9999CC;   /* violet */
+  --energy-accent:  #EAB444;   /* golden */
+  --energy-white:   #ffffff;
+}
+
+.healing-loader{
+  display:flex; flex-direction:column; align-items:center; gap:14px;
+  color:var(--energy-white);
+}
+
+.breathing-mandala .mandala{
+  width:120px; height:120px;
+  animation: breathe 3.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px rgba(234,180,68,.35));
+}
+
+.breathing-mandala .petals circle{
+  fill: none;
+  stroke: var(--energy-primary);
+  stroke-width: 2.5;
+  opacity:.85;
+}
+
+.breathing-mandala .core{
+  fill: var(--energy-accent);
+  filter: drop-shadow(0 0 6px rgba(234,180,68,.75));
+}
+
+.loader-text{
+  font-size:14px; letter-spacing:.6px; opacity:.9;
+}
+
+/* gentle zoom in/out */
+@keyframes breathe{
+  0%   { transform: scale(0.94) rotate(0deg); }
+  50%  { transform: scale(1.06) rotate(8deg); }
+  100% { transform: scale(0.94) rotate(0deg); }
+}
+
+/* ensure overlay sits on top */
+.ngx-spinner-overlay { z-index: 999999 !important; }
+.ngx-spinner { z-index: 1000000 !important; }
+
+
+
+

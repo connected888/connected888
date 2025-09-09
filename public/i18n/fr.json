@@ -1,0 +1,58 @@
+{
+  "WELCOME": "Bonjour Connected888!",
+  "BUTTON_CLICK": "Faire un appel API",
+  "FOOTER": "Droits d'auteur © 2024 Connected888. Tous droits réservés.",
+  "HEADER": "Bienvenue chez Connected888!",
+  "Navbar": {
+    "ABOUT": "À PROPOS",
+    "REGISTER": "S'INSCRIRE",    
+    "CONTRIBUTE": "CONTRIBUER",
+    "DONATE": "FAIRE UN DON",
+    "VOLUNTEER": "BÉNÉVOLE",
+    "SIGN_IN": "SE CONNECTER"
+  },
+  "about":{
+      "works": "à propos fonctionne!"
+  },
+    "register":{
+        "works": "l'inscription fonctionne!"
+    },
+    "heroSection": {
+        "eyebrow": "CE QUE NOUS FAISONS",
+        "title": "Simplifier la guérison mondiale par le son et la fréquence.",
+        "subtitle": "Compte à rebours vers une vibration mondiale d'amour, de paix et de guérison.",
+        "event": {
+            "date": "8 août",
+            "title": "Transmission de résonance mondiale de 24h",
+            "description": "Connected888 est un collectif mondial de guérison par le son. Nous unissons les guérisseurs énergétiques et les guérisseurs sonores du monde entier pour offrir des expériences de guérison vibratoire lors d'événements mensuels, et la Transmission annuelle de résonance mondiale le 8 août."
+        },
+        "cta": {
+            "join": "Rejoignez le monde pour guérir Gaia!",
+            "countdown": "Compte à rebours"
+        }
+    },  
+    "countdownSection": {
+        "title": "Compte à rebours de la résonance mondiale",
+        "description": "Nous nous rassemblons dans un champ unifié le 8 août. Ajoutez votre intention, votre voix et votre fréquence.",
+        "timerLabels": {
+            "days": "Jours",
+            "hours": "Heures",
+            "minutes": "Minutes",
+            "seconds": "Secondes"
+        }
+    },
+    "whatWeDoSection": {
+        "eyebrow": "CE QUE NOUS FAISONS",
+        "title": "Des solutions de bien-être qui évoluent avec la conscience mondiale.",
+        "cards": [
+            {
+                "title": "Énergie • Fréquence • Vibration",
+                "description": "Tout dans l'univers, des royaumes physiques aux royaumes spirituels, est composé d'énergie. Cette force vitale coule à travers chaque être et objet, nous connectant tous. En alignant notre énergie personnelle avec l'énergie universelle, nous nous ouvrons à la croissance spirituelle et à la transformation."
+            },
+            {
+                "title": "Cohérence mondiale",
+                "description": "Chacune de nos âmes vibre à une fréquence spécifique - nos pensées, émotions et intentions la déterminent. S'unir à des fréquences plus élevées d'amour, de compassion et de paix résonne à travers la planète, élevant la conscience et favorisant la guérison pour tous."
+            }
+        ]
+    }
+}

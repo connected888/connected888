@@ -1,0 +1,58 @@
+{
+  "WELCOME": "Hello Connected888!",
+  "BUTTON_CLICK": "Make API Call",
+  "FOOTER": "Copyright © 2024 Connected888. All rights reserved.",
+  "HEADER": "Welcome to Connected888!",
+  "Navbar": {
+    "ABOUT": "ABOUT US",
+    "REGISTER": "REGISTER",
+    "CONTRIBUTE": "CONTRIBUTE",
+    "DONATE": "DONATE",
+    "VOLUNTEER": "VOLUNTEER",
+    "SIGN_IN": "SIGN IN"
+  },
+  "about": {
+    "works": "about works!"
+  },
+  "register": {
+    "works": "register works!"
+  },
+  "heroSection": {
+    "eyebrow": "WHAT WE DO",
+    "title": "Simplifying Global Healing Through Sound & Frequency.",
+    "subtitle": "Counting down to a global vibration of love, peace, and healing.",
+    "event": {
+      "date": "August 8",
+      "title": "24hr Global Resonance Transmission",
+      "description": "Connected888 is a global sound healing collective. We unite energy healers and sound healers from around the world to offer vibrational healing experiences in monthly events, and the Annual Global Resonance Transmission on August 8."
+    },
+    "cta": {
+      "join": "Join With the World to heal Gaia!",
+      "countdown": "Count down"
+    }
+  },
+  "countdownSection": {
+    "title": "Global Resonance Countdown",
+    "description": "We gather in a unified field on August 8. Add your intention, voice, and frequency.",
+    "timerLabels": {
+      "days": "Days",
+      "hours": "Hours",
+      "minutes": "Minutes",
+      "seconds": "Seconds"
+    }
+  },
+  "whatWeDoSection": {
+    "eyebrow": "WHAT WE DO",
+    "title": "Wellness solutions that scale with global consciousness.",
+    "cards": [
+      {
+        "title": "Energy • Frequency • Vibration",
+        "description": "Everything in the universe, from the physical to the spiritual realms, is made up of energy. This life force flows through every being and object, connecting us all. By aligning our personal energy with the universal energy, we open ourselves to spiritual growth and transformation."
+      },
+      {
+        "title": "Global Coherence",
+        "description": "Each of our souls vibrate at a specific frequency—our thoughts, emotions, and intentions determine it. Uniting at higher frequencies of love, compassion, and peace resonates across the planet, elevating consciousness and promoting healing for all."
+      }
+    ]
+  }
+}
