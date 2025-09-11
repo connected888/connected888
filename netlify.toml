@@ -1,0 +1,51 @@
+# netlify.toml — Connected888 (Angular 20, CSR, public/ only)
+
+# SPA fallback so /about etc. work on refresh
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Long-cache hashed bundles emitted at the root (Angular outputHashing=all)
+[[headers]]
+  for = "/*.@(js|mjs|css|woff|woff2|ttf|eot|svg|png|jpg|jpeg|gif|webp|avif|ico)"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Your public/ images live at /images/*
+# (These are NOT fingerprinted, so use a moderate cache)
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000" # 30 days
+
+# Your i18n JSON files live at /i18n/*
+# (Change often? keep cache short)
+[[headers]]
+  for = "/i18n/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300" # 5 minutes
+
+# Don't cache the app shell
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+# Common public/ root files (tweak as you like)
+[[headers]]
+  for = "/favicon.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=86400" # 1 day
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=300" # 5 minutes
+
+# Optional: force HTTPS
+[[redirects]]
+  from = "http://*"
+  to = "https://:splat"
+  status = 301
+  force = true

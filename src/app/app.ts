@@ -5,12 +5,11 @@ import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { HttpClient } from '@angular/common/http';
 import {
     TranslateService,
-    TranslatePipe,
-    TranslateDirective
+
 } from "@ngx-translate/core";
 import { Header } from "./components/header/header";
 import { Footer } from "./components/footer/footer";
-import { Register } from './components/register/register';
+
 
 @Component({
   selector: 'app-root',
@@ -30,9 +29,6 @@ constructor(
     this.translate.setDefaultLang('en');
   }
 
-  // switchLanguage(lang: string) {
-  //   this.translate.use(lang);
-  // }
 
 
 
