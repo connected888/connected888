@@ -1,0 +1,35 @@
+$c888-bg: #070505;
+$c888-ink: #d0d0d0;
+$c888-accent: #f1c550;
+$c888-link: #c4d1e0;
+$c888-link-hover: #ffe08a;
+
+.c888-footer {
+  background: $c888-bg;
+  color: $c888-ink;
+
+  .text-accent { color: $c888-accent; font-weight: 600; }
+
+  .footer-link {
+    color: $c888-link;
+    text-decoration: underline;
+    transition: color .15s ease-in-out, transform .15s ease-in-out;
+
+    &:hover { color: $c888-link-hover; transform: translateY(-1px); }
+    &:focus-visible {
+      outline: 2px solid $c888-accent;
+      outline-offset: 2px;
+      border-radius: .25rem;
+      text-decoration: none;
+    }
+
+    i { color: $c888-accent; font-size: 1.05rem; }
+  }
+
+  .text-tagline { color: #d1b65c; }
+
+  // compact spacing on very small screens
+  @media (max-width: 575.98px) {
+    .list-unstyled > li { margin: .1rem 0; }
+  }
+}
