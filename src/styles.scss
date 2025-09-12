@@ -4,6 +4,10 @@
   --energy-white:   #ffffff;
 }
 
+body {
+  padding-top: 80px; /* same as navbar height */
+}
+
 .healing-loader{
   display:flex; flex-direction:column; align-items:center; gap:14px;
   color:var(--energy-white);
