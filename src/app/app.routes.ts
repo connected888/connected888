@@ -6,6 +6,7 @@ import { Volunteer } from './components/volunteer/volunteer';
 import { Promote } from './components/promote/promote';
 import { Createprofile } from './components/createprofile/createprofile';
 import { Searchprofiles } from './components/searchprofiles/searchprofiles';
+import { Hostinglist } from './components/hostinglist/hostinglist';
 
 export const routes: Routes = [
     
@@ -28,6 +29,9 @@ export const routes: Routes = [
     },
      {
        path:'search-profiles',component:Searchprofiles
+    },
+    {
+     path:'hostinglist',component:Hostinglist
     },
     {
         path:'**',redirectTo:'about'

@@ -42,7 +42,13 @@
     <p class="loader-text">balancing your energy…</p>
   </div>
 </ngx-spinner>
-<app-header></app-header>
+<ng-container *ngIf="!hideLayout">
+  <app-header></app-header>
+</ng-container>
 <router-outlet></router-outlet>
-<app-footer></app-footer>
+
+<ng-container >
+  <app-footer></app-footer>
+</ng-container>
+
 

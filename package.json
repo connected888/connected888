@@ -2,12 +2,14 @@
   "name": "connected888",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:Connected888": "node dist/Connected888/server/server.mjs"
+   "ng": "ng",
+  "start": "ng serve",
+  "build": "ng build", 
+  "build:dev": "ng build --configuration development",
+  "build:prod": "ng build --configuration production",
+  "watch": "ng build --watch --configuration development",
+  "test": "ng test",
+  "serve:ssr:Connected888": "node dist/Connected888/server/server.mjs"
   },
   "prettier": {
     "overrides": [

@@ -1,0 +1,88 @@
+<!-- src/app/hostinglist/hostinglist.html -->
+<section class="persona-wrap">
+  <div class="container">
+    <div class="persona-grid">
+
+      <!-- LEFT PROFILE CARD -->
+      <aside class="card p-left">
+        <div class="p-photo">
+          <img [src]="profile.person.avatar || '/images/mn.jpg'" alt="avatar" />
+        </div>
+
+        <div class="p-name">{{ profile.person.name }}</div>
+        <div class="p-role">{{ role }}</div>
+
+        <p class="p-tagline">
+          {{ profile.about | slice:0:120 }}…
+        </p>
+
+        <dl class="p-facts">
+          <div><dt>Country</dt><dd>{{ profile.person.country }}</dd></div>
+          <div><dt>Languages</dt><dd>{{ profile.person.languages.join(', ') }}</dd></div>
+          <div *ngIf="profile.contact.website"><dt>Website</dt><dd><a [href]="profile.contact.website" target="_blank">Open</a></dd></div>
+          <div *ngIf="profile.contact.email"><dt>Email</dt><dd><a [href]="'mailto:'+profile.contact.email">{{ profile.contact.email }}</a></dd></div>
+          <div *ngIf="profile.contact.phone"><dt>Phone</dt><dd><a [href]="'tel:'+profile.contact.phone">{{ profile.contact.phone }}</a></dd></div>
+        </dl>
+
+        <div class="p-tags">
+          <span class="tag" *ngFor="let s of profile.serviceList | slice:0:4">{{ s }}</span>
+        </div>
+      </aside>
+
+      <!-- RIGHT GRID (CARDS) -->
+      <main class="p-right">
+
+        <!-- Bio -->
+        <article class="card p-card p-bio">
+          <h3 class="p-title">Bio</h3>
+          <p class="p-text">{{ profile.about }}</p>
+        </article>
+
+        <!-- Motivations (bars) -->
+        <article class="card p-card">
+          <h3 class="p-title">Motivations</h3>
+          <div class="bar" *ngFor="let m of motivations">
+            <div class="bar-label">{{ m.label }}</div>
+            <div class="bar-track"><span class="bar-fill" [style.width.%]="m.value"></span></div>
+          </div>
+        </article>
+
+        <!-- Personality (sliders) -->
+        <article class="card p-card">
+          <h3 class="p-title">Personality</h3>
+          <div class="slider" *ngFor="let t of personality">
+            <div class="slider-labels"><span>{{ t.left }}</span><span>{{ t.right }}</span></div>
+            <div class="slider-track"><span class="slider-thumb" [style.left.%]="t.value"></span></div>
+          </div>
+        </article>
+
+        <!-- Goals -->
+        <article class="card p-card">
+          <h3 class="p-title">Goals</h3>
+          <ul class="p-list">
+            <li *ngFor="let g of goals"><i class="bi bi-check-circle-fill"></i>{{ g }}</li>
+          </ul>
+        </article>
+
+        <!-- Frustrations -->
+        <article class="card p-card">
+          <h3 class="p-title">Frustrations</h3>
+          <ul class="p-list">
+            <li *ngFor="let f of frustrations"><i class="bi bi-exclamation-triangle-fill"></i>{{ f }}</li>
+          </ul>
+        </article>
+
+        <!-- Favourite Brands (from socials) -->
+        <article class="card p-card p-brands">
+          <h3 class="p-title">Favourite Brands</h3>
+          <div class="brands">
+            <a class="brand" *ngFor="let b of brands" [href]="b.link" target="_blank">
+              <i class="bi" [ngClass]="b.icon"></i><span>{{ b.label }}</span>
+            </a>
+          </div>
+        </article>
+
+      </main>
+    </div>
+  </div>
+</section>
