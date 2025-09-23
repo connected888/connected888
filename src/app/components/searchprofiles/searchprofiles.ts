@@ -1,5 +1,5 @@
 
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { BehaviorSubject, combineLatest, of } from 'rxjs';
@@ -25,7 +25,7 @@ type Profile = {
   templateUrl: './searchprofiles.html',
   styleUrl: './searchprofiles.scss'
 })
-export class Searchprofiles {
+export class Searchprofiles implements OnInit{
   private fb = inject(FormBuilder);
 
   // ---- MOCK DATA (replace with API later) ----
@@ -124,10 +124,12 @@ export class Searchprofiles {
     // simulate network delay for skeleton
     setTimeout(() => this.loading$.next(false), 500);
 
-    this.apiService.getUsers().subscribe(users => {
+ 
+  }
+  ngOnInit(){
+       this.apiService.getUsers().subscribe(users => {
       console.log('Fetched users from API:', users);
-      // You can replace MOCK data with fetched users if the structure matches
-      // this.MOCK = users; // Uncomment if API data structure matches Profile type
+     
     });
   }
 

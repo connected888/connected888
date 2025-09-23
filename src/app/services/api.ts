@@ -13,7 +13,7 @@ export class Api {
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<any> {
-    return this.http.get(`${this.baseUrl}users`);
+    return this.http.get(`${this.baseUrl}api/users`);
   }
   
 }
