@@ -1,0 +1,76 @@
+/* Full-screen gradient background like your mock */
+.auth-stage {
+  min-height: 100vh;
+
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  padding-top: 5px!important;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/signup.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Centered white panel */
+.pane {
+  width: 100%;
+  max-width: 550px;
+  background: rgba(229, 229, 229, 0.8); /* White with transparency */
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(21, 33, 83, 0.25);
+  padding: clamp(20px, 4vw, 40px);
+}
+
+/* Brand */
+.brand { display: block; align-items: center; text-align: center;}
+.brand-text { line-height: 1; }
+.brand-name { font-weight: 700; font-size: 20px; letter-spacing:.2px; }
+.brand-sub  { font-size: 12px; letter-spacing: 2px; color:#2a4ca1; }
+
+/* Stepper */
+.stepper {
+  list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  counter-reset: step;
+  position: relative;
+  margin: 0; padding: 0 6px;
+  &::before {
+    content: ""; position: absolute; left: 40px; right: 40px; top: 20px;
+    height: 2px; background: #454343;
+  }
+  li {
+    text-align: center; position: relative;
+    span {
+      display: inline-grid; place-items: center;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: #fff; border: 2px solid #c6ccda; color: #6c7280; font-weight: 600;
+      position: relative; z-index: 1;
+    }
+    &.active span {
+      border-color: #f4e868; color: #121211;
+      box-shadow: 0 0 0 4px rgba(239, 246, 142, 0.12);
+    }
+    .label { margin-top: 6px; font-size: 12px; color: #7a8195; }
+  }
+}
+
+/* Titles & helpers */
+.title { font-weight: 700; font-size: 24px; color: #1b1f2e; }
+.muted { color: #6b7280; }
+.link { color: #375dfb; cursor: pointer; text-decoration: underline; }
+
+/* Inputs */
+.form-control.otp-input {
+  letter-spacing: .4em; text-align: center; font-weight: 700; font-size: 20px;
+}
+
+/* Buttons */
+.btn-primary {
+  background: #3d5cff; border-color: #3d5cff;
+}
+.btn-primary:disabled { opacity: .75; }
+
+/* Mobile spacing */
+@media (max-width: 576px) {
+  .pane { padding: 20px; }
+}

@@ -17,6 +17,9 @@ type Profile = {
   website?: string;
   bio?: string;
   avatar?: string; // optional image url
+  ribbon?: string; // optional ribbon text
+  coverColor?: string; // optional cover color (hex)
+  coverImage?: string; // optional cover image url
 };
 
 @Component({
@@ -29,86 +32,138 @@ export class Searchprofiles implements OnInit{
   private fb = inject(FormBuilder);
 
   // ---- MOCK DATA (replace with API later) ----
-  private MOCK: Profile[] = [
-    {
-      id: 'p1',
-      name: 'TestMe',
-      country: 'United States',
-      services: ['Alchemist'],
-      email: 'dev@connected888.org',
-      phone: '123456789',
-      website: 'https://dev.connected888.org/volunteerprofile.html',
-      bio: 'In user interfaces, a "logo user profile" generally refers to the visual element…',
-      avatar: '/images/sound.avif'
-    },
-    {
-      id: 'p2',
-      name: 'Pavan',
-      country: 'India',
-      services: ['Healer', 'Shaman', 'Alchemist'],
-      email: 'vineeth.dev01@gmail.com',
-      phone: '123457889',
-      website: '',
-      bio: 'There are many variations of passages of Lorem Ipsum available…',
-      avatar: '/images/man.jpg'
-    },
-    {
-      id: 'p3',
-      name: 'LqsMuUl',
-      country: 'UAE',
-      services: ['Tarot'],
-      email: 'mathdowsjeanb@gmail.com',
-      phone: '0755107982',
-      website: '',
-      bio: 'Light description about practitioner and modality.',
-      avatar: '/images/sound.avif'
-    },
-    {
-      id: 'p4',
-      name: 'Test',
-      country: 'France',
-      services: ['Shaman', 'Healer'],
-      email: 'contact@example.com',
-      phone: '',
-      website: '',
-      bio: 'Short bio for showcase.',
-      avatar: '/images/man.jpg'
-    }
-    ,
-    {
-      id: 'p5',
-      name: 'Jon Doe',
-      country: 'India',
-      services: ['Healer', 'Shaman', 'Alchemist'],
-      email: 'vineeth.dev01@gmail.com',
-      phone: '123457889',
-      website: '',
-      bio: 'There are many variations of passages of Lorem Ipsum available…',
-     avatar: '/images/sound.avif'
-    },
-    {
-      id: 'p6',
-      name: 'Smith',
-      country: 'UAE',
-      services: ['Tarot'],
-      email: 'mathdowsjeanb@gmail.com',
-      phone: '0755107982',
-      website: '',
-      bio: 'Light description about practitioner and modality.',
-      avatar: '/images/mans.jpg'
-    },
-    {
-      id: 'p7',
-      name: 'John Appleseed',
-      country: 'France',
-      services: ['Shaman', 'Healer'],
-      email: 'contact@example.com',
-      phone: '',
-      website: '',
-      bio: 'Short bio for showcase.',
-      avatar: '/images/man.jpg'
-    }
-  ];
+ private MOCK: Profile[] = [
+  {
+    id: 'p1',
+    name: 'Sophie Bennett',
+    country: 'United States',
+    services: ['Yoga', 'Sound Healer', 'Reiki', 'Guide Meditation', 'Therapy', 'Aroma'],
+    email: 'sophie@example.com',
+    phone: '123456789',
+    website: 'https://example.com',
+    bio: 'Sophie is a holistic practitioner with over 10 years of experience in energy healing, mindfulness, and sound therapy. Her sessions are known for deep relaxation and emotional balance. She believes in creating a safe, compassionate space for all her clients.',
+    avatar: 'images/p1.jpg',
+    coverImage: 'images/c1.jpg',
+    ribbon: 'Practitioner',
+    coverColor: '#9999CC'
+  },
+  {
+    id: 'p2',
+    name: 'Pavan',
+    country: 'India',
+    services: ['Healer', 'Shaman', 'Alchemist'],
+    email: 'vineeth.dev01@gmail.com',
+    phone: '123457889',
+    bio: 'Healing is the journey inward toward wholeness.',
+    avatar: 'images/p5.jpg',
+    coverImage: 'images/c2.jpg',
+    ribbon: 'Practitioner',
+    coverColor: '#9999CC'
+  },
+  {
+    id: 'p3',
+    name: 'John Appleseed',
+    country: 'France',
+    services: ['Shaman', 'Healer'],
+    bio: 'John specializes in plant-based healing and ancient spiritual practices passed down for generations. His approach blends intuition, energy reading, and natural remedies for holistic well-being.',
+    avatar: 'images/p6.jpg',
+    coverImage: 'images/c3.jpg',
+    ribbon: 'Practitioner',
+    coverColor: '#9999CC'
+  },
+  {
+    id: 'p4',
+    name: 'Emily Carter',
+    country: 'Canada',
+    services: ['Therapy', 'Yoga'],
+    email: 'emily.carter@example.com',
+    phone: '987654321',
+    bio: 'Passionate about helping others find balance. Emily integrates movement, meditation, and breathwork into her healing sessions.',
+    avatar: 'images/p4.jpg',
+    coverImage: 'images/c4.jpg',
+    ribbon: 'Practitioner',
+    coverColor: '#9999CC'
+  },
+  {
+    id: 'p5',
+    name: 'Liam Smith',
+    country: 'Australia',
+    services: ['Reiki', 'Sound Healer'],
+    email: 'liam.smith@example.com',
+    phone: '456123789',
+    bio: 'Energy healing for a better life. Liam’s focus is on restoring the natural flow of energy through music, vibration, and crystal resonance therapy.',
+    avatar: 'images/p3.jpg',
+    coverImage: 'images/c3.jpg',
+    ribbon: 'Practitioner',
+    coverColor: '#9999CC'
+  },
+  {
+    id: 'p6',
+    name: 'Sophia Johnson',
+    country: 'United Kingdom',
+    services: ['Guide Meditation', 'Aroma'],
+    email: 'sophia.johnson@example.com',
+    phone: '321654987',
+    bio: 'Guiding you to inner peace. Sophia’s meditation sessions combine mindfulness with aromatherapy to elevate awareness and relaxation.',
+    avatar: 'images/p4.jpg',
+    coverImage: 'images/c2.jpg',
+    ribbon: 'Practitioner',
+    coverColor: '#9999CC'
+  },
+  {
+    id: 'p7',
+    name: 'Ethan Brown',
+    country: 'Germany',
+    services: ['Shaman', 'Healer'],
+    email: 'ethan.brown@example.com',
+    phone: '654987321',
+    bio: 'Ethan works deeply with ancestral healing and sacred rituals. His work helps people reconnect with their roots and release emotional blockages that prevent spiritual growth.',
+    avatar: 'images/p5.jpg',
+    coverImage: 'images/c1.jpg',
+    ribbon: 'Volunteer',
+    coverColor: '#9999CC'
+  },
+  {
+    id: 'p8',
+    name: 'Olivia Davis',
+    country: 'Italy',
+    services: ['Yoga', 'Therapy'],
+    email: 'olivia.davis@example.com',
+    phone: '789123456',
+    bio: 'Helping you find your inner strength. Olivia’s classes are tailored for both beginners and experienced students seeking alignment between body and mind.',
+    avatar: 'images/p6.jpg',
+    coverImage: 'images/c4.jpg',
+    ribbon: 'Practitioner',
+    coverColor: '#9999CC'
+  },
+  {
+    id: 'p9',
+    name: 'Noah Wilson',
+    country: 'Spain',
+    services: ['Reiki', 'Aroma'],
+    email: 'noah.wilson@example.com',
+    phone: '123789456',
+    bio: 'Noah blends Reiki with essential oils to restore emotional clarity. His approach helps people find stillness in the chaos of everyday life.',
+    avatar: 'images/p7.jpg',
+    coverImage: 'images/c2.jpg',
+    ribbon: 'Volunteer',
+    coverColor: '#9999CC'
+  },
+  {
+    id: 'p10',
+    name: 'Ava Martinez',
+    country: 'Mexico',
+    services: ['Sound Healer', 'Guide Meditation'],
+    email: 'ava.martinez@example.com',
+    phone: '987321654',
+    bio: 'Bringing harmony to your life. Ava has been facilitating meditation circles and sound baths using crystal singing bowls for over a decade. Her sessions are deeply restorative, allowing participants to access their inner calm and creativity.',
+    avatar: 'images/p2.jpg',
+    coverImage: 'images/c3.jpg',
+    ribbon: 'Volunteer',
+    coverColor: '#9999CC'
+  }
+];
+
 
   // derive option lists
   allCountries = Array.from(new Set(this.MOCK.map(p => p.country))).sort();
@@ -138,7 +193,7 @@ export class Searchprofiles implements OnInit{
     q: [''],
     services: [[] as string[]],
     country: [''],
-    perPage: [12],
+    perPage: [6],
   });
 
   page$ = new BehaviorSubject(1);
@@ -177,7 +232,7 @@ export class Searchprofiles implements OnInit{
 
   vm$ = combineLatest([this.filtered$, this.page$, this.form.valueChanges.pipe(startWith(this.form.value))]).pipe(
     map(([rows, page, f]) => {
-      const per = Number(f.perPage || 12);
+      const per = Number(f.perPage || 6);
       const total = rows.length;
       const pages = Math.max(1, Math.ceil(total / per));
       const safePage = Math.min(Math.max(1, page), pages);
@@ -204,7 +259,7 @@ export class Searchprofiles implements OnInit{
   }
 
   clearAll() {
-    this.form.reset({ q: '', services: [], country: '', perPage: 12 });
+    this.form.reset({ q: '', services: [], country: '', perPage: 6 });
     this.setPage(1);
   }
 

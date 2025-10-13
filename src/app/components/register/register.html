@@ -1,5 +1,374 @@
+<section class="auth-2col">
+  <div class="auth-card">
 
-<p>{{'register.works' | translate}}</p>
+    <!-- LEFT: Welcome panel -->
+    <aside class="panel-left">
+      <h1 class="welcome">Register Now!</h1>
+      <p class="lead">
+        Lorem ipsum dolor sit amet, nulla consectetur adipiscing elit sed.
+      </p>
+      <p class="copy">
+        Nam eleifend velit eget dolor vestibulum ornare. Vestibulum est nulla, fermentum eget euismod et,
+        tincidunt at dui. Nulla tellus nisl, semper id justo vel, rutrum finibus risus. Cras vel auctor odio.
+      </p>
+
+      <ul class="social">
+        <li><a aria-label="Facebook"><i class="bi bi-facebook"></i></a></li>
+        <li><a aria-label="Twitter"><i class="bi bi-twitter-x"></i></a></li>
+        <li><a aria-label="Google"><i class="bi bi-google"></i></a></li>
+        <li><a aria-label="Pinterest"><i class="bi bi-pinterest"></i></a></li>
+        <li><a aria-label="Dribbble"><i class="bi bi-dribbble"></i></a></li>
+        <li><a aria-label="Vimeo"><i class="bi bi-vimeo"></i></a></li>
+      </ul>
+    </aside>
+
+    <!-- RIGHT: Your form (fields preserved) -->
+    <main class="panel-right">
+      <h2 class="title">Register the Event !</h2>
+      <p class="subtitle"> Lorem ipsum dolor sit amet, nulla consectetur adipiscing elit sed.</p>
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="donate-form">
+        <div class="alert alert-danger" role="alert" *ngIf="error">{{ error }}</div>
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">First Name *</label>
+            <div class="input-icon">
+              <i class="bi bi-person"></i>
+              <input class="form-control" formControlName="firstName" placeholder="First Name">
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Last Name *</label>
+            <div class="input-icon">
+              <i class="bi bi-person"></i>
+              <input class="form-control" formControlName="lastName" placeholder="Last Name">
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Email *</label>
+            <div class="input-icon">
+              <i class="bi bi-envelope"></i>
+              <input type="email" class="form-control" formControlName="email" placeholder="you@example.com">
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Country *</label>
+            <div class="input-icon">
+              <i class="bi bi-geo-alt"></i>
+              <select class="form-select ps-5" formControlName="country">
+                <option value="" disabled selected>Select…</option>
+                <option *ngFor="let c of countries" [value]="c.code2">{{ c.name}}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-lg-12">
+            <div class="card opt-card p-3">
+              <label class="form-label mb-2">Your contribution *</label>
+
+              <div class="form-check">
+                <input type="radio" class="form-check-input" value="FREE" formControlName="option" id="o1">
+                <label class="form-check-label" for="o1">Join FREE</label>
+              </div>
+
+              <div class="form-check mt-2">
+                <input type="radio" class="form-check-input" value="FIXED" formControlName="option" id="o2">
+                <label class="form-check-label" for="o2">Yes, I am donating $8.88</label>
+              </div>
+
+              <div class="form-check mt-2">
+                <input type="radio" class="form-check-input" value="CUSTOM" formControlName="option" id="o3">
+                <label class="form-check-label" for="o3">Enter donation amount</label>
+              </div>
+
+              <div class="input-icon mt-2">
+                <i class="bi bi-cash-coin"></i>
+                <input class="form-control" type="number" step="0.01" min="1"
+                       placeholder="Enter USD amount"
+                       formControlName="customAmount"
+                       [disabled]="form.value.option!=='CUSTOM'">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" formControlName="termsAccepted" id="termsCheck">
+              <label for="termsCheck" class="form-check-label">
+                 I agree to
+                <span class="link" (click)="openTermsModal($event)">Terms & Policies</span>
+              </label>
+            </div>
+
+            <div class="form-check mt-1">
+              <input type="checkbox" class="form-check-input" formControlName="waiverAccepted" id="waiverCheck">
+              <label for="waiverCheck" class="form-check-label">
+                I agree to <span class="link" (click)="openWaiverModal($event)">Waiver</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <button class="btn btn-success btn-cta w-100" [disabled]="loading">
+              {{ loading ? 'Please wait…' : 'REGISTER NOW' }}
+            </button>
+          </div>
+        </div>
+      </form>
+    </main>
+
+  </div>
+</section>
+
+
+
+
+
+
+<!-- Stripe Modal -->
+<div class="modal-backdrop" *ngIf="showPayModal">
+  <div class="modal-card position-relative p-4">
+    <h5>Complete your donation</h5>
+    <div id="payment-element" class="my-3"></div>
+
+    <!-- Buttons -->
+    <div class="mt-3 d-flex gap-2">
+      <button class="btn btn-secondary" (click)="closeModal()" [disabled]="loading">Cancel</button>
+
+      <!-- Pay button with loader -->
+      <button class="btn btn-primary" (click)="confirmPayment()" [disabled]="loading">
+        <span *ngIf="!loading">Pay</span>
+        <span *ngIf="loading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+        <span *ngIf="loading">Processing...</span>
+      </button>
+    </div>
+
+    <!-- Error message -->
+    <div class="small text-danger mt-2" *ngIf="error">{{ error }}</div>
+
+
+
+  </div>
+</div>
+
+
+
+
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#termsModal">
+  View Terms & Privacy Policy
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="termsModalLabel">Terms & Privacy Policy</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="white-space: pre-line;">
+
+        <h5>Terms & Policies</h5>
+        Welcome to the official event website for the Global Resonance Transmission, hosted by Connected888, a nonprofit organization. By accessing or using this website, participating in the event, or making a donation, you agree to be bound by the following Terms of Use.
+
+        <h6>Acceptance of Terms</h6>
+        By using this website (Connected888.org or any subdomain or affiliated event pages), you agree to comply with and be legally bound by these Terms of Use and our Privacy Policy. If you do not agree, please do not use this site.
+
+        <h6>Event Participation</h6>
+        The Global Resonance Transmission is an open, spiritual event aimed at promoting global sound healing through 888Hz frequency. By participating:
+        • You acknowledge the event is non-commercial and non-religious in nature.
+        • Participation is voluntary and at your own discretion.
+        • You agree to conduct yourself respectfully and not disrupt or interfere with others' experience.
+
+        <h6>Use of Content</h6>
+        All content streamed, embedded, or displayed on this site—including videos, audio, graphics, and text—is:
+        • Either the property of Connected888
+        • Licensed for public use by contributing practitioners
+        • Or linked to external platforms (e.g., YouTube) under their respective terms
+        You may not download, modify, redistribute, or use any event content for commercial purposes without express written consent.
+
+        <h6>Practitioner Content and Submissions</h6>
+        By submitting video, audio, or any media to be featured in this event:
+        • You affirm you own or have rights to the content.
+        • You grant Connected888 a non-exclusive, royalty-free, worldwide license to display, stream, distribute recordings, and promote your content as part of the event and future downloads from this site.
+
+        <h6>Donations</h6>
+        Connected888 accepts donations to support our mission of global healing through sound. By donating:
+        • You acknowledge that Connected888 is a nonprofit organization based in Delaware, USA.
+        • Unless stated otherwise, donations are not refundable.
+        • Donation processing is managed by third-party platforms and subject to their terms.
+        • Tax-deductibility of donations will depend on your country’s laws.
+
+        <h6>Third-Party Services</h6>
+        This site may embed or link to content on third-party platforms such as YouTube, Zoom, or social media platforms. Your use of these services is governed by their respective terms and privacy policies.
+
+        <h6>Global Access</h6>
+        This event is accessible internationally. However, you are responsible for complying with your own local laws, especially with respect to:
+        • Online participation
+        • Donation eligibility
+        • Spiritual or wellness content
+
+        <h6>Disclaimer</h6>
+        This event is not intended to replace medical advice, mental health services, or legal guidance. All sound healing content is offered as spiritual and energetic support only.
+
+        <h6>Limitation of Liability</h6>
+        Connected888 is not liable for:
+        • Any interruptions, technical errors, or streaming failures
+        • Participant actions or user-generated content
+        • Any indirect or consequential damages arising from use of this site or participation in the event
+
+        <h6>Changes to Terms</h6>
+        Connected888 reserves the right to update or modify these Terms at any time. Continued use of the site after changes are posted constitutes your acceptance.
+
+        <hr>
+
+        <h5>Privacy Policy</h5>
+
+        <h6>What Information We Collect</h6>
+        Personal Information:
+        • Full name
+        • Email address
+        • Country or location (optional)
+        • Phone number (optional)
+        • Donation amount and method
+
+        Non-Personal Information:
+        • IP address and device data
+        • Browser type and settings
+        • Site usage (e.g., pages visited, time spent)
+
+        <h6>How We Use Your Information</h6>
+        We use your information to:
+        • Provide access to our events and services
+        • Email you updates about the Global Resonance Transmission and future events
+        • Process and confirm donations
+        • Improve our website and experience
+        • Ensure security and prevent misuse
+        We will never sell or rent your information to any third party.
+
+        <h6>Cookies and Tracking</h6>
+        We use cookies and similar technologies to track usage and improve user experience. You may disable cookies through your browser settings, though it may limit certain features.
+
+        <h6>Email Communication</h6>
+        By registering or contacting us, you consent to receive occasional emails from Connected888 related to upcoming events, sound healings, and community updates. You can opt out anytime by clicking the “Unsubscribe” link in any email.
+
+        <h6>Third-Party Services</h6>
+        We may use the following third-party platforms:
+        • YouTube (for video and live streams)
+        • Zoom or similar (for live participation)
+        • GoDaddy Payments (for donations)
+        • Google Analytics (for website performance)
+
+        <h6>Children’s Privacy</h6>
+        Our services are not directed toward children under the age of 13 (or under 16 in some jurisdictions). We do not knowingly collect data from children.
+
+        <h6>Data Security</h6>
+        We take appropriate technical and organizational steps to safeguard your data, including SSL encryption, limited access, and secured third-party platforms.
+
+        <h6>Your Rights</h6>
+        Depending on your location (e.g., EU, California), you may have rights to:
+        • Access or request deletion of your data
+        • Request correction or restriction of processing
+        • Withdraw consent to communication
+        To make a request, contact us at info@connected888.org.
+
+        <h6>International Access</h6>
+        Because this is a global event, your data may be processed in countries outside your own. By using our site, you consent to this transfer in compliance with applicable laws.
+
+        <h6>Changes to This Policy</h6>
+        We may update this Privacy Policy to reflect changes in law or practices. If significant changes are made, we will notify you by email or website banner.
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Accept</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Button trigger Waiver modal -->
+<!-- <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#waiverModal">
+  View Participant Waiver
+</button> -->
+
+<!-- Waiver Modal -->
+<div class="modal fade" id="waiverModal" tabindex="-1" aria-labelledby="waiverModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="waiverModalLabel">Participant Waiver and Release of Liability</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="white-space: pre-line;">
+
+        <h5>PLEASE READ CAREFULLY BEFORE PARTICIPATING</h5>
+        By registering for, attending, or viewing any part of the Global Resonance Transmission, you agree to the following terms:
+
+        <h6>Voluntary Participation</h6>
+        I acknowledge that my participation in this global sound healing event is entirely voluntary. I understand that the event may include sound frequencies, meditation, breathwork, and energy transmission, which may affect individuals differently.
+
+        <h6>Health Disclaimer</h6>
+        I understand that this event is not intended as medical advice or treatment. I affirm that I am responsible for my physical, mental, and emotional well-being during and after the event.  
+        I agree to consult a medical professional for any health concerns before participating in any healing modality.
+
+        <h6>Assumption of Risk</h6>
+        I acknowledge that participating in online global sound healing carries inherent risks, including emotional release, energetic shifts, or discomfort. I willingly assume full responsibility for any such effects and release Connected888, its founders, presenters, volunteers, and affiliates from any and all claims arising out of participation.
+
+        <h6>Technology Disclaimer</h6>
+        I understand this event is offered via streaming platforms (e.g., YouTube, Zoom) and that Connected888 is not responsible for internet connectivity issues, interruptions, or platform outages.
+
+        <h6>Media Consent</h6>
+        I consent to being photographed, recorded, or having my testimonial or image used in promotional materials for Connected888, without expectation of compensation.
+
+        <h6>Data Privacy</h6>
+        I agree to the Privacy Policy and understand that my personal data will be used to manage my participation and provide future updates, and will not be sold or misused.
+
+        <h6>General Release</h6>
+        I hereby waive, release, and discharge Connected888 and its representatives from any and all liability, claims, demands, or causes of action that may arise from participation in this event.
+
+        <h6>Governing Law</h6>
+        This waiver shall be governed by the laws of the state of Delaware (if incorporated there), without regard to its conflict of laws principles.
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Accept</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Thank You Modal -->
+<div class="modal fade" id="thankYouModal" tabindex="-1" aria-labelledby="thankYouModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-3">
+      <div class="modal-header border-0">
+        <h5 class="modal-title w-100" id="thankYouModalLabel">Thank You for Registering!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Your registration has been successfully submitted. We look forward to seeing you at the event!</p>
+      </div>
+      <div class="modal-footer border-0 justify-content-center">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 

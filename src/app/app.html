@@ -45,7 +45,9 @@
 <ng-container *ngIf="!hideLayout">
   <app-header></app-header>
 </ng-container>
-<router-outlet></router-outlet>
+<div  class="main-h" [ngClass]="hideLayout ? 'no-header' : 'header'">
+  <router-outlet></router-outlet>
+</div>
 
 <ng-container >
   <app-footer></app-footer>

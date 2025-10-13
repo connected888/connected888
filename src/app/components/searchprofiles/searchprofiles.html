@@ -1,7 +1,6 @@
 <section class="sp-wrap py-4 py-lg-5">
   <div class="container">
-
-    <h1 class="display-6 fw-semibold mb-4">Search Listings</h1>
+    <h4 class="display-7 fw-semibold mb-4">Search Profiles</h4>
 
     <!-- Filters -->
     <form [formGroup]="form" class="sp-filters card p-3 p-lg-4 mb-4">
@@ -14,8 +13,8 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4">
-          <label class="form-label">Services <small class="text-muted">(Select All that Apply)</small></label>
+        <div class="col-12 col-md-6 col-lg-3">
+          <label class="form-label">Services</label>
           <div class="dropdown w-100">
             <button class="btn btn-outline-secondary w-100 text-start d-flex justify-content-between align-items-center"
                     type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -46,7 +45,7 @@
           <label class="form-label">Per Page</label>
           <select class="form-select" formControlName="perPage" (change)="setPage(1)">
             <option>6</option>
-            <option selected>12</option>
+            <option>12</option>
             <option>18</option>
             <option>24</option>
           </select>
@@ -58,84 +57,57 @@
       </div>
     </form>
 
-    <!-- Results summary -->
+    <!-- Results -->
     <ng-container *ngIf="(vm$ | async) as vm">
+
+      <!-- Summary + Pagination -->
       <div class="d-flex justify-content-between align-items-center mb-3">
         <div class="text-muted small">
           Showing <strong>{{ vm.startIndex }}</strong>–<strong>{{ vm.endIndex }}</strong> of
           <strong>{{ vm.total }}</strong> results
         </div>
-
-        <!-- Pagination -->
-        <nav *ngIf="vm.pages > 1" aria-label="Page navigation">
-          <ul class="pagination pagination-sm mb-0">
-            <li class="page-item" [class.disabled]="vm.page === 1">
-              <button class="page-link" (click)="setPage(vm.page - 1)">Prev</button>
-            </li>
-            <li class="page-item" *ngFor="let p of [].constructor(vm.pages); let i = index"
-                [class.active]="i + 1 === vm.page">
-              <button class="page-link" (click)="setPage(i + 1)">{{ i + 1 }}</button>
-            </li>
-            <li class="page-item" [class.disabled]="vm.page === vm.pages">
-              <button class="page-link" (click)="setPage(vm.page + 1)">Next</button>
-            </li>
-          </ul>
-        </nav>
       </div>
 
-      <!-- Skeleton while loading -->
-      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3" *ngIf="(loading$ | async)">
-        <div class="col" *ngFor="let s of [1,2,3,4,5,6]">
-          <div class="sp-card card h-100">
-            <div class="sp-card-img skeleton"></div>
-            <div class="card-body">
-              <div class="skeleton w-50 mb-2"></div>
-              <div class="skeleton w-75 mb-2"></div>
-              <div class="skeleton w-25"></div>
-            </div>
-          </div>
-        </div>
+      <!-- Practitioner Cards -->
+<!-- Practitioner Cards -->
+<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 gx-3 gy-4 m-0" *ngIf="!(loading$ | async)">
+  <div class="col" *ngFor="let p of vm.rows; trackBy: trackById">
+    <article class="sp-card practitioner-card text-center mx-auto">
+      <div class="ribbon">{{ p.ribbon || 'Practitioner' }}</div>
+
+      <div
+        class="cover"
+        [style.background-color]="p.coverColor || '#9999CC'"
+        [style.background-image]="p.coverImage ? 'url(' + p.coverImage + ')' : 'none'">
       </div>
 
-      <!-- Cards -->
-      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3" *ngIf="!(loading$ | async)">
-        <div class="col" *ngFor="let p of vm.rows; trackBy: trackById">
-          <article class="sp-card card h-100">
-            <div class="sp-card-img">
-              <img [src]="p.avatar || '/images/mn.jpg'" alt="{{p.name}} avatar" />
-            </div>
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-start">
-                <h3 class="h6 fw-semibold mb-2 text-truncate">{{ p.name }}</h3>
-                <span class="badge bg-light text-dark border">{{ p.country }}</span>
-              </div>
+      <img [src]="p.avatar || '/images/default-user.png'" alt="{{p.name}}" class="profile-pic" />
 
-              <p class="text-muted small mb-2 text-truncate-2">{{ p.bio || '—' }}</p>
+      <h3 class="name">{{ p.name }}</h3>
 
-              <div class="mb-2">
-                <span *ngFor="let s of p.services" class="badge bg-primary-subtle text-primary me-1 mb-1">{{ s }}</span>
-              </div>
-
-              <ul class="list-unstyled small text-muted mb-3 sp-contact">
-                <li *ngIf="p.website"><i class="bi bi-globe2 me-2"></i><a [href]="p.website" target="_blank">{{ p.website }}</a></li>
-                <li *ngIf="p.email"><i class="bi bi-envelope me-2"></i><a [href]="'mailto:'+p.email">{{ p.email }}</a></li>
-                <li *ngIf="p.phone"><i class="bi bi-telephone me-2"></i><a [href]="'tel:'+p.phone">{{ p.phone }}</a></li>
-              </ul>
-
-              <div class="d-flex justify-content-between align-items-center">
-                <a class="btn btn-outline-secondary btn-sm" (click)="fullListing()">Full Listing</a>
-                
-              </div>
-            </div>
-          </article>
-        </div>
+      <div class="tags" *ngIf="p.services?.length">
+        <span *ngFor="let s of p.services" class="tag">{{ s }}</span>
       </div>
 
-      <!-- Empty state -->
+      <div class="country" *ngIf="p.country">
+        <small class="text-muted">{{ p.country }}</small>
+      </div>
+
+      <p class="description">{{ p.bio || 'No description available.' }}</p>
+
+      <button class="btn" (click)="fullListing()">View Profile</button>
+    </article>
+  </div>
+</div>
+
+
+
+      <!-- Empty -->
       <div class="text-center text-muted py-5" *ngIf="!vm.total && !(loading$ | async)">
         <i class="bi bi-search display-6 d-block mb-2"></i>
         No profiles match your filters. Try clearing filters.
       </div>
+
     </ng-container>
   </div>
 </section>

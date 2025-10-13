@@ -1,0 +1,80 @@
+<div class="auth-stage">
+    <div class="pane">
+        <!-- Brand (optional) -->
+        <div class="brand mb-3">
+            <img src="images/logo.png" alt="Logo" height="150" class="me-2">
+        </div>
+
+        <!-- Stepper -->
+        <ol class="stepper mb-4" aria-label="Login steps">
+            <li [class.active]="step>=1"><span>1</span><div class="label">Email</div></li>
+            <li [class.active]="step>=2"><span>2</span><div class="label">OTP</div></li>
+        </ol>
+
+        <!-- Alerts -->
+        <div *ngIf="error" class="alert alert-danger py-2">{{ error }}</div>
+        <div *ngIf="notice" class="alert alert-info py-2">{{ notice }}</div>
+
+        <!-- Step 1: Email -->
+        <form *ngIf="step===1"
+                    [formGroup]="emailForm"
+                    (ngSubmit)="requestOtp()"
+                    novalidate>
+            <h3 class="title">Sign in with your email</h3>
+
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input class="form-control" type="email" formControlName="email"
+                             autocomplete="email" [class.is-invalid]="email.touched && email.invalid">
+                <div class="invalid-feedback" *ngIf="email.errors?.['required']">Email is required.</div>
+                <div class="invalid-feedback" *ngIf="email.errors?.['email']">Enter a valid email.</div>
+            </div>
+
+            <button class="btn btn-primary w-100" [disabled]="loading || emailForm.invalid">
+                {{ loading ? 'Sending OTP…' : 'Send OTP' }}
+            </button>
+        </form>
+
+        <!-- Step 2: OTP -->
+        <form *ngIf="step===2"
+                    [formGroup]="otpForm"
+                    (ngSubmit)="verifyOtp()"
+                    novalidate>
+            <h3 class="title">Enter the 6-digit code</h3>
+            <p class="muted small mb-3">
+                We sent a code to <strong>{{ emailForm.value.email }}</strong>.
+                <a class="link" role="button" (click)="editEmail()" [attr.aria-label]="'Change email'">Change</a>
+            </p>
+
+            <div class="mb-2">
+                <label class="form-label">One-Time Password</label>
+                <input class="form-control otp-input" type="text" formControlName="otp"
+                             inputmode="numeric" maxlength="6" pattern="[0-9]*"
+                             [class.is-invalid]="otp.touched && otp.invalid" autocomplete="one-time-code">
+                <div class="invalid-feedback" *ngIf="otp.errors?.['required']">OTP is required.</div>
+                <div class="invalid-feedback" *ngIf="otp.errors?.['pattern']">Enter 6 digits.</div>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="small muted">
+                    <ng-container *ngIf="resendIn>0">
+                        Resend available in {{ resendIn }}s
+                    </ng-container>
+                    <a *ngIf="resendIn===0" class="link" role="button" (click)="resendOtp()">Resend code</a>
+                </div>
+                <div class="small muted">Code expires in {{ expiresIn }}s</div>
+            </div>
+
+            <button class="btn btn-primary w-100" [disabled]="loading || otpForm.invalid">
+                {{ loading ? 'Verifying…' : 'Log In' }}
+            </button>
+        </form>
+
+        <!-- Success (optional) -->
+        <div *ngIf="step===3" class="text-center">
+            <h3 class="title mb-2">Welcome back!</h3>
+            <p class="muted">You are now signed in.</p>
+            <button class="btn btn-success" (click)="goToApp()">Continue</button>
+        </div>
+    </div>
+</div>

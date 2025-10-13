@@ -2,10 +2,12 @@
 :host {
   display: block;
   color: #e9e8ff;
-  background:
-    radial-gradient(1200px 600px at 20% 0%, rgba(153,153,204,.15), transparent),
-    radial-gradient(1200px 600px at 80% 0%, rgba(234,180,68,.12), transparent),
-    #0A0A12;
+  // background:
+  //   radial-gradient(1200px 600px at 20% 0%, rgba(153,153,204,.15), transparent),
+  //   radial-gradient(1200px 600px at 80% 0%, rgba(234,180,68,.12), transparent),
+  //   #0A0A12;
+
+    background: #333;
 }
 
 /* Shared */

@@ -36,7 +36,8 @@ constructor(
         filter((event): event is NavigationEnd => event instanceof NavigationEnd) // ✅ type guard
       )
       .subscribe((event: NavigationEnd) => {
-        this.hideLayout = event.urlAfterRedirects.startsWith('/hostinglist');
+        const urls = ["/hostinglist", "/dashboard"];
+        this.hideLayout = urls.some(url => event.urlAfterRedirects.startsWith(url));
       });
 
 

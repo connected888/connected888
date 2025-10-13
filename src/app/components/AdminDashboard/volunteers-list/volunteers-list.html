@@ -1,0 +1,101 @@
+<div class="card-wrap">
+  <!-- Top toolbar -->
+  <div class="toolbar d-flex flex-wrap gap-2 align-items-center">
+    <div class="searchbox flex-grow-1">
+      <i class="bi bi-search"></i>
+      <input class="form-control" type="search" placeholder="Search"
+             [(ngModel)]="q" (input)="applyFilters()" />
+    </div>
+
+    <button class="btn btn-outline-secondary d-flex align-items-center gap-2">
+      <i class="bi bi-sliders2-vertical"></i> Filter
+    </button>
+
+    <button class="btn btn-primary d-flex align-items-center gap-2" (click)="onAdd()">
+      <i class="bi bi-plus-lg"></i> Add New
+    </button>
+  </div>
+
+  <!-- Table -->
+  <div class="table-responsive">
+    <table class="table align-middle table-borderless mb-0">
+      <thead class="table-head">
+        <tr>
+          <th style="width:60px;">No</th>
+          <th>Volunteer</th>
+          <th class="d-none d-md-table-cell">Topic / Skill</th>
+          <th>City</th>
+          <th class="d-none d-lg-table-cell">Detail</th>
+          <th>Status</th>
+          <th class="d-none d-sm-table-cell">Joined</th>
+          <th class="text-end">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let v of pageRows; let i = index">
+          <td>{{ (page-1)*pageSize + i + 1 }}</td>
+          <td>
+            <div class="fw-semibold">{{ v.name }}</div>
+            <div class="text-muted small">{{ v.email }}</div>
+          </td>
+          <td class="d-none d-md-table-cell">{{ v.topic }}</td>
+          <td>{{ v.city }}</td>
+          <td class="d-none d-lg-table-cell text-truncate" style="max-width:180px">
+            {{ v.detail }}
+          </td>
+          <td>
+            <span class="chip"
+                  [ngClass]="{
+                    'chip-new': v.status==='New',
+                    'chip-read': v.status==='Read',
+                    'chip-process': v.status==='In Process',
+                    'chip-received': v.status==='Received',
+                    'chip-rejected': v.status==='Rejected',
+                    'chip-active': v.status==='Active'
+                  }">{{ v.status }}</span>
+          </td>
+          <td class="d-none d-sm-table-cell">{{ v.joined | date:'dd/MM/yyyy' }}</td>
+          <td class="text-end">
+            <button class="btn btn-icon" ngbDropdown>
+              <i class="bi bi-three-dots-vertical"></i>
+            </button>
+          </td>
+        </tr>
+
+        <tr *ngIf="pageRows.length===0">
+          <td colspan="8" class="text-center text-muted py-4">No volunteers found.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Footer: page size + pagination -->
+  <div class="table-footer d-flex flex-wrap align-items-center gap-2">
+    <div class="dropdown">
+      <button class="btn btn-outline-light border dropdown-toggle" data-bs-toggle="dropdown">
+        {{ pageSize }} Item
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" (click)="setPageSize(10)">10</a></li>
+        <li><a class="dropdown-item" (click)="setPageSize(25)">25</a></li>
+        <li><a class="dropdown-item" (click)="setPageSize(50)">50</a></li>
+      </ul>
+    </div>
+
+    <nav class="ms-auto">
+      <ul class="pagination mb-0">
+        <li class="page-item" [class.disabled]="page===1">
+          <a class="page-link" (click)="go(page-1)">Previous</a>
+        </li>
+
+        <li class="page-item" *ngFor="let p of pages" [class.active]="p===page">
+          <a class="page-link" (click)="go(p)">{{ p }}</a>
+        </li>
+
+        <li class="page-item" [class.disabled]="page===totalPages">
+          <a class="page-link" (click)="go(page+1)">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

@@ -1,0 +1,96 @@
+
+    <!-- Page title -->
+    <h5 class="page-title">Dashboard</h5>
+
+    <!-- KPI Cards -->
+    <div class="row g-3 kpi-row">
+      <div class="col-12 col-sm-6 col-xl-3">
+        <div class="kpi card-tile">
+          <div class="kpi-head">Registrations</div>
+          <div class="kpi-value">{{ kpis.registrations }}</div>
+          <div class="kpi-icon"><i class="bi bi-layers"></i></div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-xl-3">
+        <div class="kpi card-tile">
+          <div class="kpi-head">Volunteers</div>
+          <div class="kpi-value">{{ kpis.volunteers }}</div>
+          <div class="kpi-icon"><i class="bi bi-person-check"></i></div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-xl-3">
+        <div class="kpi card-tile">
+          <div class="kpi-head">Donations</div>
+          <div class="kpi-value">{{ kpis.donations }}</div>
+          <div class="kpi-icon"><i class="bi bi-cash-coin"></i></div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-xl-3">
+        <div class="kpi card-tile">
+          <div class="kpi-head">Hosted Profiles</div>
+          <div class="kpi-value">{{ kpis.hostedProfiles }}</div>
+          <div class="kpi-icon"><i class="bi bi-person-video3"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Charts & Table -->
+    <div class="row g-3 mt-1">
+      <div class="col-12 col-xl-8">
+        <div class="card-block">
+          <div class="card-title">Analytics</div>
+          <canvas id="analyticsChart" height="110"></canvas>
+        </div>
+      </div>
+      <div class="col-12 col-xl-4">
+        <div class="card-block">
+          <div class="card-title">Revenue</div>
+          <canvas id="revenueChart" height="110"></canvas>
+        </div>
+      </div>
+
+      <div class="col-12 col-xl-8">
+        <div class="card-block">
+          <div class="card-title">Latest Projects</div>
+          <div class="table-responsive">
+            <table class="table align-middle">
+              <thead>
+                <tr>
+                  <th>Name</th><th>Company</th><th>Author</th><th>Status</th><th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Project Lorem<br><small class="text-muted">UI/UX Design</small></td>
+                  <td>Web Design<br><small class="text-muted">Freelance Co.</small></td>
+                  <td>Macey Metz<br><small class="text-muted">Designer</small></td>
+                  <td><span class="pill pill-green">45%</span></td>
+                  <td><i class="bi bi-three-dots-vertical"></i></td>
+                </tr>
+                <tr>
+                  <td>Project Ipsum<br><small class="text-muted">Web Dev</small></td>
+                  <td>Skua Transportation<br><small class="text-muted">Transport</small></td>
+                  <td>Green Wiza<br><small class="text-muted">Designer</small></td>
+                  <td><span class="pill pill-red">56%</span></td>
+                  <td><i class="bi bi-three-dots-vertical"></i></td>
+                </tr>
+                <tr>
+                  <td>Project Dolor<br><small class="text-muted">UI/UX</small></td>
+                  <td>Skua Investment<br><small class="text-muted">Freelance</small></td>
+                  <td>Sim Renner<br><small class="text-muted">Dev</small></td>
+                  <td><span class="pill pill-blue">99%</span></td>
+                  <td><i class="bi bi-three-dots-vertical"></i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-xl-4">
+        <div class="card-block">
+          <div class="card-title">Browser Usage</div>
+          <canvas id="doughnutChart" height="140"></canvas>
+        </div>
+      </div>
+    </div>
