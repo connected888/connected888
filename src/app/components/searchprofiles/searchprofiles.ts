@@ -6,7 +6,6 @@ import { BehaviorSubject, combineLatest, of } from 'rxjs';
 import { debounceTime, map, startWith } from 'rxjs/operators';
 import { RouterLink } from '@angular/router';
 import { Api } from '../../services/api';
-
 type Profile = {
   id: string;
   name: string;
@@ -16,11 +15,19 @@ type Profile = {
   phone?: string;
   website?: string;
   bio?: string;
-  avatar?: string; // optional image url
-  ribbon?: string; // optional ribbon text
-  coverColor?: string; // optional cover color (hex)
-  coverImage?: string; // optional cover image url
+  avatar?: string;       // optional image url
+  ribbon?: string;       // optional ribbon text
+  coverColor?: string;   // optional cover color (hex)
+  coverImage?: string;   // optional cover image url
+
+  // 🆕 Social links (optional)
+  linkedin?: string;
+  instagram?: string;
+  twitter?: string;
+  facebook?: string;
+  youtube?: string;
 };
+
 
 @Component({
   selector: 'app-searchprofiles',
@@ -32,7 +39,7 @@ export class Searchprofiles implements OnInit{
   private fb = inject(FormBuilder);
 
   // ---- MOCK DATA (replace with API later) ----
- private MOCK: Profile[] = [
+private MOCK: Profile[] = [
   {
     id: 'p1',
     name: 'Sophie Bennett',
@@ -41,11 +48,16 @@ export class Searchprofiles implements OnInit{
     email: 'sophie@example.com',
     phone: '123456789',
     website: 'https://example.com',
-    bio: 'Sophie is a holistic practitioner with over 10 years of experience in energy healing, mindfulness, and sound therapy. Her sessions are known for deep relaxation and emotional balance. She believes in creating a safe, compassionate space for all her clients.',
+    bio: 'Sophie is a holistic practitioner with over 10 years of experience in energy healing, mindfulness, and sound therapy.',
     avatar: 'images/p1.jpg',
     coverImage: 'images/c1.jpg',
     ribbon: 'Practitioner',
-    coverColor: '#9999CC'
+    coverColor: '#9999CC',
+    linkedin: 'https://linkedin.com/in/sophie',
+    instagram: 'https://instagram.com/sophie',
+    twitter: 'https://twitter.com/sophie',
+    facebook: 'https://facebook.com/sophie',
+    youtube: 'https://youtube.com/@sophie'
   },
   {
     id: 'p2',
@@ -54,22 +66,27 @@ export class Searchprofiles implements OnInit{
     services: ['Healer', 'Shaman', 'Alchemist'],
     email: 'vineeth.dev01@gmail.com',
     phone: '123457889',
-    bio: 'Healing is the journey inward toward wholeness.',
+    bio: 'A compassionate energy healer dedicated to helping others find harmony through yoga, meditation, Reiki, and therapeutic sound healing.',
     avatar: 'images/p5.jpg',
     coverImage: 'images/c2.jpg',
     ribbon: 'Practitioner',
-    coverColor: '#9999CC'
+    coverColor: '#9999CC',
+    linkedin: 'https://linkedin.com/in/pavan',
+    instagram: 'https://instagram.com/pavan',
+    facebook: 'https://facebook.com/pavan'
   },
   {
     id: 'p3',
     name: 'John Appleseed',
     country: 'France',
     services: ['Shaman', 'Healer'],
-    bio: 'John specializes in plant-based healing and ancient spiritual practices passed down for generations. His approach blends intuition, energy reading, and natural remedies for holistic well-being.',
+    bio: 'John specializes A compassionate energy healer dedicated to helping others find harmony through yoga, meditation, Reiki, and therapeutic sound healing.',
     avatar: 'images/p6.jpg',
     coverImage: 'images/c3.jpg',
     ribbon: 'Practitioner',
-    coverColor: '#9999CC'
+    coverColor: '#9999CC',
+    twitter: 'https://twitter.com/johnapple',
+    youtube: 'https://youtube.com/@johnapple'
   },
   {
     id: 'p4',
@@ -78,11 +95,13 @@ export class Searchprofiles implements OnInit{
     services: ['Therapy', 'Yoga'],
     email: 'emily.carter@example.com',
     phone: '987654321',
-    bio: 'Passionate about helping others find balance. Emily integrates movement, meditation, and breathwork into her healing sessions.',
+    bio: 'A compassionate energy healer dedicated to helping others find harmony through yoga, meditation, Reiki, and therapeutic sound healing.',
     avatar: 'images/p4.jpg',
     coverImage: 'images/c4.jpg',
     ribbon: 'Practitioner',
-    coverColor: '#9999CC'
+    coverColor: '#9999CC',
+    linkedin: 'https://linkedin.com/in/emily',
+    instagram: 'https://instagram.com/emilyyoga'
   },
   {
     id: 'p5',
@@ -91,11 +110,13 @@ export class Searchprofiles implements OnInit{
     services: ['Reiki', 'Sound Healer'],
     email: 'liam.smith@example.com',
     phone: '456123789',
-    bio: 'Energy healing for a better life. Liam’s focus is on restoring the natural flow of energy through music, vibration, and crystal resonance therapy.',
+    bio: 'Energy healing for a better life.',
     avatar: 'images/p3.jpg',
     coverImage: 'images/c3.jpg',
     ribbon: 'Practitioner',
-    coverColor: '#9999CC'
+    coverColor: '#9999CC',
+    youtube: 'https://youtube.com/@liamsound',
+    instagram: 'https://instagram.com/liamvibes'
   },
   {
     id: 'p6',
@@ -104,11 +125,13 @@ export class Searchprofiles implements OnInit{
     services: ['Guide Meditation', 'Aroma'],
     email: 'sophia.johnson@example.com',
     phone: '321654987',
-    bio: 'Guiding you to inner peace. Sophia’s meditation sessions combine mindfulness with aromatherapy to elevate awareness and relaxation.',
+    bio: 'Guiding you to inner peace.',
     avatar: 'images/p4.jpg',
     coverImage: 'images/c2.jpg',
     ribbon: 'Practitioner',
-    coverColor: '#9999CC'
+    coverColor: '#9999CC',
+    linkedin: 'https://linkedin.com/in/sophiaj',
+    instagram: 'https://instagram.com/sophia.meditate'
   },
   {
     id: 'p7',
@@ -117,11 +140,13 @@ export class Searchprofiles implements OnInit{
     services: ['Shaman', 'Healer'],
     email: 'ethan.brown@example.com',
     phone: '654987321',
-    bio: 'Ethan works deeply with ancestral healing and sacred rituals. His work helps people reconnect with their roots and release emotional blockages that prevent spiritual growth.',
+    bio: 'A compassionate energy healer dedicated to helping others find harmony through yoga, meditation, Reiki, and therapeutic sound healing.',
     avatar: 'images/p5.jpg',
     coverImage: 'images/c1.jpg',
     ribbon: 'Volunteer',
-    coverColor: '#9999CC'
+    coverColor: '#9999CC',
+    facebook: 'https://facebook.com/ethanb',
+    twitter: 'https://twitter.com/ethanhealer'
   },
   {
     id: 'p8',
@@ -130,11 +155,12 @@ export class Searchprofiles implements OnInit{
     services: ['Yoga', 'Therapy'],
     email: 'olivia.davis@example.com',
     phone: '789123456',
-    bio: 'Helping you find your inner strength. Olivia’s classes are tailored for both beginners and experienced students seeking alignment between body and mind.',
+    bio: 'A compassionate energy healer dedicated to helping others find harmony through yoga, meditation, Reiki, and therapeutic sound healing.',
     avatar: 'images/p6.jpg',
     coverImage: 'images/c4.jpg',
     ribbon: 'Practitioner',
-    coverColor: '#9999CC'
+    coverColor: '#9999CC',
+    instagram: 'https://instagram.com/oliviaflow'
   },
   {
     id: 'p9',
@@ -143,11 +169,13 @@ export class Searchprofiles implements OnInit{
     services: ['Reiki', 'Aroma'],
     email: 'noah.wilson@example.com',
     phone: '123789456',
-    bio: 'Noah blends Reiki with essential oils to restore emotional clarity. His approach helps people find stillness in the chaos of everyday life.',
+    bio: 'A compassionate energy healer dedicated to helping others find harmony through yoga, meditation, Reiki, and therapeutic sound healing.',
     avatar: 'images/p7.jpg',
     coverImage: 'images/c2.jpg',
     ribbon: 'Volunteer',
-    coverColor: '#9999CC'
+    coverColor: '#9999CC',
+    linkedin: 'https://linkedin.com/in/noahw',
+    youtube: 'https://youtube.com/@noahreiki'
   },
   {
     id: 'p10',
@@ -156,13 +184,16 @@ export class Searchprofiles implements OnInit{
     services: ['Sound Healer', 'Guide Meditation'],
     email: 'ava.martinez@example.com',
     phone: '987321654',
-    bio: 'Bringing harmony to your life. Ava has been facilitating meditation circles and sound baths using crystal singing bowls for over a decade. Her sessions are deeply restorative, allowing participants to access their inner calm and creativity.',
+    bio: 'A compassionate energy healer dedicated to helping others find harmony through yoga, meditation, Reiki, and therapeutic sound healing.',
     avatar: 'images/p2.jpg',
     coverImage: 'images/c3.jpg',
     ribbon: 'Volunteer',
-    coverColor: '#9999CC'
+    coverColor: '#9999CC',
+    instagram: 'https://instagram.com/avaheals',
+    youtube: 'https://youtube.com/@avameditate'
   }
 ];
+
 
 
   // derive option lists

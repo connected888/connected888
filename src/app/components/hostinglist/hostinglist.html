@@ -1,88 +1,99 @@
-<!-- src/app/hostinglist/hostinglist.html -->
-<section class="persona-wrap">
-  <div class="container">
-    <div class="persona-grid">
+<div class="profile-container my-4 p-3">
 
-      <!-- LEFT PROFILE CARD -->
-      <aside class="card p-left">
-        <div class="p-photo">
-          <img [src]="profile.person.avatar || '/images/mn.jpg'" alt="avatar" />
+  <!-- Header Section -->
+  <div class="row g-3 profile-header-row">
+
+    <!-- About Card -->
+    <div class="col-md-4">
+      <div class="card about-card shadow-sm h-100">
+        <div class="card-body about-card-body">
+          <h5 class="about-title fw-bold">About</h5>
+          <p class="about-description text-muted small">
+            Lorem ipsum dolor sit amet consectetur adipiscing elit...
+          </p>
         </div>
+      </div>
+    </div>
 
-        <div class="p-name">{{ profile.person.name }}</div>
-        <div class="p-role">{{ role }}</div>
-
-        <p class="p-tagline">
-          {{ profile.about | slice:0:120 }}…
-        </p>
-
-        <dl class="p-facts">
-          <div><dt>Country</dt><dd>{{ profile.person.country }}</dd></div>
-          <div><dt>Languages</dt><dd>{{ profile.person.languages.join(', ') }}</dd></div>
-          <div *ngIf="profile.contact.website"><dt>Website</dt><dd><a [href]="profile.contact.website" target="_blank">Open</a></dd></div>
-          <div *ngIf="profile.contact.email"><dt>Email</dt><dd><a [href]="'mailto:'+profile.contact.email">{{ profile.contact.email }}</a></dd></div>
-          <div *ngIf="profile.contact.phone"><dt>Phone</dt><dd><a [href]="'tel:'+profile.contact.phone">{{ profile.contact.phone }}</a></dd></div>
-        </dl>
-
-        <div class="p-tags">
-          <span class="tag" *ngFor="let s of profile.serviceList | slice:0:4">{{ s }}</span>
+    <!-- Profile Card -->
+    <div class="col-md-4">
+      <div class="card profile-card shadow-sm text-center h-100">
+        <div class="card-body profile-card-body">
+          <span class="badge profile-badge bg-warning text-dark mb-2">Practitioner</span>
+          <img src="assets/profile.jpg" class="profile-image rounded-circle mb-3" width="100" height="100" />
+          <h5 class="profile-name fw-bold">Sophie Bennett</h5>
+          <p class="profile-email text-muted mb-1"><i class="bi bi-envelope"></i> test@gmail.com</p>
+          <p class="profile-location text-muted"><i class="bi bi-geo-alt"></i> San Francisco, CA</p>
+          <p class="profile-phone fw-semibold">📞 +1 123-456-7890</p>
         </div>
-      </aside>
+      </div>
+    </div>
 
-      <!-- RIGHT GRID (CARDS) -->
-      <main class="p-right">
-
-        <!-- Bio -->
-        <article class="card p-card p-bio">
-          <h3 class="p-title">Bio</h3>
-          <p class="p-text">{{ profile.about }}</p>
-        </article>
-
-        <!-- Motivations (bars) -->
-        <article class="card p-card">
-          <h3 class="p-title">Motivations</h3>
-          <div class="bar" *ngFor="let m of motivations">
-            <div class="bar-label">{{ m.label }}</div>
-            <div class="bar-track"><span class="bar-fill" [style.width.%]="m.value"></span></div>
-          </div>
-        </article>
-
-        <!-- Personality (sliders) -->
-        <article class="card p-card">
-          <h3 class="p-title">Personality</h3>
-          <div class="slider" *ngFor="let t of personality">
-            <div class="slider-labels"><span>{{ t.left }}</span><span>{{ t.right }}</span></div>
-            <div class="slider-track"><span class="slider-thumb" [style.left.%]="t.value"></span></div>
-          </div>
-        </article>
-
-        <!-- Goals -->
-        <article class="card p-card">
-          <h3 class="p-title">Goals</h3>
-          <ul class="p-list">
-            <li *ngFor="let g of goals"><i class="bi bi-check-circle-fill"></i>{{ g }}</li>
+    <!-- Socials Card -->
+    <div class="col-md-4">
+      <div class="card socials-card shadow-sm h-100">
+        <div class="card-body socials-card-body">
+          <h5 class="socials-title fw-bold">Socials</h5>
+          <ul class="socials-list list-unstyled">
+            <li *ngFor="let link of socials" class="social-item mb-2">
+              <i class="bi bi-link-45deg me-2 text-primary"></i>
+              <a [href]="link.url" target="_blank" class="social-link">{{ link.url }}</a>
+            </li>
           </ul>
-        </article>
-
-        <!-- Frustrations -->
-        <article class="card p-card">
-          <h3 class="p-title">Frustrations</h3>
-          <ul class="p-list">
-            <li *ngFor="let f of frustrations"><i class="bi bi-exclamation-triangle-fill"></i>{{ f }}</li>
-          </ul>
-        </article>
-
-        <!-- Favourite Brands (from socials) -->
-        <article class="card p-card p-brands">
-          <h3 class="p-title">Favourite Brands</h3>
-          <div class="brands">
-            <a class="brand" *ngFor="let b of brands" [href]="b.link" target="_blank">
-              <i class="bi" [ngClass]="b.icon"></i><span>{{ b.label }}</span>
-            </a>
-          </div>
-        </article>
-
-      </main>
+        </div>
+      </div>
     </div>
   </div>
-</section>
+
+  <!-- Languages Section -->
+  <div class="card languages-card shadow-sm my-4">
+    <div class="card-body languages-card-body">
+      <h5 class="languages-title fw-bold mb-3">Languages</h5>
+      <div class="languages-badge-container d-flex flex-wrap gap-2">
+        <span *ngFor="let lang of languages" class="language-badge badge bg-light text-dark border">
+          {{ lang }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Spiritual Practices Section -->
+  <div class="card practices-card shadow-sm my-4">
+    <div class="card-body practices-card-body">
+      <h5 class="practices-title fw-bold mb-3">My Spiritual Practices</h5>
+      <div class="row g-3 practices-grid">
+        <div *ngFor="let practice of practices" class="col-md-3 col-sm-6">
+          <div class="card practice-item border-0 shadow-sm h-100">
+            <img [src]="practice.image" class="practice-image card-img-top" height="150" />
+            <div class="card-body text-center practice-content">
+              <p class="practice-title fw-semibold small mb-0">{{ practice.title }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <div class="card services-card shadow-sm mb-4">
+    <div class="card-body services-card-body">
+      <h5 class="services-title fw-bold mb-3">Services and Offerings</h5>
+      <div class="row g-3 services-grid">
+        <div *ngFor="let service of services" class="col-md-4">
+          <div class="card service-item border-0 shadow-sm h-100">
+            <img [src]="service.image" class="service-image card-img-top" height="160" />
+            <div class="card-body service-content">
+              <h6 class="service-title fw-bold">{{ service.title }}</h6>
+              <p class="service-description text-muted small">{{ service.description }}</p>
+              <div class="service-meta d-flex justify-content-between align-items-center">
+                <span class="service-date"><i class="bi bi-calendar3"></i> {{ service.date | date }}</span>
+                <span class="service-duration fw-bold">{{ service.duration }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

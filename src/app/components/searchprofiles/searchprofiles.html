@@ -89,11 +89,33 @@
         <span *ngFor="let s of p.services" class="tag">{{ s }}</span>
       </div>
 
-      <div class="country" *ngIf="p.country">
-        <small class="text-muted">{{ p.country }}</small>
-      </div>
+   <div class="social-icons pt-2" *ngIf="p">
+  <a *ngIf="p.linkedin" [href]="p.linkedin" target="_blank" class="text-muted me-3">
+    <i class="bi bi-linkedin"></i>
+  </a>
+  <a *ngIf="p.instagram" [href]="p.instagram" target="_blank" class="text-muted me-3">
+    <i class="bi bi-instagram"></i>
+  </a>
+  <a *ngIf="p.twitter" [href]="p.twitter" target="_blank" class="text-muted me-3">
+    <i class="bi bi-twitter-x"></i>
+  </a>
+  <a *ngIf="p.facebook" [href]="p.facebook" target="_blank" class="text-muted me-3">
+    <i class="bi bi-facebook"></i>
+  </a>
+  <a *ngIf="p.youtube" [href]="p.youtube" target="_blank" class="text-muted">
+    <i class="bi bi-youtube"></i>
+  </a>
+</div>
 
-      <p class="description">{{ p.bio || 'No description available.' }}</p>
+
+<p class="description">
+  {{
+    (p.bio || '').length > 100
+      ? (p.bio | slice:0:100) + '...'
+      : (p.bio || 'No description available.')
+  }}
+</p>
+
 
       <button class="btn" (click)="fullListing()">View Profile</button>
     </article>

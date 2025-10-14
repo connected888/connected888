@@ -1,6 +1,10 @@
 /* =====================================
    PAGE WRAPPER & BASE STYLES
 ===================================== */
+*{
+  color:#444444!important;
+
+}
 .sp-wrap {
   background: #f7f9fc;
   min-height: 100dvh;
@@ -32,11 +36,13 @@
   border-radius: 14px;
   box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
   transition: transform 0.12s ease, box-shadow 0.12s ease;
+   
 }
 
 .sp-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 24px rgba(16, 24, 40, 0.09);
+ 
 }
 
 /* =====================================
@@ -119,8 +125,8 @@
 .practitioner-card {
   position: relative;
   width: 100%;
-  max-width: 300px;
-  height: 480px;
+  max-width: 324px;
+  height: 400px;
   background: #ffffff;
   border-radius: 6px;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
@@ -145,17 +151,18 @@
   top: 12px;
   left: -40px;
   background: linear-gradient(0deg, #f9cf6c 74.11%, #947b3f 100.49%);
-  color: #0d0d0d;
+  color: #444444;
   padding: 6px 50px;
   transform: rotate(-45deg);
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.3px;
+  
 }
 
 /* --- Cover --- */
 .practitioner-card .cover {
-  height: 120px;
+  height: 129px;
   width: 100%;
   background-color: #9999cc;
   background-size: cover;
@@ -164,13 +171,13 @@
 
 /* --- Profile --- */
 .practitioner-card .profile-pic {
-  width: 146px;
-  height: 156px;
+  width: 120px;
+  height: 120px;
   border-radius: 100px;
-  border: 4px solid #fff;
+  border: 4px solid #ffffff;
   margin-top: -78px;
   object-fit: cover;
-  background-color: #e0e0e0;
+  background-color: #F9F9FB;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -219,7 +226,7 @@
 
 /* --- Button (fixed bottom) --- */
 .practitioner-card .btn {
-  background: linear-gradient(90deg, #C9962D 0%, #F3D885 50%, #C9962D 100%);
+  background: #F9CF6C;
   border: none;
   border-radius: 8px;
   padding: 10px 24px;
@@ -229,6 +236,7 @@
   margin: 0 0 16px 0;
   align-self: center;
   transition: background 0.3s;
+  width:208px;
 }
 
 .practitioner-card .btn:hover {
