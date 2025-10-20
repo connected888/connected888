@@ -1,1 +1,183 @@
-<p>volunteer works!</p>
+<div class="container my-4">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h1 class="h3 mb-3">Volunteer</h1>
+
+      <!-- Template-driven form; requires FormsModule imported in the component -->
+      <form #volForm="ngForm">
+        <div class="row g-3">
+          <!-- LEFT: Services -->
+          <div class="col-12 col-md-3">
+            <label class="form-label d-block">What service do you offer to the Event?</label>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="presenter" name="presenter" [(ngModel)]="presenter">
+              <label class="form-check-label" for="presenter">Presenter</label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="soundHealing" name="soundHealing" [(ngModel)]="soundHealing">
+              <label class="form-check-label" for="soundHealing">Sound Healing</label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="eventOps" name="eventOps" [(ngModel)]="eventOps">
+              <label class="form-check-label" for="eventOps">Event Operations</label>
+            </div>
+          </div>
+
+          <!-- RIGHT: Fields -->
+          <div class="col-12 col-md-9">
+
+            <!-- Conditional service descriptions (visible only when the box is checked) -->
+            <div class="row g-3 mb-2">
+              <div class="col-12" *ngIf="presenter">
+                <label class="form-label">Please explain what you are Presenting at the Event.</label>
+                <textarea class="form-control" rows="4"
+                          name="presenterDetails"
+                          [(ngModel)]="presenterDetails"
+                          placeholder="Describe your presentation (topic, duration, needs)..."></textarea>
+              </div>
+
+              <div class="col-12" *ngIf="soundHealing">
+                <label class="form-label">Please explain the Sound Healing you are playing for the Event.</label>
+                <textarea class="form-control" rows="4"
+                          name="soundHealingDetails"
+                          [(ngModel)]="soundHealingDetails"
+                          placeholder="Instruments, set length, amplification needs..."></textarea>
+              </div>
+
+              <div class="col-12" *ngIf="eventOps">
+                <label class="form-label">Please share how you are supporting the Event Operations.</label>
+                <textarea class="form-control" rows="4"
+                          name="eventOpsDetails"
+                          [(ngModel)]="eventOpsDetails"
+                          placeholder="Roles, availability, logistics experience..."></textarea>
+              </div>
+            </div>
+
+            <!-- Row 1: First + Country -->
+            <div class="row g-3">
+              <div class="col-12 col-md-6">
+                <label for="firstName" class="visually-hidden">First Name *</label>
+                <input type="text" class="form-control" id="firstName" name="firstName"
+                       placeholder="First Name *" autocomplete="given-name" required>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="country" class="visually-hidden">Select Country *</label>
+                <select class="form-select" id="country" name="country" required>
+                  <option value="" selected disabled>Select Country...</option>
+                  <option>United States</option>
+                  <option>Canada</option>
+                  <option>Mexico</option>
+                  <option>United Kingdom</option>
+                  <option>Australia</option>
+                  <option>South Africa</option>
+                  <option>India</option>
+                  <option>Brazil</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Row 2: Last + State -->
+            <div class="row g-3 mt-1">
+              <div class="col-12 col-md-6">
+                <label for="lastName" class="visually-hidden">Last Name *</label>
+                <input type="text" class="form-control" id="lastName" name="lastName"
+                       placeholder="Last Name *" autocomplete="family-name" required>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="state" class="visually-hidden">State *</label>
+                <input type="text" class="form-control" id="state" name="state"
+                       placeholder="State *" autocomplete="address-level1" required>
+              </div>
+            </div>
+
+            <!-- Row 3: Email + City -->
+            <div class="row g-3 mt-1">
+              <div class="col-12 col-md-6">
+                <label for="email" class="visually-hidden">Profile Email Address *</label>
+                <input type="email" class="form-control" id="email" name="email"
+                       placeholder="Profile Email Address *" autocomplete="email" required>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="city" class="visually-hidden">City *</label>
+                <input type="text" class="form-control" id="city" name="city"
+                       placeholder="City *" autocomplete="address-level2" required>
+              </div>
+            </div>
+
+            <!-- Row 4: Phone + Address 1 -->
+            <div class="row g-3 mt-1">
+              <div class="col-12 col-md-6">
+                <label for="phone" class="visually-hidden">Cell Phone *</label>
+                <input type="tel" class="form-control" id="phone" name="phone"
+                       placeholder="Cell Phone *" autocomplete="tel" required>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="address1" class="visually-hidden">Address 1 *</label>
+                <input type="text" class="form-control" id="address1" name="address1"
+                       placeholder="Address 1 *" autocomplete="address-line1" required>
+              </div>
+            </div>
+
+            <!-- Row 5: Language (single dropdown) + Address 2 -->
+            <div class="row g-3 mt-1">
+              <div class="col-12 col-md-6">
+                <label for="language" class="visually-hidden">Fluent Languages *</label>
+                <select class="form-select" id="language" name="language" required>
+                  <option value="" selected disabled>Nothing selected</option>
+                  <option>Arabic</option>
+                  <option>Bengali</option>
+                  <option>English</option>
+                  <option>French</option>
+                  <option>Hindi</option>
+                  <option>Indonesian</option>
+                  <option>Japanese</option>
+                  <option>Chinese (Mandarin)</option>
+                  <option>Portuguese</option>
+                  <option>Russian</option>
+                  <option>Spanish</option>
+                  <option>Urdu</option>
+                  <option>Vietnamese</option>
+                </select>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="address2" class="visually-hidden">Address 2</label>
+                <input type="text" class="form-control" id="address2" name="address2"
+                       placeholder="Address 2" autocomplete="address-line2">
+              </div>
+            </div>
+
+            <!-- Row 6: Organization + Website -->
+            <div class="row g-3 mt-1">
+              <div class="col-12 col-md-6">
+                <label for="org" class="visually-hidden">Organization Name *</label>
+                <input type="text" class="form-control" id="org" name="organization"
+                       placeholder="Organization Name *" required>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="website" class="visually-hidden">Website</label>
+                <input type="url" class="form-control" id="website" name="website"
+                       placeholder="Website">
+              </div>
+            </div>
+
+          </div><!-- /RIGHT -->
+        </div><!-- /row -->
+
+        <div class="text-end mt-3">
+          <button type="submit" class="btn btn-warning px-4">Submit</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
