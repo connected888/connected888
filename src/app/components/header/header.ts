@@ -23,10 +23,22 @@ export class Header implements AfterViewInit {
   }
 
   languages = [
-    { code: 'en', label: 'English' },
-    { code: 'fr', label: 'Français' },
-    { code: 'ar', label: 'العربية' }
-  ];
+  { code: 'ar', label: 'Arabic' },
+  { code: 'bn', label: 'Bengali' },
+  { code: 'en', label: 'English' },
+  { code: 'fr', label: 'French' },
+  { code: 'hi', label: 'Hindi' },
+  { code: 'id', label: 'Indonesian' },
+  { code: 'ja', label: 'Japanese' },
+  { code: 'zh', label: 'Mandarin Chinese' },
+  { code: 'pt', label: 'Portuguese' },
+  { code: 'ru', label: 'Russian' },
+  { code: 'es', label: 'Spanish' },
+  { code: 'ur', label: 'Urdu' },
+  { code: 'vi', label: 'Vietnamese' }
+];
+
+  
 
   @HostListener('window:scroll')
   onScroll() { this.isScrolled = window.scrollY > 6; }

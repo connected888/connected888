@@ -5,14 +5,14 @@
 }
 
 body {
-  padding-top: 80px; /* same as navbar height */
+  // padding-top: 80px; /* same as navbar height */
 
   @media (max-width: 768px) {
-    padding-top: 140px; /* adjust for smaller screens */
+    padding-top: 60px; /* adjust for smaller screens */
   }
 
   @media (max-width: 480px) {
-    padding-top: 140px; /* adjust for very small screens */
+    padding-top: 40px; /* adjust for very small screens */
   }
 }
 

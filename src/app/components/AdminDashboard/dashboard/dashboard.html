@@ -1,0 +1,53 @@
+<div class="layout">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="brand text-center align-items-center justify-content-center">
+      <img src="images/logo.png" alt="Logo" height="90" class="brand-logo">
+    </div>
+
+<nav class="nav flex-column">
+  <a class="nav-link" 
+     routerLink="/dashboard/admin-dashboard" 
+     routerLinkActive="active" 
+     [routerLinkActiveOptions]="{ exact: true }">
+    <i class="bi bi-grid"></i> Dashboard
+  </a>
+
+  <a class="nav-link" 
+     routerLink="/dashboard/volunteers-list" 
+     routerLinkActive="active">
+    <i class="bi bi-people"></i> Volunteers
+  </a>
+
+  <a class="nav-link" 
+     routerLink="/dashboard/registrations-list" 
+     routerLinkActive="active">
+    <i class="bi bi-person-badge"></i> Registered Users
+  </a>
+
+  <a class="nav-link" 
+     routerLink="/dashboard/bulk-email-sender" 
+     routerLinkActive="active">
+    <i class="bi bi-envelope-paper"></i> Bulk Email Sender
+  </a>
+
+  <div class="mt-auto"></div>
+
+  <a class="nav-link logout" 
+     routerLink="/about" 
+     routerLinkActive="active">
+    <i class="bi bi-box-arrow-right"></i> Logout
+  </a>
+</nav>
+
+  </aside>
+
+  <!-- Main -->
+  <main class="content">
+    <router-outlet></router-outlet>
+
+
+
+
+  </main>
+</div>

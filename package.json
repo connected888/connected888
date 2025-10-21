@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:dev": "ng build --configuration development",
+    "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:Connected888": "node dist/Connected888/server/server.mjs"
@@ -32,6 +34,7 @@
     "@ngx-translate/core": "^17.0.0",
     "@ngx-translate/http-loader": "^17.0.0",
     "@popperjs/core": "^2.11.8",
+    "@stripe/stripe-js": "^7.9.0",
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
     "express": "^5.1.0",

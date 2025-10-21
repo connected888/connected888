@@ -1,0 +1,99 @@
+<div class="profile-container my-4 p-3">
+
+  <!-- Header Section -->
+  <div class="row g-3 profile-header-row">
+
+    <!-- About Card -->
+    <div class="col-md-4">
+      <div class="card about-card shadow-sm h-100">
+        <div class="card-body about-card-body">
+          <h5 class="about-title fw-bold">About</h5>
+          <p class="about-description text-muted small">
+            Lorem ipsum dolor sit amet consectetur adipiscing elit...
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Card -->
+    <div class="col-md-4">
+      <div class="card profile-card shadow-sm text-center h-100">
+        <div class="card-body profile-card-body">
+          <span class="badge profile-badge bg-warning text-dark mb-2">Practitioner</span>
+          <img src="assets/profile.jpg" class="profile-image rounded-circle mb-3" width="100" height="100" />
+          <h5 class="profile-name fw-bold">Sophie Bennett</h5>
+          <p class="profile-email text-muted mb-1"><i class="bi bi-envelope"></i> test@gmail.com</p>
+          <p class="profile-location text-muted"><i class="bi bi-geo-alt"></i> San Francisco, CA</p>
+          <p class="profile-phone fw-semibold">📞 +1 123-456-7890</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Socials Card -->
+    <div class="col-md-4">
+      <div class="card socials-card shadow-sm h-100">
+        <div class="card-body socials-card-body">
+          <h5 class="socials-title fw-bold">Socials</h5>
+          <ul class="socials-list list-unstyled">
+            <li *ngFor="let link of socials" class="social-item mb-2">
+              <i class="bi bi-link-45deg me-2 text-primary"></i>
+              <a [href]="link.url" target="_blank" class="social-link">{{ link.url }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Languages Section -->
+  <div class="card languages-card shadow-sm my-4">
+    <div class="card-body languages-card-body">
+      <h5 class="languages-title fw-bold mb-3">Languages</h5>
+      <div class="languages-badge-container d-flex flex-wrap gap-2">
+        <span *ngFor="let lang of languages" class="language-badge badge bg-light text-dark border">
+          {{ lang }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Spiritual Practices Section -->
+  <div class="card practices-card shadow-sm my-4">
+    <div class="card-body practices-card-body">
+      <h5 class="practices-title fw-bold mb-3">My Spiritual Practices</h5>
+      <div class="row g-3 practices-grid">
+        <div *ngFor="let practice of practices" class="col-md-3 col-sm-6">
+          <div class="card practice-item border-0 shadow-sm h-100">
+            <img [src]="practice.image" class="practice-image card-img-top" height="150" />
+            <div class="card-body text-center practice-content">
+              <p class="practice-title fw-semibold small mb-0">{{ practice.title }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <div class="card services-card shadow-sm mb-4">
+    <div class="card-body services-card-body">
+      <h5 class="services-title fw-bold mb-3">Services and Offerings</h5>
+      <div class="row g-3 services-grid">
+        <div *ngFor="let service of services" class="col-md-4">
+          <div class="card service-item border-0 shadow-sm h-100">
+            <img [src]="service.image" class="service-image card-img-top" height="160" />
+            <div class="card-body service-content">
+              <h6 class="service-title fw-bold">{{ service.title }}</h6>
+              <p class="service-description text-muted small">{{ service.description }}</p>
+              <div class="service-meta d-flex justify-content-between align-items-center">
+                <span class="service-date"><i class="bi bi-calendar3"></i> {{ service.date | date }}</span>
+                <span class="service-duration fw-bold">{{ service.duration }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

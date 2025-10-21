@@ -1,0 +1,65 @@
+/* src/app/createprofile/createprofile.scss */
+:root{
+  --cp-brand: #1da3dd;
+  --cp-ink: #101828;
+  --cp-muted: #667085;
+  --cp-radius: 16px;
+}
+
+.cp-panel{ background: #f7f9fc; min-height: 100dvh; }
+
+/* Cards */
+.cp-card, .cp-sticky-submit{
+  background: #fff;
+  border: 1px solid #e7eaf0;
+  border-radius: var(--cp-radius);
+  box-shadow: 0 4px 14px rgba(16,24,40,.05);
+}
+
+.card-header h2{ color: var(--cp-ink); }
+.form-label{ font-weight: 600; color: var(--cp-ink); }
+small, .text-muted{ color: var(--cp-muted) !important; }
+.input-group-text{ background: #f3f4f6; border-color: #e5e7eb; }
+
+/* LEFT panel photo */
+.cp-photo-box{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #f2f4f7;
+  border: 1px solid #e7eaf0;
+}
+.cp-photo-box img{
+  width: 100%; height: 100%; object-fit: cover;
+}
+.cp-photo-x{
+  position: absolute; top: 10px; right: 10px;
+  border-radius: 50%;
+  width: 32px; height: 32px; line-height: 1;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,.9);
+  border: 1px solid #e5e7eb;
+}
+
+/* Generic image preview (service imgs + cards) */
+.cp-img-preview{
+  width: 100%; height: 160px;
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid #e7eaf0; background: #f7f8fb;
+  display: flex; align-items: center; justify-content: center;
+}
+.cp-img-preview img{ width: 100%; height: 100%; object-fit: cover; }
+.cp-img-placeholder{ font-size: 28px; color: #9aa3b2; }
+
+/* Mini card border */
+.cp-mini{ border: 1px solid #e7eaf0; border-radius: 12px; }
+
+/* Sticky submit bar */
+.cp-sticky-submit{ position: sticky; bottom: 12px; z-index: 10; }
+@media (max-width: 991.98px){ .cp-sticky-submit{ bottom: 8px; } }
+
+/* Primary button color */
+.btn-primary{ background-color: var(--cp-brand); border-color: var(--cp-brand); }
+.btn-primary:hover{ filter: brightness(.95); }
