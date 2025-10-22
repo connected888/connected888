@@ -1,11 +1,22 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-volunteer',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './volunteer.html',
-  styleUrl: './volunteer.scss'
+  styleUrls: ['./volunteer.scss']
 })
 export class Volunteer {
+  // Checkbox states
+  presenter = false;
+  soundHealing = false;
+  eventOps = false;
 
+  // Textarea values
+  presenterDetails = '';
+  soundHealingDetails = '';
+  eventOpsDetails = '';
 }
