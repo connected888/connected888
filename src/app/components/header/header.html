@@ -33,15 +33,64 @@
             >{{ "Navbar.ABOUT" | translate }}</a
           >
         </li>
-        <li class="nav-item">
+
+     
+
+
+        <li class="nav-item dropdown">
           <a
-            class="nav-link c888-link"
-            routerLink="/register"
-            routerLinkActive="active"
-            (click)="closeNav()"
-            >{{ "Navbar.REGISTER" | translate }}</a
+            class="nav-link c888-link dropdown-toggle"
+            id="contributeDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
           >
+            {{ "Navbar.GET_CONNECTED" | translate }}
+          </a>
+          <ul
+            class="dropdown-menu"
+            aria-labelledby="contributeDropdown"
+          >
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/"
+                (click)="closeNav()"
+              >
+                {{ "Navbar.SOUND_HEALERS" | translate }}</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/"
+                (click)="closeNav()"
+              >
+                {{ "Navbar.PRACTICTIONERS" | translate }}</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/search-profiles"
+                (click)="closeNav()"
+              >
+                {{ "Navbar.SEARCH_PROFILES" | translate }}</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/create-profile"
+                (click)="closeNav()"
+              >
+                {{ "Navbar.CREATE_EDIT_PROFILE" | translate }}</a
+              >
+            </li>
+          </ul>
         </li>
+
+
         <li class="nav-item dropdown">
           <a
             class="nav-link c888-link dropdown-toggle"
@@ -68,6 +117,15 @@
             <li>
               <a
                 class="dropdown-item"
+                routerLink="/"
+                (click)="closeNav()"
+              >
+                {{ "Navbar.SPONSOR" | translate }}</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
                 routerLink="/volunteer"
                 (click)="closeNav()"
               >
@@ -83,8 +141,66 @@
                 {{ "Navbar.PROMOTE" | translate }}</a
               >
             </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/donate"
+                (click)="closeNav()"
+              >
+                {{ "Navbar.MEDIA" | translate }}</a
+              >
+            </li>
           </ul>
         </li>
+
+
+           <li class="nav-item dropdown">
+          <a
+            class="nav-link c888-link dropdown-toggle"
+            id="contributeDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {{ "Navbar.REGISTER" | translate }}
+          </a>
+          <ul
+            class="dropdown-menu"
+            aria-labelledby="contributeDropdown"
+          >
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/register"
+                (click)="closeNav()"
+              >
+                {{ "Navbar.EVENT" | translate }}</a
+              >
+            </li>
+
+             <li>
+              <a
+                class="dropdown-item"
+               
+                routerLink="/event-details"
+                (click)="closeNav()"
+              >
+                {{ "Navbar.EVENT_DETAILS" | translate }}</a
+              >
+            </li>
+
+
+
+
+          </ul>
+        </li>
+
+
+
+    
+
+
+
       </ul>
 
       <!-- RIGHT: compact sign-in + beautified language -->

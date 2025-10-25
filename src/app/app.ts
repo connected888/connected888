@@ -12,6 +12,7 @@ import { Footer } from "./components/footer/footer";
 import { filter } from 'rxjs';
 
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -36,7 +37,7 @@ constructor(
         filter((event): event is NavigationEnd => event instanceof NavigationEnd) // ✅ type guard
       )
       .subscribe((event: NavigationEnd) => {
-        const urls = ["/hostinglist", "/dashboard"];
+        const urls = ["/hostinglist", "/dashboard","/flyer"];
         this.hideLayout = urls.some(url => event.urlAfterRedirects.startsWith(url));
       });
 

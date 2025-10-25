@@ -13,6 +13,7 @@ import { RegistrationsList } from './components/AdminDashboard/registrations-lis
 import { VolunteersList } from './components/AdminDashboard/volunteers-list/volunteers-list';
 import { AdminDashbaord } from './components/AdminDashboard/admin-dashbaord/admin-dashbaord';
 import { BulkEmailSender } from './components/AdminDashboard/bulk-email-sender/bulk-email-sender';
+import { Flyer } from './components/flyer/flyer';
 
 export const routes: Routes = [
     
@@ -56,6 +57,7 @@ export const routes: Routes = [
       {
          path:'bulk-email-sender',component:BulkEmailSender,
       },
+     
       
       {
          path:'**',redirectTo:'admin-dashboard'
@@ -64,7 +66,10 @@ export const routes: Routes = [
     },
     {
      path:'hostinglist',component:Hostinglist
-    },
+    }, {
+         path:'flyer',component:Flyer
+   },
+
     {
         path:'**',redirectTo:'about'
     }
