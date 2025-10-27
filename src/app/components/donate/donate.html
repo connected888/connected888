@@ -1,1 +1,120 @@
-<p>donate works!</p>
+<div class="container-fluid">
+  <div class="connect-card-grey">
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-12 mt-4">
+          <h2 class="heading">Donate</h2>
+          <p>
+            Connected888 is a global movement of sound, spirit, and service. We
+            believe in the power of vibration to heal not only individuals, but
+            the Earth herself. Your donation fuels this mission.
+          </p>
+        </div>
+
+        <div class="col-12">
+          <h4>Every contribution supports:</h4>
+          <ul>
+          <li>Free global sound healing events in 11+ languages</li>
+
+          <li>Hosting and promotion for hundreds of sound healers worldwide</li>
+
+          <li>
+            Technology to connect practitioners and participants across time
+            zones
+          </li>
+
+          <li>
+            Outreach efforts to amplify healing vibrations to those who need
+            it most
+          </li>
+          </ul>
+          <p>
+            We are a community rooted in love, generosity, and resonance. Your
+            gift directly helps us raise the frequency of humanity and Gaia
+            through 888Hz healing.
+          </p>
+          <p>Thank you for being part of this sacred journey.</p>
+        </div>
+      </div>
+    </div>
+    <form [formGroup]="donateForm" class="container mt-4">
+      <div class="row">
+        <div class="col-12 col-md-6 mb-3 text-danger">
+          <div class="d-flex align-items-center">
+            <span class="text-danger mt-1">*</span>
+            <input
+              type="text"
+              placeholder="Full Name"
+              class="form-control m-1"
+              formControlName="name"
+            />
+          </div>
+
+          <div
+            *ngIf="donateForm.controls['name'].touched && donateForm.controls['name'].errors?.['required']"
+          >
+            Name is required
+          </div>
+
+          <div class="d-flex align-items-center">
+            <span class="text-danger mt-1">*</span>
+            <input
+              type="email"
+              placeholder="Contact Email"
+              class="form-control m-1"
+              formControlName="email"
+            />
+          </div>
+
+          <div
+            *ngIf="donateForm.controls['email'].touched && donateForm.controls['email'].errors?.['required']"
+          >
+            Email address is required
+          </div>
+          <div
+            *ngIf="donateForm.controls['email'].touched && donateForm.controls['email'].errors?.['email']"
+          >
+            Enter Valid Email address
+          </div>
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+          <div class="d-flex align-items-center">
+            <p>
+              <span class="text-danger">*</span> Your contributions truly make a
+              difference in providing this service to all of humanity.
+            </p>
+          </div>
+          <div>
+            <input type="radio" formControlName="amount" value="8.88" />
+            <label class="form-check-label ms-2">
+              Yes, I am donating $8.88 </label
+            ><br /><br />
+            <input
+              type="radio"
+              formControlName="amount"
+              value="Custom Donation"
+            />
+            <label class="form-check-label ms-2"> Enter Donation Amount.</label>
+            <div
+              class="text-danger"
+              *ngIf="donateForm.controls['amount'].touched && donateForm.controls['amount'].errors?.['required']"
+            >
+              Please select Donation amount
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center mt-4">
+        <button
+          type="submit"
+          class="btn"
+          [disabled]="donateForm.invalid"
+          (click)="submit()"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+    <br />
+  </div>
+</div>
