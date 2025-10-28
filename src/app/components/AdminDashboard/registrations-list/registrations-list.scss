@@ -1,0 +1,51 @@
+.card-wrap {
+  background:#fff;
+  border:1px solid #eef0f5;
+  border-radius:16px;
+  box-shadow:0 10px 20px rgba(20,23,31,.03);
+  padding:16px;
+}
+
+.toolbar { margin-bottom: 12px; }
+.searchbox {
+  position:relative;
+  max-width:560px;
+}
+.searchbox i {
+  position:absolute; left:12px; top:50%; transform:translateY(-50%); color:#98a2b3;
+}
+.searchbox .form-control {
+  padding-left:36px; border-radius:12px; border:1px solid #eef0f5;
+}
+
+.table-head th {
+  font-weight:600; color:#667085; letter-spacing:.2px;
+  border-bottom:1px solid #f0f2f6;
+}
+.table tbody td { border-top:1px solid #f7f8fb; }
+
+/* status chips */
+.chip {
+  display:inline-block; padding:6px 10px; border-radius:999px;
+  font-size:12px; font-weight:700; color:#3b3b3b; background:#f3f4f6; border:1px solid #e6e8ef;
+}
+.chip-new { background:#e8f7ec; border-color:#c6f0d1; color:#17a34a; }
+.chip-read { background:#eef2ff; border-color:#dbe1ff; color:#4f46e5; }
+.chip-process { background:#fff7cc; border-color:#ffef99; color:#a38700; }
+.chip-received { background:#e6f2ff; border-color:#cfe6ff; color:#2563eb; }
+.chip-rejected { background:#ffe3e3; border-color:#ffc9c9; color:#d61f1f; }
+.chip-active { background:#dcfce7; border-color:#bbf7d0; color:#16a34a; }
+
+.btn-icon { border:0; background:transparent; color:#98a2b3; }
+.btn-icon:hover { color:#334155; }
+
+.table-footer {
+  border-top:1px solid #f0f2f6;
+  padding-top:12px; margin-top:12px;
+}
+.pagination .page-link {
+  border:1px solid #eef0f5; color:#475467;
+}
+.pagination .page-item.active .page-link {
+  background:#3b82f6; border-color:#3b82f6; color:#fff;
+}

@@ -1,0 +1,56 @@
+/* Layout */
+.layout { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; background: #f6f7fb; }
+
+.sidebar {
+  background: #fff; border-right: 1px solid #eef0f5; padding: 18px 14px; display: flex; flex-direction: column; gap: 10px;
+}
+.brand { display:flex; align-items:center; gap:10px; padding: 6px; }
+.logo-dot { width: 14px; height:14px; border-radius: 4px; background: #ff6f3d; box-shadow: 0 0 0 6px rgba(255,111,61,.15); }
+.brand-text { font-weight: 700; font-size: 20px; letter-spacing:.2px; }
+
+.nav .nav-link { color:#191919; border-radius: 10px; padding: 10px 12px; display:flex; gap:10px; align-items:center; }
+.nav .nav-link:hover { background: #fff7cc; color:#191919; }
+.nav .nav-link.active { background: #fff7cc; color: #191919; font-weight: 600; }
+.nav .logout { color:#191919; }
+
+
+/* Main */
+.content { padding: 18px 22px; }
+.topbar { display:flex; justify-content: space-between; align-items:center; gap:12px; }
+.search { display:flex; align-items:center; gap:8px; background:#fff; padding:8px 12px; border-radius: 12px; width: min(520px, 100%); border:1px solid #eef0f5; }
+.search input { border:0; outline:0; width:100%; }
+.user { display:flex; align-items:center; gap:14px; }
+.user img { width:36px; height:36px; border-radius:50%; }
+
+.page-title { margin: 16px 0; color:#1f2a37; }
+
+/* Cards */
+.card-tile, .card-block {
+  background:#fff; border:1px solid #eef0f5; border-radius: 16px; padding: 16px 18px;
+  box-shadow: 0 10px 20px rgba(20,23,31,.03);
+}
+.kpi { position: relative; overflow: hidden; }
+.kpi-head { color:#6b7480; font-size: 14px; }
+.kpi-value { font-weight: 800; font-size: 28px; color:#1f2a37; margin-top:4px; }
+.kpi-icon { position:absolute; right:12px; top:12px; font-size: 24px; color:#6b9cff33; }
+
+/* Block titles */
+.card-title { font-weight: 700; color:#1f2a37; margin-bottom: 8px; }
+
+/* Table pills */
+.pill { display:inline-block; padding: 6px 10px; border-radius: 999px; font-size:12px; font-weight:700; color:#fff; }
+.pill-green { background:#34d399; }
+.pill-red   { background:#ef4444; }
+.pill-blue  { background:#3b82f6; }
+
+/* Responsive */
+@media (max-width: 992px) {
+  .layout { grid-template-columns: 74px 1fr; }
+  .brand-text { display:none; }
+  .nav .nav-link { justify-content: center; }
+  .nav .nav-link span { display:none; }
+}
+@media (max-width: 576px) {
+  .topbar { flex-direction: column; align-items: stretch; }
+  .search { width:100%; }
+}

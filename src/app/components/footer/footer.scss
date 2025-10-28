@@ -1,4 +1,4 @@
-$c888-bg: #070505;
+$c888-bg: #444444;;
 $c888-ink: #d0d0d0;
 $c888-accent: #f1c550;
 $c888-link: #c4d1e0;
@@ -12,7 +12,7 @@ $c888-link-hover: #ffe08a;
 
   .footer-link {
     color: $c888-link;
-    text-decoration: underline;
+    text-decoration: none;
     transition: color .15s ease-in-out, transform .15s ease-in-out;
 
     &:hover { color: $c888-link-hover; transform: translateY(-1px); }

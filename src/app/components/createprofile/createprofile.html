@@ -1,1 +1,459 @@
+<form class="cp-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <section class="cp-wrap cp-panel py-4 py-lg-5">
+    <div class="container">
+      <h1 class="h4 fw-semibold mb-4">Create Your Profile</h1>
 
+      <div class="row g-4">
+        <!-- LEFT PANEL -->
+        <aside class="col-lg-4 col-xl-3">
+          <div class="card cp-card p-3">
+            <div class="cp-photo-box mb-3">
+              <img
+                [src]="avatarPreview || '/images/mn.jpg'"
+                alt="Profile photo"
+              />
+              <button
+                *ngIf="avatarPreview"
+                type="button"
+                class="cp-photo-x btn btn-light btn-sm"
+                (click)="clearAvatar()"
+                aria-label="Remove photo"
+              >
+                ✕
+              </button>
+            </div>
+
+            <input
+              id="avatarInput"
+              type="file"
+              class="d-none"
+              accept="image/*"
+              (change)="onAvatarChange($event)"
+            />
+            <label
+              for="avatarInput"
+              class="btn btn-outline-secondary w-100 mb-3"
+              >Upload Photo</label
+            >
+
+            <p class="small text-muted mb-0">
+              Recommended: square image, ≥ 400×400px. JPG/PNG/WebP under 2MB.
+            </p>
+          </div>
+        </aside>
+
+        <!-- RIGHT CONTENT -->
+        <div class="col-lg-8 col-xl-9">
+          <!-- Profile Information -->
+          <div class="card cp-card mb-4">
+            <div class="card-header bg-white border-0 pt-3 pb-0">
+              <h2 class="h6 text-uppercase text-muted mb-0">
+                Profile Information
+              </h2>
+            </div>
+            <div class="card-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">First Name *</label>
+                  <input
+                    class="form-control"
+                    formControlName="firstName"
+                    placeholder="Enter first name"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Last Name *</label>
+                  <input
+                    class="form-control"
+                    formControlName="lastName"
+                    placeholder="Enter last name"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Organization Name</label>
+                  <input
+                    class="form-control"
+                    formControlName="organizationName"
+                    placeholder="Eg. Connected888"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Country *</label>
+                  <select class="form-select" formControlName="country">
+                    <option value="" disabled selected>Select country…</option>
+                    <option>United States</option>
+                    <option>India</option>
+                    <option>France</option>
+                    <option>UAE</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Fluent In (multi-select) *</label>
+                  <select
+                    class="form-select"
+                    formControlName="languages"
+                    multiple
+                  >
+                    <option>English</option>
+                    <option>French</option>
+                    <option>Arabic</option>
+                    <option>Hindi</option>
+                  </select>
+                  <small class="text-muted"
+                    >Hold Ctrl/Cmd to choose multiple.</small
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="card cp-card mb-4">
+            <div class="card-header bg-white border-0 pt-3 pb-0">
+              <h2 class="h6 text-uppercase text-muted mb-0">Contact Info</h2>
+            </div>
+            <div class="card-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Email *</label>
+                  <div class="input-group">
+                    <span class="input-group-text"
+                      ><i class="bi bi-envelope"></i
+                    ></span>
+                    <input
+                      type="email"
+                      class="form-control"
+                      formControlName="email"
+                      placeholder="name@company.com"
+                    />
+                  </div>
+                  <div class="form-check form-switch mt-2">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="showEmail"
+                      formControlName="showEmail"
+                    />
+                    <label class="form-check-label" for="showEmail"
+                      >Show email publicly</label
+                    >
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Phone *</label>
+                  <div class="input-group">
+                    <span class="input-group-text"
+                      ><i class="bi bi-telephone"></i
+                    ></span>
+                    <input
+                      type="tel"
+                      class="form-control"
+                      formControlName="phone"
+                      placeholder="+1 555 000 0000"
+                    />
+                  </div>
+                  <div class="form-check form-switch mt-2">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="showPhone"
+                      formControlName="showPhone"
+                    />
+                    <label class="form-check-label" for="showPhone"
+                      >Show phone publicly</label
+                    >
+                  </div>
+                </div>
+
+                <div class="col-md-6" formGroupName="socials">
+                  <label class="form-label"
+                    ><i class="bi bi-globe"></i> Website</label
+                  >
+                  <input
+                    class="form-control"
+                    formControlName="website"
+                    placeholder="https://…"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- About the User -->
+          <div class="card cp-card mb-4">
+            <div class="card-header bg-white border-0 pt-3 pb-0">
+              <h2 class="h6 text-uppercase text-muted mb-0">About the User</h2>
+            </div>
+            <div class="card-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Section Title</label>
+                  <input
+                    class="form-control"
+                    formControlName="sectionTitle"
+                    placeholder="Organization or headline"
+                  />
+                </div>
+                <div class="col-12">
+                  <label class="form-label"
+                    >Biographical / Short Description</label
+                  >
+                  <textarea
+                    class="form-control"
+                    rows="4"
+                    formControlName="sectionDescription"
+                    placeholder="Describe your work and approach…"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div class="card cp-card mb-4">
+            <div class="card-header bg-white border-0 pt-3 pb-0">
+              <h2 class="h6 text-uppercase text-muted mb-0">Social Links</h2>
+            </div>
+            <div class="card-body" formGroupName="socials">
+              <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
+                <div class="col">
+                  <label class="form-label"
+                    ><i class="bi bi-youtube"></i> YouTube</label
+                  ><input
+                    class="form-control"
+                    formControlName="youtube"
+                    placeholder="Channel or video link"
+                  />
+                </div>
+                <div class="col">
+                  <label class="form-label"
+                    ><i class="bi bi-instagram"></i> Instagram</label
+                  ><input
+                    class="form-control"
+                    formControlName="instagram"
+                    placeholder="https://instagram.com/…"
+                  />
+                </div>
+                <div class="col">
+                  <label class="form-label"
+                    ><i class="bi bi-tiktok"></i> TikTok</label
+                  ><input
+                    class="form-control"
+                    formControlName="tiktok"
+                    placeholder="https://tiktok.com/@…"
+                  />
+                </div>
+                <div class="col">
+                  <label class="form-label"
+                    ><i class="bi bi-facebook"></i> Facebook</label
+                  ><input
+                    class="form-control"
+                    formControlName="facebook"
+                    placeholder="https://facebook.com/…"
+                  />
+                </div>
+                <div class="col">
+                  <label class="form-label"
+                    ><i class="bi bi-people"></i> Meetup</label
+                  ><input
+                    class="form-control"
+                    formControlName="meetup"
+                    placeholder="https://meetup.com/…"
+                  />
+                </div>
+                <div class="col">
+                  <label class="form-label"
+                    ><i class="bi bi-linkedin"></i> LinkedIn</label
+                  ><input
+                    class="form-control"
+                    formControlName="linkedin"
+                    placeholder="https://linkedin.com/in/…"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personal Website: Service list -->
+          <div class="card cp-card mb-4">
+            <div class="card-header bg-white border-0 pt-3 pb-0">
+              <h2 class="h6 text-uppercase text-muted mb-0">
+                Personal Website Section
+              </h2>
+            </div>
+            <div class="card-body">
+              <label class="form-label">Service List</label>
+              <div
+                class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-2"
+                formArrayName="serviceList"
+              >
+                <div
+                  class="col"
+                  *ngFor="
+                    let ctrl of serviceList.controls;
+                    index as i;
+                    trackBy: trackByIndex
+                  "
+                >
+                  <input
+                    class="form-control"
+                    [formControlName]="i"
+                    placeholder="Service item {{ i + 1 }}"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Images 1–3 -->
+          <div class="card cp-card mb-4">
+            <div class="card-header bg-white border-0 pt-3 pb-0">
+              <h2 class="h6 text-uppercase text-muted mb-0">Service Images</h2>
+            </div>
+            <div class="card-body">
+              <div
+                class="row row-cols-1 row-cols-md-3 g-3"
+                formArrayName="images"
+              >
+                <div
+                  class="col"
+                  *ngFor="
+                    let _ of images.controls;
+                    index as i;
+                    trackBy: trackByIndex
+                  "
+                >
+                  <label class="form-label">Image {{ i + 1 }}</label>
+                  <div class="cp-img-preview mb-2">
+                    <img
+                      *ngIf="servicePreviews[i]"
+                      [src]="servicePreviews[i]"
+                      alt="Selected image {{ i + 1 }}"
+                    />
+                    <div class="cp-img-placeholder" *ngIf="!servicePreviews[i]">
+                      <i class="bi bi-image"></i>
+                    </div>
+                  </div>
+                  <input
+                    type="file"
+                    class="form-control"
+                    (change)="onServiceImageChange(i, $event)"
+                    accept="image/*"
+                  />
+                  <small class="text-muted"
+                    >Shown on Service {{ i + 1 }} card.</small
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Details 1–3 -->
+          <div class="card cp-card mb-4">
+            <div class="card-header bg-white border-0 pt-3 pb-0">
+              <h2 class="h6 text-uppercase text-muted mb-0">Service Details</h2>
+            </div>
+            <div class="card-body">
+              <div
+                class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4"
+                formArrayName="services"
+              >
+                <div
+                  class="col"
+                  *ngFor="
+                    let grp of services.controls;
+                    index as i;
+                    trackBy: trackByIndex
+                  "
+                  [formGroupName]="i"
+                >
+                  <div class="cp-mini card h-100">
+                    <div class="card-body">
+                      <div class="cp-img-preview mb-3">
+                        <img
+                          *ngIf="servicePreviews[i]"
+                          [src]="servicePreviews[i]"
+                          alt="Service {{ i + 1 }} image"
+                        />
+                        <div
+                          class="cp-img-placeholder"
+                          *ngIf="!servicePreviews[i]"
+                        >
+                          <i class="bi bi-image"></i>
+                        </div>
+                      </div>
+                      <label class="form-label"
+                        >Service Image Title {{ i + 1 }}</label
+                      >
+                      <input
+                        class="form-control mb-2"
+                        formControlName="title"
+                        placeholder="Title"
+                      />
+                      <input
+                        class="form-control mb-2"
+                        formControlName="link"
+                        placeholder="Image link (optional)"
+                      />
+                      <input
+                        type="date"
+                        class="form-control mb-2"
+                        formControlName="date"
+                      />
+                      <div class="input-group mb-2">
+                        <span class="input-group-text">$</span>
+                        <input
+                          type="number"
+                          class="form-control"
+                          formControlName="price"
+                          placeholder="0.00"
+                          min="0"
+                          step="0.01"
+                        />
+                      </div>
+                      <textarea
+                        class="form-control"
+                        rows="5"
+                        formControlName="description"
+                        placeholder="Description {{ i + 1 }}"
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-3">
+                <label class="form-label">Closing statement (optional)</label>
+                <input
+                  class="form-control"
+                  formControlName="closing"
+                  placeholder='Eg. "Grateful to connect with you."'
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Sticky Submit -->
+          <div
+            class="cp-sticky-submit bg-white border rounded-4 p-3 d-flex flex-column flex-sm-row align-items-center gap-2"
+          >
+            <div class="d-flex align-items-center gap-2 small text-muted">
+              <i class="bi bi-shield-check"></i>
+              <span>Your information is private until you publish.</span>
+            </div>
+            <div class="ms-sm-auto d-flex gap-2">
+              <button class="btn btn-outline-secondary px-4" type="button">
+                Preview
+              </button>
+              <button class="btn btn-outline-secondary px-4" type="submit">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /row -->
+    </div>
+  </section>
+</form>
