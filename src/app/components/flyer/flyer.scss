@@ -1,0 +1,29 @@
+.contact-card {
+  background: #faf8ff;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-top: 16px;
+  color: #3a2f5f;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.contact-icon {
+  font-size: 18px;
+  width: 22px;
+  text-align: center;
+}
+
+.contact-link {
+  color: #3a2f5f;
+  text-decoration: none;
+}
+.contact-link:hover {
+  text-decoration: underline;
+  color: #6b4eff;
+}

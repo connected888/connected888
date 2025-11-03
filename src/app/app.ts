@@ -10,6 +10,7 @@ import {
 import { Header } from "./components/header/header";
 import { Footer } from "./components/footer/footer";
 import { filter } from 'rxjs';
+import { Flyer } from './components/flyer/flyer';
 
 
 
@@ -17,7 +18,7 @@ import { filter } from 'rxjs';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule ,RouterOutlet, CommonModule, NgxSpinnerModule, Header, Footer],
+  imports: [CommonModule ,RouterOutlet, CommonModule, NgxSpinnerModule, Header, Footer, Flyer],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

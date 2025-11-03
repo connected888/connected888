@@ -1,1 +1,181 @@
-<p>Flyer works </p>
+<!-- Flyer section uses same Bootstrap container and spacing as site sections -->
+<section class="section-pad">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        <!-- Component root -->
+        <div class="flyer-root">
+
+          <!-- Header -->
+          <div class="flyer-header rounded px-3 px-md-4 pt-2 pb-4" style="background:#f1eaff; margin:24px 0;">
+
+            <!-- Centered Download PDF button -->
+            <div class="text-center mb-3">
+              <button (click)="downloadPDF()" class="btn btn-primary fw-semibold px-4">
+                Download PDF
+              </button>
+            </div>
+
+            <!-- Header grid -->
+            <div class="d-flex flex-wrap justify-content-between align-items-start gap-3">
+
+              <!-- Left: logo beside headline (vertically centered) -->
+              <div class="flex-grow-1">
+                <div class="d-flex align-items-center gap-3 flex-wrap">
+                  <!-- Logo -->
+                  <div
+                    class="bg-white border rounded d-flex align-items-center justify-content-center fw-bold text-primary"
+                    style="width:72px; height:72px;">
+                    LOGO
+                  </div>
+
+                  <!-- Headline -->
+                  <div>
+                    <h2 class="fw-bold text-dark mb-0">{{ headline }}</h2>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: name + tagline + photo -->
+              <div class="d-flex align-items-center gap-3 flex-wrap">
+                <div class="text-end" style="max-width: 250px; word-wrap: break-word;">
+                  <div class="fw-bold fs-5 text-dark mb-1">{{ name }}</div>
+                  <p class="text-muted small mb-0" style="line-height:1.4;">
+                    Helping individuals restore balance, energy, and inner peace.
+                  </p>
+                </div>
+
+                <img
+                  [src]="photoUrl"
+                  alt="profile photo"
+                  class="rounded-circle border border-2 border-primary"
+                  style="width:100px; height:100px; object-fit:cover;">
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Description + Contact -->
+          <div class="row g-4">
+            <!-- Description -->
+            <div class="col-md-6">
+              <div class="bg-white border rounded p-3 h-100">
+                <h5 class="fw-bold text-primary mb-2">{{ descriptionTitle }}</h5>
+                <p class="mb-0">{{ description }}</p>
+              </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="col-md-6">
+              <div class="bg-white border rounded p-3 h-100">
+                <div class="mb-2">📞 <a [href]="'tel:' + phone" class="text-dark text-decoration-none">{{ phone }}</a></div>
+                <div class="mb-2">✉️ <a [href]="'mailto:' + email" class="text-dark text-decoration-none">{{ email }}</a></div>
+                <div class="mb-2">📍 <a [href]="'https://www.google.com/maps?q=' + address" target="_blank" rel="noopener" class="text-dark text-decoration-none">{{ address }}</a></div>
+                <div class="mt-3">
+                  <strong class="text-primary small d-block mb-1">Languages</strong>
+                  <span *ngFor="let lang of languages; let i = index">{{ lang }}<span *ngIf="i < languages.length - 1">, </span></span>
+                </div>
+                <div class="mt-3">
+                  <strong class="text-primary small d-block mb-1">Links</strong>
+                  <ul class="list-unstyled m-0 p-0 d-grid gap-2">
+                    <li *ngFor="let l of links">
+                      <a [href]="l.url" target="_blank" rel="noopener"
+                        class="btn btn-light border px-3 py-1 text-dark text-decoration-none small">
+                        {{ l.label }}
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- QR call-to-action -->
+          <div class="bg-light border rounded d-flex flex-wrap justify-content-between align-items-center p-3 my-4">
+            <div class="me-3">
+              <h6 class="fw-bold text-primary mb-1">Scan &amp; Get In Touch With Us</h6>
+              <p class="small text-secondary mb-0">Beyond this page lies more to discover. Rooted in presence, open to possibility.</p>
+            </div>
+            <img [src]="qrCodeUrl" alt="QR code" class="rounded border bg-white" style="width:88px; height:88px; object-fit:contain;">
+          </div>
+
+          <!-- Practices grid -->
+          <div class="mt-4">
+            <h5 class="fw-bold text-primary mb-3">Spiritual Practices</h5>
+            <div class="row g-3">
+              <div *ngFor="let p of practices" class="col-6 col-md-3">
+                <div class="border rounded bg-white h-100">
+                  <img [src]="p.image" [alt]="p.title" class="w-100 rounded-top" style="height:120px; object-fit:cover;">
+                  <div class="p-2 small text-center fw-semibold">{{ p.title }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Services grid -->
+          <div class="mt-4">
+            <h5 class="fw-bold text-primary mb-3">Services & Offerings</h5>
+            <div class="row g-3">
+              <div *ngFor="let s of services" class="col-12 col-md-6 col-lg-4">
+                <div class="border rounded bg-white h-100">
+                  <img [src]="s.image" [alt]="s.title" class="w-100 rounded-top" style="height:140px; object-fit:cover;">
+                  <div class="p-3">
+                    <h6 class="fw-bold mb-1">{{ s.title }}</h6>
+                    <p class="small mb-2">{{ s.description }}</p>
+                    <div class="d-flex justify-content-between small text-secondary">
+                      <span>📅 {{ s.date }}</span>
+                      <span>💲 {{ s.price }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="flyer-footer d-grid align-items-center my-4"
+              style="grid-template-columns: 1fr auto 1fr;">
+
+            <!-- (empty spacer keeps true centering) -->
+            <div></div>
+
+            <!-- socials (always centered) -->
+            <ul class="list-unstyled d-flex justify-content-center gap-3 m-0">
+              <li *ngIf="socials.facebook">
+                <a [href]="socials.facebook" target="_blank" rel="noopener" aria-label="Facebook" class="text-primary">
+                  <i class="bi bi-facebook fs-5"></i>
+                </a>
+              </li>
+              <li *ngIf="socials.instagram">
+                <a [href]="socials.instagram" target="_blank" rel="noopener" aria-label="Instagram" class="text-primary">
+                  <i class="bi bi-instagram fs-5"></i>
+                </a>
+              </li>
+              <li *ngIf="socials.tiktok">
+                <a [href]="socials.tiktok" target="_blank" rel="noopener" aria-label="TikTok" class="text-primary">
+                  <i class="bi bi-tiktok fs-5"></i>
+                </a>
+              </li>
+              <li *ngIf="socials.youtube">
+                <a [href]="socials.youtube" target="_blank" rel="noopener" aria-label="YouTube" class="text-primary">
+                  <i class="bi bi-youtube fs-5"></i>
+                </a>
+              </li>
+              <li *ngIf="socials.linkedin">
+                <a [href]="socials.linkedin" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-primary">
+                  <i class="bi bi-linkedin fs-5"></i>
+                </a>
+              </li>
+            </ul>
+
+            <!-- website (right column, does not affect centering) -->
+            <div class="text-end">
+              <a [href]="'https://' + websiteText" target="_blank" rel="noopener noreferrer"
+                class="text-secondary text-decoration-none small">
+                {{ websiteText }}
+              </a>
+            </div>
+          </div>
+
+
