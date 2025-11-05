@@ -1,22 +1,473 @@
-<div class="profile-container my-4 p-3">
-
+<div class="my-4 p-3">
   <!-- Header Section -->
-  <div class="row g-3 profile-header-row">
-
-    <!-- About Card -->
-    <div class="col-md-4">
-      <div class="card about-card shadow-sm h-100">
-        <div class="card-body about-card-body">
-          <h5 class="about-title fw-bold">About</h5>
-          <p class="about-description text-muted small">
-            Lorem ipsum dolor sit amet consectetur adipiscing elit...
-          </p>
+  <div class="row">
+    <!-- Profile Card -->
+    <div class="col-12 col-md-6 col-sm-8 w-100">
+      <div class="profile-header card-border rounded-bottom">
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-10">
+            <h1 class="fw-bold">
+              {{ profileData[0].headline }}
+            </h1>
+          </div>
+          <div class="col-12 col-md-6 col-lg-2">
+            <button type="submit" class="download-btn" id="downloadBtn">
+              <i class="bi bi-download"></i> Download PDF
+            </button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Profile Card -->
-    <div class="col-md-4">
+      <div class="profile-bg w-100">
+        <div class="row">
+          <span class="col-12 col-md-6 col-lg-9"></span>
+          <span class="col-12 col-md-6 col-lg-3">
+            <img
+              src="../images/profile-pic.png"
+              class="responsive-img"
+              width="166"
+              height="166"
+              alt="profile picture"
+            />
+          </span>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4 w-100">
+        <div class="card-body mt-5 pt-3">
+          <!--Profile Details-->
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-6 description">
+              <h3>
+                {{ profileData[0].descriptionTitle }}
+              </h3>
+              <p>
+                {{ profileData[0].description }}
+              </p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6">
+              <div class="row">
+                <div class="col-12 col-md-6 col-lg-3"></div>
+                <div class="col-12 col-md-6 col-lg-7 profile-section">
+                  <h2 class="profile-name text-center">
+                    {{ profileData[0].profileName }}
+                  </h2>
+                  <p class="text-center">
+                    {{ profileData[0].profileDescription }}
+                  </p>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2"></div>
+              </div>
+              <!-- profile contact details-->
+              <div class="row">
+                <div class="col-12 col-md-6 col-lg-2"></div>
+                <div class="col-12 col-md-6 col-lg-10">
+                  <div>
+                    <span
+                      ><img
+                        src="../images/phone-icon.png"
+                        width="32"
+                        height="32"
+                        alt="phone-icon"
+                    /></span>
+                    <span class="profile-input-text">
+                      {{ profileData[0].phoneNumber }}
+                    </span>
+                  </div>
+                  <div class="pt-3">
+                    <span
+                      ><img
+                        src="../images/email-icon.png"
+                        width="32"
+                        height="32"
+                        alt="email icon"
+                    /></span>
+                    <span class="profile-input-text">
+                      {{ profileData[0].email }}
+                    </span>
+                  </div>
+                  <div class="pt-3">
+                    <span
+                      ><img
+                        src="../images/navigation-icon.png"
+                        width="32"
+                        height="32"
+                        alt="navigation icon"
+                    /></span>
+                    <span class="profile-input-text">
+                      {{ profileData[0].address }}
+                    </span>
+                  </div>
+                  <div class="pt-3">
+                    <span
+                      ><img
+                        src="../images/language-icon.png"
+                        width="32"
+                        height="32"
+                        alt="language icon"
+                    /></span>
+                    <span class="profile-input-text w-100">
+                      {{ profileData[0].language }}
+                    </span>
+                  </div>
+                  <div class="pt-3">
+                    <span
+                      ><img
+                        src="../images/web-icon.png"
+                        width="32"
+                        height="32"
+                        alt="web icon"
+                    /></span>
+                    <span class="profile-input-text">
+                      {{ profileData[0].webUrl }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Socials-->
+            <div class="mt-4">
+              <div class="card-border social-icons">
+                <span class="">
+                  <a href="">
+                    <img
+                      src="../images/tiktok-icon.png"
+                      width="26"
+                      height="26"
+                      alt="tiktok icon"
+                    />
+                  </a>
+                </span>
+                <span>
+                  <a href="">
+                    <img
+                      src="../images/linkedin-icon.png"
+                      width="26"
+                      height="26"
+                      alt="linkedin icon"
+                    />
+                  </a>
+                </span>
+                <span>
+                  <a href="">
+                    <img
+                      src="../images/snapchat-icon.png"
+                      width="26"
+                      height="26"
+                      alt="snapchat icon"
+                    />
+                  </a>
+                </span>
+                <span>
+                  <a href="">
+                    <img
+                      src="../images/instagram-icon.png"
+                      width="26"
+                      height="26"
+                      alt="instagram icon"
+                    />
+                  </a>
+                </span>
+                <span>
+                  <a href="">
+                    <img
+                      src="../images/facebook-icon.png"
+                      width="26"
+                      height="26"
+                      alt="facebook icon"
+                    />
+                  </a>
+                </span>
+                <span>
+                  <a href="">
+                    <img
+                      src="../images/youtube-icon.png"
+                      width="26"
+                      height="26"
+                      alt="youtube icon"
+                    />
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Spiritual Practices -->
+      <div class="col-12 col-md-6 col-lg-4 w-100 mt-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h2>
+              <span>
+                <img
+                  src="../images/spiritual-icon.png"
+                  width=""
+                  height=""
+                  alt="spiritual-icon"
+                />
+              </span>
+              {{ spiritualData[0].title }}
+            </h2>
+            <hr />
+            <!--1st row practices-->
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="">
+                  <img
+                    src="../images/sp1-img.png"
+                    width=""
+                    height=""
+                    alt="Practice Mindful Yoga"
+                  />
+                  <p class="text-bold">{{ spiritualData[0].practice1 }}</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="">
+                  <img
+                    src="../images/sp2-img.png"
+                    width=""
+                    height=""
+                    alt="Reiki for Inner Balance"
+                  />
+                  <p class="text-bold">
+                    {{ spiritualData[0].practice2 }}
+                  </p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="">
+                  <img
+                    src="../images/sp3-img.png"
+                    width=""
+                    height=""
+                    alt="Guided Deep Relaxation"
+                  />
+                  <p class="text-bold">{{ spiritualData[0].practice3 }}</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="">
+                  <img
+                    src="../images/sp4-img.png"
+                    width=""
+                    height=""
+                    alt="Energy Flow Alignment"
+                  />
+                  <p class="text-bold">{{ spiritualData[0].practice4 }}</p>
+                </div>
+              </div>
+            </div>
+            <!--2nd row practices-->
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="">
+                  <img
+                    src="../images/sp5-img.png"
+                    width=""
+                    height=""
+                    alt="Prestive Intention Setting"
+                  />
+                  <p class="text-bold">{{ spiritualData[0].practice5 }}</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="">
+                  <img
+                    src="../images/sp6-img.png"
+                    width=""
+                    height=""
+                    alt="Sound Bath Healing"
+                  />
+                  <p class="text-bold">{{ spiritualData[0].practice6 }}</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="">
+                  <img
+                    src="../images/sp7-img.png"
+                    width=""
+                    height=""
+                    alt="Meditation & Mindfulness "
+                  />
+                  <p class="text-bold">{{ spiritualData[0].practice7 }}</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="">
+                  <img
+                    src="../images/sp8-img.png"
+                    width=""
+                    height=""
+                    alt="Practice Gratitude Daily"
+                  />
+                  <p class="text-bold">{{ spiritualData[0].practice8 }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Services and Offerings -->
+      <div class="col-12 col-md-6 col-lg-4 w-100 mt-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h2>
+              <span>
+                <img
+                  src="../images/services-icon.png"
+                  width=""
+                  height=""
+                  alt="services-icon"
+                />
+              </span>
+              {{ servicesData[0].heading }}
+            </h2>
+            <hr />
+            <!--services starts-->
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="card service-card">
+                  <img
+                    src="../images/ser1-img.png"
+                    width=""
+                    height=""
+                    alt="Energy healing"
+                  />
+                  <div class="card-body">
+                    <div>
+                      <span class="service-title">
+                        {{ servicesData[0].service1.serviceLabel }}:</span
+                      >
+                      <span class="text-bold pl-3">
+                        {{ servicesData[0].service1.titleInput }}
+                      </span>
+                    </div>
+                    <p class="mt-2">
+                      {{ servicesData[0].service1.description }}
+                    </p>
+                    <div>
+                      <span
+                        ><img
+                          src="../images/date-time-icon.png"
+                          width=""
+                          height=""
+                          alt="date time icon"
+                      /></span>
+                      <span>{{ servicesData[0].service1.date }}</span>
+                    </div>
+                    <div>
+                      <span
+                        ><img
+                          src="../images/dollar-icon.png"
+                          width=""
+                          height=""
+                          alt="dollar icon"
+                      /></span>
+                      <span>{{ servicesData[0].service1.price }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="card service-card">
+                  <img
+                    src="../images/ser2-img.png"
+                    width=""
+                    height=""
+                    alt="Energy healing"
+                  />
+                  <div class="card-body">
+                    <div>
+                      <span class="service-title"
+                        >{{ servicesData[0].service2.serviceLabel }}:</span
+                      >
+                      <span class="text-bold pl-3">{{
+                        servicesData[0].service2.titleInput
+                      }}</span>
+                    </div>
+                    <p class="mt-2">
+                      {{ servicesData[0].service2.description }}
+                    </p>
+                    <div>
+                      <span
+                        ><img
+                          src="../images/date-time-icon.png"
+                          width=""
+                          height=""
+                          alt="date time icon"
+                      /></span>
+                      <span>{{ servicesData[0].service2.date }}</span>
+                    </div>
+                    <div>
+                      <span
+                        ><img
+                          src="../images/dollar-icon.png"
+                          width=""
+                          height=""
+                          alt="dollar icon"
+                      /></span>
+                      <span>{{ servicesData[0].service2.price }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="card service-card">
+                  <img
+                    src="../images/ser3-img.png"
+                    width=""
+                    height=""
+                    alt="Energy healing"
+                  />
+                  <div class="card-body">
+                    <div>
+                      <span class="service-title">
+                        {{ servicesData[0].service3.serviceLabel }}:</span
+                      >
+                      <span class="text-bold pl-3">{{
+                        servicesData[0].service3.titleInput
+                      }}</span>
+                    </div>
+                    <p class="mt-2">
+                      {{ servicesData[0].service3.description }}
+                    </p>
+                    <div>
+                      <span
+                        ><img
+                          src="../images/date-time-icon.png"
+                          width=""
+                          height=""
+                          alt="date time icon"
+                      /></span>
+                      <span>{{ servicesData[0].service3.date }}</span>
+                    </div>
+                    <div>
+                      <span
+                        ><img
+                          src="../images/dollar-icon.png"
+                          width=""
+                          height=""
+                          alt="dollar icon"
+                      /></span>
+                      <span>{{ servicesData[0].service3.price }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end-->
+          </div>
+        </div>
+      </div>
+      <!---->
+    </div>
+    <!---->
+  </div>
+
+  <!-- Profile Card -->
+  <!-- <div class="col-md-4">
       <div class="card profile-card shadow-sm text-center h-100">
         <div class="card-body profile-card-body">
           <span class="badge profile-badge bg-warning text-dark mb-2">Practitioner</span>
@@ -27,10 +478,10 @@
           <p class="profile-phone fw-semibold">📞 +1 123-456-7890</p>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <!-- Socials Card -->
-    <div class="col-md-4">
+  <!-- Socials Card -->
+  <!--  <div class="col-md-4">
       <div class="card socials-card shadow-sm h-100">
         <div class="card-body socials-card-body">
           <h5 class="socials-title fw-bold">Socials</h5>
@@ -42,11 +493,10 @@
           </ul>
         </div>
       </div>
-    </div>
-  </div>
+    </div> -->
 
   <!-- Languages Section -->
-  <div class="card languages-card shadow-sm my-4">
+  <!-- <div class="card languages-card shadow-sm my-4">
     <div class="card-body languages-card-body">
       <h5 class="languages-title fw-bold mb-3">Languages</h5>
       <div class="languages-badge-container d-flex flex-wrap gap-2">
@@ -55,10 +505,10 @@
         </span>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Spiritual Practices Section -->
-  <div class="card practices-card shadow-sm my-4">
+  <!-- <div class="card practices-card shadow-sm my-4">
     <div class="card-body practices-card-body">
       <h5 class="practices-title fw-bold mb-3">My Spiritual Practices</h5>
       <div class="row g-3 practices-grid">
@@ -72,10 +522,10 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Services Section -->
-  <div class="card services-card shadow-sm mb-4">
+  <!-- <div class="card services-card shadow-sm mb-4">
     <div class="card-body services-card-body">
       <h5 class="services-title fw-bold mb-3">Services and Offerings</h5>
       <div class="row g-3 services-grid">
@@ -95,5 +545,5 @@
       </div>
     </div>
   </div>
-
+ -->
 </div>

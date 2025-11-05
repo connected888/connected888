@@ -1,2 +1,119 @@
+.profile-header {
+  background-color: #f9cf6c;
+}
+h1 {
+  font-size: var(--c888-h1-size);
+  font-family: var(--c888-font-primary);
+  color: var(--c888-black);
+  padding: 25px;
+  margin-bottom: 0px;
+}
+@mixin rounded($radius: 8px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+.card-border {
+  @include rounded(6px);
+}
+.rounded-bottom {
+  border-bottom-left-radius: 0px !important; /* remove bottom roundness */
+  border-bottom-right-radius: 0px !important;
+}
+.download-btn {
+  background-color: var(--c888-light-grey);
+  color: var(--energy-white);
+  font-size: var(--c888-body-text);
+  margin-top: 25px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: none;
+  @include rounded(6px);
+  box-shadow: none;
+  outline: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  &:hover {
+    background-color: var(--c888-light-grey);
+    color: var(--energy-white);
+    box-shadow: none;
+  }
+  &:active {
+    background-color: var(--c888-light-grey);
+    transform: scale(0.98);
+    box-shadow: none;
+  }
+  &:focus {
+    outline: 2px solid var(--energy-white);
+    outline-offset: 2px;
+    box-shadow: none;
+  }
+}
+.profile-bg {
+  background-image: url("/images/profile-bg.png");
+  height: 100px;
+  background-repeat: repeat;
+  background-position: top center;
+}
+h2 {
+  font-size: var(--c888-h2-size);
+  color: var(--c888-h2-blue-text);
+}
+.profile-section {
+  margin-left: 50px;
+}
+.responsive-img {
+  width: 166px;
+  height: 166px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  max-width: 100%;
+}
 
+@media (max-width: 600px) {
+  .responsive-img {
+    width: 120px;
+    height: 120px;
+  }
+}
+h2.profile-name {
+  font-size: 2.25rem;
+  color: var(--c888-primary-text);
+  font-style: captalise;
+  text-transform: uppercase;
+}
+h3 {
+  font-size: var(--c888-h3-size);
+  font-weight: 500;
+  color: var(--c888-light-grey);
+}
+.description {
+  padding-left: 40px;
+}
 
+.profile-input-text {
+  background-color: #eff0f2;
+  padding: 6px 32px 6px 12px;
+  position: relative;
+  top: 2px;
+  color: var(--c888-black);
+}
+.social-icons {
+  background-color: var(--c888-light-grey);
+  padding: 15px 25px;
+}
+
+.social-icons span {
+  margin-right: 2.5rem;
+}
+hr {
+  border: 0;
+  border-top: 2px solid var(--c888-line);
+  width: 98%;
+}
+.service-card {
+  width: 310px;
+}
+.service-title {
+  margin-right: 10px;
+}
