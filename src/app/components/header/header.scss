@@ -1,73 +1,89 @@
 /* Navbar bar + scroll effect */
+
+@use "variables" as *;
+@use "typography" as *;
+@use "buttons" as *;
+
 .c888-nav {
-   background-color: #444444;;
+  background-color: $gray-100;
   border-bottom: 1px solid rgba(255, 255, 255, .06);
   transition: box-shadow .2s ease, background-color .2s ease;
-  min-height: 42px;
+  min-height: 88px;
 }
-.c888-nav.scrolled { box-shadow: 0 6px 24px rgba(0, 0, 0, .25); }
+
+.c888-nav.scrolled {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, .25);
+}
 
 /* Logo */
-.c888-logo { height: 120px; width: 80px; }
-@media (min-width: 992px) { .c888-logo { height: 56px; } }
+.c888-logo {
+  height: 54px;
+  width: 85px;
+  top: 17px;
+  left: 72px
+}
+
+@media (min-width: 992px) {
+  .c888-logo {
+    height: 56px;
+  }
+}
 
 /* Menu links */
 .c888-link {
-  color: #fff;
-  font-weight: 500;
-  letter-spacing: .10em;
-  font-size: .82rem;
+  color: #FFFFFF;
+  font-family: $font-lato;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+
 }
+
 .c888-link:hover,
-.c888-link.active { color: #fff; opacity: .92; }
-.dropdown-toggle::after { filter: invert(1) grayscale(1); }
+.c888-link.active {
+  color: $primary-main;
+  opacity: .92;
+}
+
+.dropdown-toggle::after {
+  filter: invert(1) grayscale(1);
+}
 
 .lang-btn.dropdown-toggle::after,
 .c888-link.dropdown-toggle::after {
-  filter: invert(0) grayscale(0); /* resets to normal colors */
+  filter: invert(0) grayscale(0);
+  /* resets to normal colors */
 }
 
-/* Compact gold pill button */
-.c888-gold-btn-sm {
-  display: inline-block;
-  color: #1a1a1a;
-  border: 0;
-  background: linear-gradient(90deg, #C9962D 0%, #F3D885 50%, #C9962D 100%);
-  padding: .45rem 1.1rem;
-  font-size: .82rem;
+
+.reg-btn {
+  width: 116;
+  height: 39;
+  top: 24px;
+  left: 1252px;
+  border-radius: 6px;
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  opacity: 1;
+  background-color: $primary-main;
+  font-family: $font-lato;
   font-weight: 500;
-  border-radius: 999px;
-  min-width: 120px; /* fixed width */
+  font-style: Medium;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0px;
   text-align: center;
-  box-shadow: 0 0 0 1px rgba(201, 150, 45, .35) inset,
-              0 6px 16px rgba(0, 0, 0, .18);
-}
-.c888-gold-btn-sm:hover { filter: brightness(1.02); }
 
-/* Language select wrapper (same size as button) */
-.c888-lang-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: .45rem;
-  min-width: 120px; /* match sign-in width */
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, .25);
-  background: rgba(255, 255, 255, .08);
-  cursor: pointer;
-  transition: background .2s ease, border .2s ease;
-}
-.c888-lang-wrap:hover {
-  background: rgba(255, 255, 255, .15);
-  border-color:none;
+
 }
 
-/* Globe icon */
-.c888-lang-wrap .bi {
-  color: #fff;
-  opacity: .85;
-  font-size: 1rem;
-}
+
+
 
 /* Select element */
 .c888-lang {
@@ -78,45 +94,106 @@
   font-size: .9rem;
   appearance: none;
   cursor: pointer;
-  padding: 0; /* wrapper handles spacing */
+  padding: 0;
+  /* wrapper handles spacing */
 }
+
 .c888-lang option {
   font-weight: 500;
   padding: .35rem .75rem;
   color: #222;
   background: #f8f9fa;
 }
+
 .c888-lang option:hover,
 .c888-lang option:checked {
   background: linear-gradient(90deg, #EAB444, #9999CC);
   color: #fff;
 }
 
-.lang-btn{
-    border: none!important;
-    font-size: .82rem;
-}
-.dropdown-menu{
-    background: #1a1a1a;
+.lang-btn {
+
+  border: none !important;
+  font-size: .82rem;
+  width: 66px;
+  height: 24px;
+  top: 32px;
+  left: 1158px;
+  gap: 4px;
+  opacity: 1;
+  color: $white;
+  font-family: $font-lato;
+  font-size: 16px;
+ margin-right: 35px;
 
 }
-.dropdown-item{
-    font-size: .82rem;
-    font-weight: 500;
-    letter-spacing: .10em;
-    color: #fff;
-    padding: .35rem 1.25rem;
-    transition: background-color .2s ease, color .2s ease;
-    background: #1a1a1a;
+
+.lang-icon {
+  width: 20px!important;
+  height: 20px!important;
 }
 
-.dropdown-item:hover .c888-link {
-  color: #fff !important;
+.dropdown-menu {
+  font-family: $font-lato;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: $white !important;
+  background-color: $gray-100 !important;
+  padding: 5px;
+ cursor: pointer;
 }
 
+.dropdown-item-main{
+  padding-left: 16px!important;
+}
+
+.dropdown-item {
+  color: $white !important;
+  width: 204px;
+  height: 48px;
+
+  opacity: 1;
+  gap: 17px;
+  border-radius: 8px;
+  padding-top: 12px;
+  padding-right: 16px;
+  padding-bottom: 12px;
+  padding-left: 16px;
+
+
+
+}
+
+
+
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropend>.dropdown-menu {
+  top: 80%;
+  left: 100%;
+  margin-left: 0.125rem;
+}
+
+.dropend:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown-item:hover {
+  color: $white !important;
+  background: #353535 !important;
+
+}
 
 /* Toggler on dark bg */
-.navbar-toggler-icon { filter: invert(1) grayscale(1); }
+.navbar-toggler-icon {
+  filter: invert(1) grayscale(1);
+}
 
 /* Mobile: stacked panel */
 @media (max-width: 991.98px) {
@@ -125,7 +202,13 @@
     border-top: 1px solid rgba(255, 255, 255, .08);
     padding: .75rem 0 1rem;
   }
-  .navbar-nav .nav-item { padding: .2rem 0; }
+
+  .navbar-nav .nav-item {
+    padding: .2rem 0;
+  }
+
   .c888-gold-btn-sm,
-  .c888-lang-wrap { width: 100%; }
+  .c888-lang-wrap {
+    width: 100%;
+  }
 }

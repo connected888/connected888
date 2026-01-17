@@ -1,8 +1,9 @@
-:root{
-  --energy-primary: #9999CC;   /* violet */
-  --energy-accent:  #EAB444;   /* golden */
-  --energy-white:   #ffffff;
-}
+/* styles.scss */
+@use "variables" as *;
+@use "typography" as *;
+@use "buttons" as *;
+@use "iconography" as *;
+
 
 body {
   // padding-top: 80px; /* same as navbar height */
@@ -54,6 +55,10 @@ body {
 .ngx-spinner-overlay { z-index: 999999 !important; }
 .ngx-spinner { z-index: 1000000 !important; }
 
-
-
+.c888-logo { 
+  height: 54px;
+   width: 85px; 
+   top: 17px;
+   left:72px
+}
 

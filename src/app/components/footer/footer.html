@@ -1,71 +1,42 @@
-
-<footer class="c888-footer py-5">
-  <div class="container">
+<footer class="c888-footer py-5 ">
+  <div class="container" style="vertical-align: center!important;">
     <div class="row gy-4">
-      <!-- Contact & Social -->
-      <div class="col-12 col-md-6 col-lg-3">
-        <h5 class="text-accent mb-3">{{ 'Contact Us' | translate }}</h5>
-        <a class="footer-link d-inline-flex align-items-center gap-2"
-           href="mailto:info@connected888.org">
-          info@connected888.org
-        </a>
 
-        <h5 class="text-accent mt-4 mb-3">{{ 'Socials' | translate }}</h5>
-        <ul class="list-unstyled m-0 p-0 d-grid gap-2">
-          <li>
-            <a class="footer-link d-inline-flex align-items-center gap-2" href="#" aria-label="Facebook">
-              <i class="bi bi-facebook"></i><span>Connected888</span>
-            </a>
-          </li>
-          <li>
-            <a class="footer-link d-inline-flex align-items-center gap-2" href="#" aria-label="Instagram">
-              <i class="bi bi-instagram"></i><span>Connected888</span>
-            </a>
-          </li>
-          <li>
-            <a class="footer-link d-inline-flex align-items-center gap-2" href="#" aria-label="TikTok">
-              <i class="bi bi-tiktok"></i><span>Connected888</span>
-            </a>
-          </li>
-          <li>
-            <a class="footer-link d-inline-flex align-items-center gap-2" href="#" aria-label="YouTube">
-              <i class="bi bi-youtube"></i><span>Connected888</span>
-            </a>
-          </li>
-          <li>
-            <a class="footer-link d-inline-flex align-items-center gap-2" href="#" aria-label="LinkedIn">
-              <i class="bi bi-linkedin"></i><span>Connected888</span>
-            </a>
-          </li>
-          
-        </ul>
+      <!-- Column 1 : Logo & About (3 cols) -->
+      <div class="col-12 col-md-12 col-lg-3">
+        <div class="ft-c888">
+          <img src="images/logo-f.png" alt="Connected888" class="c888-logo mb-3" />
+          <p class="c-text">
+            Connected888 offers calming sound <br> healing experiences for balance,<br>
+            relaxation, and inner clarity.
+          </p>
+        </div>
+        <button class="reg-btn " (click)="register()">Register</button>
       </div>
 
-            <!-- Connected 888 -->
-      <div class="col-12 col-md-6 col-lg-3">
-        <h5 class="text-accent mb-3">{{ 'Connected 888' | translate }}</h5>
+      <!-- Column 2 : Connected 888 -->
+      <div class="col-6 col-md-3 col-lg-2">
+        <h5 class="text-accent mb-3">{{ "Connected 888" | translate }}</h5>
         <nav class="d-grid gap-2">
+          <a class="footer-link" href="#">Home</a>
           <a class="footer-link" href="#">About</a>
-          <a class="footer-link" href="#">Media</a>
-          <a class="footer-link" href="#">Terms & Policies</a>
-          <a class="footer-link" href="#">Waiver</a>
         </nav>
       </div>
 
-      <!-- Events -->
-      <div class="col-6 col-md-3 col-lg-3">
-        <h5 class="text-accent mb-3">{{ 'Get Connected' | translate }}</h5>
+      <!-- Column 3 : Get Connected -->
+      <div class="col-6 col-md-3 col-lg-2">
+        <h5 class="text-accent mb-3">{{ "Get Connected" | translate }}</h5>
         <nav class="d-grid gap-2">
           <a class="footer-link" href="#">Sound Healers</a>
-          <a class="footer-link" href="#">Practictioners</a>
           <a class="footer-link" href="#">Search Profiles</a>
-          <a class="footer-link" href="#">Create/Edit Profiles</a>
+          <a class="footer-link" href="#">Create/Edit </a>
+
         </nav>
       </div>
 
-      <!-- Contribute -->
-      <div class="col-6 col-md-3 col-lg-3">
-        <h5 class="text-accent mb-3">{{ 'Contribute' | translate }}</h5>
+      <!-- Column 4 : Contribute -->
+      <div class="col-6 col-md-3 col-lg-2">
+        <h5 class="text-accent mb-3">{{ "Contribute" | translate }}</h5>
         <nav class="d-grid gap-2">
           <a class="footer-link" href="#">Donate</a>
           <a class="footer-link" href="#">Sponsor</a>
@@ -75,21 +46,45 @@
         </nav>
       </div>
 
+      <!-- Column 5 : Contact & Socials (3 cols) -->
+      <div class="col-6 col-md-3 col-lg-3">
+        <h5 class="text-accent mb-3">{{ "Contact Us" | translate }}</h5>
+        <a
+          class="footer-link d-inline-flex align-items-center gap-2 mb-1"
+          href="mailto:info@connected888.org"
+        >
+         <p><i class="bi bi-envelope p-0 mail"></i> info@connected888.org</p>  
+        </a>
+        <div class="scls">
+          <a class="footer-link" href="#"><i class="bi bi-facebook icon-space"></i></a>
+          <a class="footer-link" href="#"><i class="bi bi-instagram icon-space"></i> </a>
+          <a class="footer-link" href="#"><i class="bi bi-tiktok icon-space"></i> </a>
+          <a class="footer-link" href="#"><i class="bi bi-youtube icon-space"></i> </a>
+          <a class="footer-link" href="#"><i class="bi bi-linkedin icon-space"></i> </a>
+        </div>
 
 
+      </div>
 
     </div>
 
-    <hr class="border-secondary opacity-25 my-4" />
+    <div class="pt-5">
+          <hr class="hr"  />
 
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3 small text-center text-md-start">
-      <p class="m-0">
-        © 2025 Connected888. {{ 'All Rights Reserved.' | translate }}
-        <a class="footer-link d-inline" href="mailto:info@connected888.org">info@connected888.org</a>
+    <div class="d-flex flex-column flex-md-row justify-content-between gap-3 small">
+      <p class="m-0 text-tagline">
+        Copyright © Connected888. 
       </p>
-      <p class="m-0 fst-italic text-tagline">
-        August 8 Global Collective Event for harmony and healing.
+      <p class="m-0 text-tagline">
+        All Rights Reserved | <a class="footer-link" href="#">Terms & Policies</a> | <a class="footer-link" href="#">Privacy Policy</a>
       </p>
     </div>
+    </div>
+
+
+
+
   </div>
 </footer>
+
+

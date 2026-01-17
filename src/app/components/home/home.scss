@@ -1,0 +1,183 @@
+@use "variables" as *;
+@use "typography" as *;
+@use "buttons" as *;
+
+
+
+// *{
+//     outline: solid 1px red;
+//     border: 1px solid blue;
+// }
+
+
+.home {
+    width: 100%;
+    min-height: 100vh!important;
+    background-image: url('/images/home/hero.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    object-fit: cover;
+}
+
+
+.hero-1-text {
+    padding-top: 62px;
+    width: 660px;
+    height: 243px;
+
+
+    opacity: 1;
+
+}
+
+.ptext {
+    font-family: $font-lato;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 24px;
+    line-height: 140%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: $white;
+    margin-left: 93px;
+
+    width: 763px;
+    height: 68px;
+
+    opacity: 1;
+
+
+}
+
+.hero-1-text .hrtext {
+    font-family: $font-eb-garamond;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 74px;
+
+    line-height: 110.00000000000001%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: $white;
+
+    margin-left: 93px;
+
+
+}
+
+.hero-2 {
+    width: 100%;
+    height: 557px;
+    opacity: 1;
+    padding-right: 72px;
+    padding-left: 72px;
+
+}
+
+.events {
+    width: 100%;
+    height: 557px;
+    opacity: 1;
+    background-color: $white;
+}
+
+.event-container{
+width: 509px;
+height: 445px;
+padding-top: 56px;
+padding-bottom: 56px;
+padding-left: 24px;
+padding-right: 24px;
+opacity: 1;
+
+}
+
+.event-head{
+    font-family: $font-lato;
+font-weight: 700;
+font-style: Bold;
+font-size: 40px;
+line-height: 100%;
+letter-spacing: 0%;
+vertical-align: middle;
+text-transform: uppercase;
+color: $gray-80;
+
+}
+
+.event-h2{
+    font-family: $font-eb-garamond;
+font-weight: 700;
+font-style: Bold;
+font-size: 38px;
+line-height: 120%;
+letter-spacing: 0%;
+vertical-align: middle;
+color: $gray-80;
+
+}
+
+.event-para{
+     font-family: $font-lato;
+font-weight: 400;
+font-style: Regular;
+font-size: 20px;
+
+line-height: 140%;
+letter-spacing: 0%;
+vertical-align: middle;
+color: #737373;
+margin-top: 16px;
+
+;
+
+}
+
+.ulist{
+    width: 509px;
+height: 196px;
+gap: 19.5px;
+opacity: 1;
+padding-top: 25px;
+color: $gray-80;
+font-family: $font-lato;
+
+}
+.free-reg {
+    width: 100%;
+    height: 557px;
+    opacity: 1;
+    background-color: $gray-80;
+
+
+}
+
+.hero-3 {
+    width: 100%;
+    height: 380px;
+    opacity: 1;
+
+    background-image: url('/images/home/hero-3.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-4 {
+    width: 100%;
+    height: 771px;
+    opacity: 1;
+    top: 1897px;
+    background-color: $brown-10;
+}
+
+.hero-5 {
+    width: 100%;
+    height: 906px;
+    opacity: 1;
+    top: 2659px;
+    left: 3px;
+    background: $white;
+}

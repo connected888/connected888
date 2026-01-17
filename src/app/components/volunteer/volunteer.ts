@@ -10,13 +10,5 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./volunteer.scss']
 })
 export class Volunteer {
-  // Checkbox states
-  presenter = false;
-  soundHealing = false;
-  eventOps = false;
 
-  // Textarea values
-  presenterDetails = '';
-  soundHealingDetails = '';
-  eventOpsDetails = '';
 }

@@ -5,7 +5,7 @@
   <div class="container align-items-center">
     <!-- Brand -->
     <a class="navbar-brand d-flex align-items-center me-2" routerLink="/">
-      <img src="images/logo.png" alt="Connected888" class="c888-logo" />
+      <img src="images/logo-f.png" alt="Connected888" class="c888-logo" />
     </a>
 
     <!-- Toggler (mobile) -->
@@ -21,21 +21,26 @@
     <!-- Collapsible zone -->
     <div class="collapse navbar-collapse" id="navMain">
       <!-- LEFT: menu right next to logo on lg+ -->
-      <ul
-        class="navbar-nav ms-lg-3 me-lg-auto gap-lg-4 mt-3 mt-lg-0 align-items-lg-center"
-      >
+      <ul class="navbar-nav mx-auto gap-4 align-items-center mt-3 mt-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link c888-link"
+            routerLink="/home"
+            routerLinkActive="active"
+            (click)="closeNav()"
+            >Home</a
+          >
+        </li>
+
         <li class="nav-item">
           <a
             class="nav-link c888-link"
             routerLink="/about"
             routerLinkActive="active"
             (click)="closeNav()"
-            >{{ "Navbar.ABOUT" | translate }}</a
-          >
+            >About Us
+          </a>
         </li>
-
-     
-
 
         <li class="nav-item dropdown">
           <a
@@ -45,29 +50,18 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            {{ "Navbar.GET_CONNECTED" | translate }}
+            Get Connected
           </a>
-          <ul
-            class="dropdown-menu"
-            aria-labelledby="contributeDropdown"
-          >
+          <ul class="dropdown-menu" aria-labelledby="contributeDropdown">
             <li>
-              <a
-                class="dropdown-item"
-                routerLink="/"
-                (click)="closeNav()"
-              >
-                {{ "Navbar.SOUND_HEALERS" | translate }}</a
-              >
+              <a class="dropdown-item" routerLink="/" (click)="closeNav()">
+                Sound Healing
+              </a>
             </li>
             <li>
-              <a
-                class="dropdown-item"
-                routerLink="/"
-                (click)="closeNav()"
-              >
-                {{ "Navbar.PRACTICTIONERS" | translate }}</a
-              >
+              <a class="dropdown-item" routerLink="/" (click)="closeNav()">
+                Practictioners
+              </a>
             </li>
             <li>
               <a
@@ -75,21 +69,40 @@
                 routerLink="/search-profiles"
                 (click)="closeNav()"
               >
-                {{ "Navbar.SEARCH_PROFILES" | translate }}</a
+                Search Profiles</a
               >
             </li>
-            <li>
+
+            <li class="nav-item dropend ">
               <a
-                class="dropdown-item"
-                routerLink="/create-profile"
-                (click)="closeNav()"
+                class="nav-link c888-link dropdown-toggle dropdown-item-main"  
+                
+                id="contributeDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
               >
-                {{ "Navbar.CREATE_EDIT_PROFILE" | translate }}</a
-              >
+                Create/Edit
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="contributeDropdown">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    routerLink="/donate"
+                    (click)="closeNav()"
+                  >
+                    Profiles
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" routerLink="/" (click)="closeNav()">
+                    Hosted pages
+                  </a>
+                </li>
+              </ul>
             </li>
           </ul>
         </li>
-
 
         <li class="nav-item dropdown">
           <a
@@ -97,31 +110,24 @@
             id="contributeDropdown"
             role="button"
             data-bs-toggle="dropdown"
-            aria-expanded="false"
+            aria-expanded="false"  
           >
-            {{ "Navbar.CONTRIBUTE" | translate }}
+            Contribute
           </a>
-          <ul
-            class="dropdown-menu"
-            aria-labelledby="contributeDropdown"
-          >
+          <ul class="dropdown-menu" aria-labelledby="contributeDropdown">
             <li>
               <a
                 class="dropdown-item"
                 routerLink="/donate"
                 (click)="closeNav()"
               >
-                {{ "Navbar.DONATE" | translate }}</a
-              >
+                Donate
+              </a>
             </li>
             <li>
-              <a
-                class="dropdown-item"
-                routerLink="/"
-                (click)="closeNav()"
-              >
-                {{ "Navbar.SPONSOR" | translate }}</a
-              >
+              <a class="dropdown-item" routerLink="/" (click)="closeNav()">
+                Sponsor
+              </a>
             </li>
             <li>
               <a
@@ -129,32 +135,35 @@
                 routerLink="/volunteer"
                 (click)="closeNav()"
               >
-                {{ "Navbar.VOLUNTEER" | translate }}</a
-              >
+                Volunteer
+              </a>
             </li>
-                        <li>
-              <a
-                class="dropdown-item"
-                routerLink="/promote"
-                (click)="closeNav()"
-              >
-                {{ "Navbar.PROMOTE" | translate }}</a
-              >
-            </li>
+       <li class="nav-item dropend ">
+          <a
+            class="nav-link c888-link dropdown-toggle text-md-start dropdown-item-main"
+            id="contributeDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Promote
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="contributeDropdown">
             <li>
               <a
                 class="dropdown-item"
                 routerLink="/donate"
                 (click)="closeNav()"
               >
-                {{ "Navbar.MEDIA" | translate }}</a
-              >
+                Media Kit
+              </a>
             </li>
           </ul>
         </li>
+          </ul>
+        </li>
 
-
-           <li class="nav-item dropdown">
+        <!-- <li class="nav-item dropdown">
           <a
             class="nav-link c888-link dropdown-toggle"
             id="contributeDropdown"
@@ -193,36 +202,24 @@
 
 
           </ul>
-        </li>
-
-
-
-    
-
-
-
+           </li> -->
       </ul>
 
       <!-- RIGHT: compact sign-in + beautified language -->
       <div
         class="d-flex align-items-center gap-2 gap-lg-3 ms-lg-3 mt-3 mt-lg-0 justify-content-center"
       >
-        <a
-          routerLink="/sign-in"
-          class="btn c888-gold-btn-sm rounded-pill px-3 fw-bold"
-          (click)="closeNav()"
-          >{{ "Navbar.SIGN_IN" | translate }}</a
-        >
-
         <!-- pretty language select -->
-        <div class="dropdown c888-lang-wrap">
+        <div class="dropdown">
+
           <button
-            class="btn btn-sm dropdown-toggle text-white d-flex align-items-center gap-2 lang-btn"
+            class="btn dropdown-toggle d-flex gap-2 lang-btn"
             type="button"
             data-bs-toggle="dropdown"
           >
-            <i class="bi bi-globe2"></i> {{langName}}
+            <i class="bi bi-translate lang-icon"></i> {{ lang | uppercase}}
           </button>
+
           <ul class="dropdown-menu dropdown-menu-end btng">
             <li *ngFor="let lang of languages">
               <a
@@ -234,6 +231,8 @@
             </li>
           </ul>
         </div>
+
+        <button class="reg-btn " (click)="register()">Register</button>
       </div>
     </div>
   </div>

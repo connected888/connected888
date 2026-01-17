@@ -1,5 +1,5 @@
-import { Component, HostListener, Input, AfterViewInit } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, HostListener, Input, AfterViewInit, OnInit } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import Collapse from 'bootstrap/js/dist/collapse';
 import { CommonModule } from '@angular/common';
@@ -11,15 +11,19 @@ import { CommonModule } from '@angular/common';
   templateUrl: './header.html',
   styleUrl: './header.scss'
 })
-export class Header implements AfterViewInit {
+export class Header implements OnInit,AfterViewInit {
   @Input() brand = 'Connected888';
   isScrolled = false;
   langName:any = 'English';
+  lang:any = 'EN';
 
   private collapseInstance?: Collapse;
 
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService,private route :Router) {
     this.translate.setDefaultLang('en');
+  }
+  ngOnInit(): void {
+   
   }
 
   languages = [
@@ -45,9 +49,9 @@ export class Header implements AfterViewInit {
 
   switchLanguage(langs: any) {
     this.langName = langs ? langs.label : 'English';
-    let lang:any = langs ? langs.code : 'en'; 
-    this.translate.use(lang);
-    document.body.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    this.lang= langs ? langs.code : 'en'; 
+    this.translate.use(this.lang);
+    document.body.dir = (this.lang === 'ar') ? 'rtl' : 'ltr';
   }
 
   ngAfterViewInit(): void {
@@ -70,5 +74,9 @@ export class Header implements AfterViewInit {
     if (!el) return;
     const inst = this.collapseInstance ?? Collapse.getOrCreateInstance(el, { toggle: false });
     inst.hide();
+  }
+
+  register(){
+   this.route.navigate(['/register']);
   }
 }

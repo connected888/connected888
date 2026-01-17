@@ -1,0 +1,105 @@
+/* =====================================================
+   ICONOGRAPHY SYSTEM
+   ===================================================== */
+
+@use "variables" as *;
+
+
+/* -------------------------
+   ICON COLORS (Brand Tokens)
+-------------------------- */
+$icon-primary:   $primary-main;
+$icon-secondary: $secondary-main;
+$icon-neutral:   $gray-70;
+$icon-muted:     $gray-50;
+$icon-inverse:   $white;
+
+
+/* -------------------------
+   ICON SIZES
+-------------------------- */
+$icon-sm: 20px;
+$icon-md: 24px;
+$icon-lg: 32px;
+$icon-xl: 40px;
+
+
+/* -------------------------
+   BASE ICON STYLE
+-------------------------- */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+
+/* -------------------------
+   SIZE UTILITIES
+-------------------------- */
+.icon-sm {
+  font-size: $icon-sm;
+  width: $icon-sm;
+  height: $icon-sm;
+}
+
+.icon-md {
+  font-size: $icon-md;
+  width: $icon-md;
+  height: $icon-md;
+}
+
+.icon-lg {
+  font-size: $icon-lg;
+  width: $icon-lg;
+  height: $icon-lg;
+}
+
+.icon-xl {
+  font-size: $icon-xl;
+  width: $icon-xl;
+  height: $icon-xl;
+}
+
+
+/* -------------------------
+   COLOR UTILITIES
+-------------------------- */
+.icon-primary {
+  color: $icon-primary;
+}
+
+.icon-secondary {
+  color: $icon-secondary;
+}
+
+.icon-neutral {
+  color: $icon-neutral;
+}
+
+.icon-muted {
+  color: $icon-muted;
+}
+
+.icon-inverse {
+  color: $icon-inverse;
+}
+
+
+/* -------------------------
+   INTERACTIVE STATES
+-------------------------- */
+.icon-clickable {
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $primary-80;
+  }
+
+  &:active {
+    color: $primary-90;
+  }
+}

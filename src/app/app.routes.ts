@@ -14,10 +14,12 @@ import { VolunteersList } from './components/AdminDashboard/volunteers-list/volu
 import { AdminDashbaord } from './components/AdminDashboard/admin-dashbaord/admin-dashbaord';
 import { BulkEmailSender } from './components/AdminDashboard/bulk-email-sender/bulk-email-sender';
 import { Flyer } from './components/flyer/flyer';
+import { Home } from './components/home/home';
 
 export const routes: Routes = [
     
-    { path: '', redirectTo: 'about', pathMatch: 'full' }, // default route
+    { path: '', redirectTo: 'home', pathMatch: 'full' }, 
+    { path: 'home', component: Home },
     { path: 'about', component: About },
     {
         path:'register',component:Register

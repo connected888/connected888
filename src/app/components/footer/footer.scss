@@ -1,35 +1,133 @@
-$c888-bg: #444444;;
-$c888-ink: #d0d0d0;
-$c888-accent: #f1c550;
-$c888-link: #c4d1e0;
-$c888-link-hover: #ffe08a;
+@use "variables" as *;
+@use "typography" as *;
+@use "buttons" as *;
+
+/* =========================
+   Footer Base
+========================= */
 
 .c888-footer {
-  background: $c888-bg;
-  color: $c888-ink;
+  width: 100%;
+  background: $gray-100;
+  color: $white;
+  padding: 3rem 0;
+}
 
-  .text-accent { color: $c888-accent; font-weight: 600; }
+/* =========================
+   Logo + Text
+========================= */
 
-  .footer-link {
-    color: $c888-link;
-    text-decoration: none;
-    transition: color .15s ease-in-out, transform .15s ease-in-out;
+.ft-c888 {
+  max-width: 320px;
+}
 
-    &:hover { color: $c888-link-hover; transform: translateY(-1px); }
-    &:focus-visible {
-      outline: 2px solid $c888-accent;
-      outline-offset: 2px;
-      border-radius: .25rem;
-      text-decoration: none;
-    }
+.c-text {
+  font-family: $font-lato;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  color: $white;
+}
 
-    i { color: $c888-accent; font-size: 1.05rem; }
+/* =========================
+   Headings
+========================= */
+
+.c888-footer .text-accent {
+  color: $primary-main;
+  font-family: $font-lato;
+  font-weight: 600;
+  font-size: 17px;
+  margin-bottom: 1rem;
+}
+
+/* =========================
+   Links
+========================= */
+
+.c888-footer .footer-link {
+  color: $white;
+  text-decoration: none;
+  font-family: $font-lato;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.c888-footer .footer-link:hover {
+  color: $primary-main;
+}
+
+/* =========================
+   Icons
+========================= */
+
+.c888-footer .bi {
+  font-size: 17px;
+
+  color: $white;
+  transition: color 0.2s ease;
+}
+
+.icon-space{
+  margin-right: 20px;
+}
+
+.c888-footer .bi:hover {
+  color: $primary-main;
+}
+
+/* =========================
+   Divider & Tagline
+========================= */
+
+.c888-footer hr {
+  border-color: $white;
+}
+
+.c888-footer .text-tagline {
+  color: $white;
+}
+
+
+.reg-btn { width: 116; height: 39; top: 24px; left: 1252px; border-radius: 6px; padding-top: 10px; padding-right: 20px; padding-bottom: 10px; padding-left: 20px; opacity: 1; background-color: $gray-100; color: $primary-main; font-family: $font-lato; font-weight: 500; font-style: Medium; font-size: 16px; line-height: 100%; letter-spacing: 0px; text-align: center; border: 1px solid $primary-main; }
+
+/* =========================
+   Mobile Responsive
+========================= */
+
+@media (max-width: 575.98px) {
+  .c888-footer {
+    text-align: left;
+    padding: 2rem 0;
   }
 
-  .text-tagline { color: #d1b65c; }
+  .ft-c888 .c-text{
+    margin: 0 auto;
+    padding: 0px 0px;
+  }
+  .reg-btn{
+    margin-top: 10px;
+  }
 
-  // compact spacing on very small screens
-  @media (max-width: 575.98px) {
-    .list-unstyled > li { margin: .1rem 0; }
+  .c888-footer .footer-link {
+    justify-content: left;
+    font-size: 14px;
+  }
+
+  .c888-footer ul {
+    padding-left: 0;
+  }
+
+  .c888-footer ul li {
+    margin: 0.35rem 0;
+  }
+
+  .c888-footer .bi {
+    margin-right: 15px;
+    font-size: 14px;
   }
 }

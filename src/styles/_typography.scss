@@ -1,0 +1,176 @@
+
+/* =====================================================
+   TYPOGRAPHY SYSTEM
+   ===================================================== */
+
+
+/* -------------------------
+   FONT IMPORTS
+-------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Lato:wght@400;500&family=Open+Sans:wght@400&family=Montserrat:wght@400;500&display=swap');
+
+/* -------------------------
+   FONT FAMILIES
+-------------------------- */
+$font-eb-garamond: 'EB Garamond', serif;
+$font-lato: 'Lato', sans-serif;
+$font-open-sans: 'Open Sans', sans-serif;
+$font-montserrat: 'Montserrat', sans-serif;
+$font-times: 'Times New Roman', serif;
+
+
+/* =====================================================
+   TYPE SCALE VARIABLES
+   ===================================================== */
+
+/* ---------- Headings ---------- */
+
+/* H1 */
+$type-h1-size: 46px;
+$type-h1-line-118: 1.18;
+$type-h1-line-120: 1.2;
+
+/* H2 */
+$type-h2-size: 25px;
+$type-h2-line: 1.5;
+
+/* H3 */
+$type-h3-size-sm: 16px;
+$type-h3-size-md: 18px;
+
+/* H4 */
+$type-h4-size: 13px;
+$type-h4-line: 1.5;
+
+
+/* ---------- Body ---------- */
+$type-body-1: 18px;
+$type-body-2: 16px;
+$type-body-3: 15px;
+$type-body-4: 14px;
+
+
+/* =====================================================
+   MIXINS
+   ===================================================== */
+@mixin heading($family, $size, $weight, $line-height: normal) {
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height;
+}
+
+@mixin body($family, $size, $weight, $line-height: normal) {
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height;
+}
+
+
+/* =====================================================
+   OPTION 1: EB Garamond + Lato
+   ===================================================== */
+.h1-garamond {
+  @include heading($font-eb-garamond, $type-h1-size, 700, $type-h1-line-118);
+}
+
+.h2-garamond {
+  @include heading($font-eb-garamond, $type-h2-size, 700, $type-h2-line);
+}
+
+.h3-garamond {
+  @include heading($font-eb-garamond, $type-h3-size-sm, 700);
+}
+
+.h4-garamond {
+  @include heading($font-eb-garamond, $type-h4-size, 700, $type-h4-line);
+}
+
+.body-1-lato {
+  @include body($font-lato, $type-body-1, 400);
+}
+
+.body-2-lato {
+  @include body($font-lato, $type-body-2, 400, 1.5);
+}
+
+.body-3-lato {
+  @include body($font-lato, $type-body-3, 500, 1.5);
+}
+
+.body-4-lato {
+  @include body($font-lato, $type-body-4, 400);
+}
+
+
+/* =====================================================
+   OPTION 2: EB Garamond + Open Sans
+   ===================================================== */
+.h1-garamond-os {
+  @include heading($font-eb-garamond, $type-h1-size, 700, $type-h1-line-120);
+}
+
+.h2-garamond-os {
+  @include heading($font-eb-garamond, $type-h2-size, 700, $type-h2-line);
+}
+
+.h3-garamond-os {
+  @include heading($font-eb-garamond, $type-h3-size-sm, 700);
+}
+
+.h4-garamond-os {
+  @include heading($font-eb-garamond, $type-h4-size, 700, $type-h4-line);
+}
+
+.body-1-open {
+  @include body($font-open-sans, $type-body-1, 400);
+}
+
+.body-2-open {
+  @include body($font-open-sans, $type-body-2, 400, 1.5);
+}
+
+.body-3-open {
+  @include body($font-open-sans, $type-body-3, 400, 1.5);
+}
+
+.body-4-open {
+  @include body($font-open-sans, $type-body-4, 400);
+}
+
+
+/* =====================================================
+   OPTION 3: Times New Roman + Montserrat
+   ===================================================== */
+.h1-times {
+  @include heading($font-times, $type-h1-size, 700, $type-h1-line-118);
+}
+
+.h2-times {
+  @include heading($font-times, $type-h2-size, 700, $type-h2-line);
+}
+
+.h3-times {
+  @include heading($font-times, $type-h3-size-md, 700);
+}
+
+.h4-times {
+  @include heading($font-times, $type-h4-size, 700, $type-h4-line);
+}
+
+.body-1-mont {
+  @include body($font-montserrat, $type-body-2, 500);
+}
+
+.body-2-mont {
+  @include body($font-montserrat, $type-body-2, 500, 1.5);
+}
+
+.body-3-mont {
+  @include body($font-montserrat, $type-body-4, 400);
+}
+
+.body-4-mont {
+  @include body($font-montserrat, $type-body-4, 400, 1.2);
+}

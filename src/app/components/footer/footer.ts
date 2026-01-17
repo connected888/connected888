@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
@@ -8,5 +9,13 @@ import { TranslatePipe } from '@ngx-translate/core';
   styleUrl: './footer.scss'
 })
 export class Footer {
+
+    constructor(private route :Router) {
+   
+  }
+
+    register(){
+   this.route.navigate(['/register']);
+  }
 
 }
