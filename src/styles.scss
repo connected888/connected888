@@ -1,11 +1,9 @@
-<<<<<<< HEAD
-/* styles.scss */
+
 @use "variables" as *;
 @use "typography" as *;
 @use "buttons" as *;
 @use "iconography" as *;
 
-=======
 :root {
   --energy-primary: #9999cc; /* violet */
   --energy-accent: #eab444; /* golden */
@@ -22,7 +20,7 @@
   --c888-line: #e1e1e1;
   --c888-primary-text: #7a7ab9;
 }
->>>>>>> 6ccf3bd3d46b32949ae24707b97413e18fdcdb45
+
 
 body {
   // padding-top: 80px; /* same as navbar height */
@@ -83,7 +81,7 @@ body {
 }
 
 /* ensure overlay sits on top */
-<<<<<<< HEAD
+
 .ngx-spinner-overlay { z-index: 999999 !important; }
 .ngx-spinner { z-index: 1000000 !important; }
 
@@ -94,7 +92,6 @@ body {
    left:72px
 }
 
-=======
 .ngx-spinner-overlay {
   z-index: 999999 !important;
 }
@@ -107,4 +104,4 @@ body {
 p {
   font-family: var(--c888-font-primary);
 }
->>>>>>> 6ccf3bd3d46b32949ae24707b97413e18fdcdb45
+

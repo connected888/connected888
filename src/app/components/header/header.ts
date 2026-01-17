@@ -1,13 +1,13 @@
 import { Component, HostListener, Input, AfterViewInit, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import {  TranslateService } from '@ngx-translate/core';
 import Collapse from 'bootstrap/js/dist/collapse';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [TranslatePipe, RouterLink, RouterLinkActive,CommonModule],
+  imports: [RouterLink, RouterLinkActive,CommonModule],
   templateUrl: './header.html',
   styleUrl: './header.scss'
 })
