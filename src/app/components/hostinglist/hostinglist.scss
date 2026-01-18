@@ -1,3 +1,6 @@
+.profile-wrap {
+  display: flex;
+}
 .profile-header {
   background-color: #f9cf6c;
 }
@@ -54,7 +57,6 @@
 .avatar-wrapper {
   position: absolute;
   top: 50%;
-  right: 12%;
   transform: translate(-50%, -50%);
   z-index: 3;
 }
@@ -84,7 +86,15 @@
   .avatar-wrapper {
     position: absolute;
     top: 50%;
-    right: 15px;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+  }
+}
+@media (max-width: 450px) {
+  .avatar-wrapper {
+    position: absolute;
+    top: 50%;
+    right: 5%;
     transform: translate(-50%, -50%);
     z-index: 3;
   }
@@ -212,4 +222,10 @@ hr {
 }
 .service-title {
   margin-right: 10px;
+}
+.service-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
 }
