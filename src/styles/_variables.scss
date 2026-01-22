@@ -1,136 +1,124 @@
-
 /* =====================================================
    BRAND COLOR SYSTEM – MAIN SCSS
    ===================================================== */
 
-
-
-
 /* -------------------------
    PRIMARY – MAIZE (YELLOW)
 -------------------------- */
-$primary-10:  #FEF9EC;
-$primary-20:  #FDF2D9;
-$primary-30:  #FDECC6;
-$primary-40:  #FCE6B3;
-$primary-50:  #FBE0A0;
-$primary-60:  #FAD98C;
-$primary-70:  #EAB444;
-$primary-80:  #C69A33;
-$primary-90:  #AD862D;
-$primary-100: #8F6F1F;
+$primary-10: #fef9ec;
+$primary-20: #fdf2d9;
+$primary-30: #fdecc6;
+$primary-40: #fce6b3;
+$primary-50: #fbe0a0;
+$primary-60: #fad98c;
+$primary-70: #eab444;
+$primary-80: #c69a33;
+$primary-90: #ad862d;
+$primary-100: #8f6f1f;
 
-$primary-main: #F7C040;
-
+$primary-main: #f7c040;
 
 /* -------------------------
    SECONDARY – LAVENDER
 -------------------------- */
-$secondary-10:  #F5F5FA;
-$secondary-20:  #EBEBF5;
-$secondary-30:  #E0E0F0;
-$secondary-40:  #CCCCE6;
-$secondary-50:  #C2C2E0;
-$secondary-60:  #ADADD6;
-$secondary-70:  #7A7AA3;
-$secondary-80:  #6B6B8F;
-$secondary-90:  #5C5C7A;
-$secondary-100: #3F3F5E;
-
-$secondary-main: #9999CC;
-
+$secondary-10: #f5f5fa;
+$secondary-20: #ebebf5;
+$secondary-30: #e0e0f0;
+$secondary-40: #cccce6;
+$secondary-50: #c2c2e0;
+$secondary-60: #adadd6;
+$secondary-70: #7a7aa3;
+$secondary-80: #6b6b8f;
+$secondary-90: #5c5c7a;
+$secondary-100: #3f3f5e;
+$black: #000000;
+$secondary-main: #9999cc;
 
 /* -------------------------
    TERTIARY – GREEN
 -------------------------- */
-$green-10:  #F0FFF4;
-$green-20:  #DCFFE4;
-$green-30:  #BEF5CB;
-$green-40:  #85E89D;
-$green-60:  #22863A;
-$green-80:  #176F2C;
-$green-90:  #165C26;
+$green-10: #f0fff4;
+$green-20: #dcffe4;
+$green-30: #bef5cb;
+$green-40: #85e89d;
+$green-60: #22863a;
+$green-80: #176f2c;
+$green-90: #165c26;
 $green-100: #144620;
 
-$green-main: #28A745;
-
+$green-main: #28a745;
 
 /* -------------------------
    BROWNS – UMBER
 -------------------------- */
-$brown-10:  #EFEEED;
-$brown-20:  #CFCCC9;
-$brown-30:  #B0AAA6;
-$brown-40:  #908782;
-$brown-50:  #807670;
-$brown-60:  #70655E;
-$brown-80:  #60544C;
-$brown-90:  #4D433D;
-$brown-100: #3A322E;
-
+$brown-10: #efeeed;
+$brown-20: #cfccc9;
+$brown-30: #b0aaa6;
+$brown-40: #908782;
+$brown-50: #807670;
+$brown-60: #70655e;
+$brown-80: #60544c;
+$brown-90: #4d433d;
+$brown-100: #3a322e;
 
 /* -------------------------
    ORANGE
 -------------------------- */
-$orange-10:  #F9EDE6;
-$orange-20:  #F3DBCC;
-$orange-30:  #E7B699;
-$orange-40:  #DC9266;
-$orange-50:  #D06D33;
-$orange-80:  #9D3A00;
-$orange-90:  #893300;
+$orange-10: #f9ede6;
+$orange-20: #f3dbcc;
+$orange-30: #e7b699;
+$orange-40: #dc9266;
+$orange-50: #d06d33;
+$orange-80: #9d3a00;
+$orange-90: #893300;
 $orange-100: #622500;
 
-$orange-main: #CA5B1A;
-
+$orange-main: #ca5b1a;
 
 /* -------------------------
    NEUTRALS – GRAYS
 -------------------------- */
-$gray-10:  #FAFAFA;
-$gray-20:  #F5F5F5;
-$gray-30:  #F0F0F0;
-$gray-40:  #D9D9D9;
-$gray-50:  #BFBFBF;
-$gray-60:  #8C8C8C;
-$gray-70:  #595959;
-$gray-80:  #434343;
-$gray-90:  #262626;
+$gray-10: #fafafa;
+$gray-20: #f5f5f5;
+$gray-30: #f0f0f0;
+$gray-40: #d9d9d9;
+$gray-50: #bfbfbf;
+$gray-60: #8c8c8c;
+$gray-70: #595959;
+$gray-80: #434343;
+$gray-90: #262626;
 $gray-100: #222222;
 
-$white: #FFFFFF;
-
+$white: #ffffff;
 
 /* -------------------------
    SEMANTIC COLORS
 -------------------------- */
 
 /* Error */
-$error-light:  #EF5350;
-$error-main:   #D32F2F;
-$error-dark:   #C62828;
+$error-light: #ef5350;
+$error-main: #d32f2f;
+$error-dark: #c62828;
 
 /* Success */
-$success-light: #4CAF50;
-$success-main:  #2E7D32;
-$success-dark:  #1B5E20;
+$success-light: #4caf50;
+$success-main: #2e7d32;
+$success-dark: #1b5e20;
 
 /* Info / Links */
-$info-light: #3369D6;
-$info-main:  #0044CC;
-$info-dark:  #00297A;
-
+$info-light: #3369d6;
+$info-main: #0044cc;
+$info-dark: #00297a;
 
 /* =====================================================
    GLOBAL THEME VARIABLES
    ===================================================== */
-$color-text-primary:   $gray-90;
+$color-text-primary: $gray-90;
 $color-text-secondary: $gray-70;
-$color-bg-default:     $white;
-$color-bg-muted:       $gray-10;
+$color-bg-default: $white;
+$color-bg-muted: $gray-10;
 
 $border-color-default: $gray-40;
-
 
 /* =====================================================
    OPTIONAL: CSS VARIABLES EXPORT (for runtime theming)
