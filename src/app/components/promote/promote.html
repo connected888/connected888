@@ -1,55 +1,42 @@
-<section class="promo-hero">
-  <div >
-    <div class="row g-0 min-vh-100">
-     
-      <!-- RIGHT: big illustration -->
-      <div class="col-12 col-lg-7 d-none d-lg-block ">
-        <div class="artboard" role="img" aria-label="Illustration panel"></div>
-      </div>
+<section class="promoter-section">
+  <div class="promoter-wrapper">
 
+    <!-- LEFT CONTENT -->
+    <div class="promoter-left">
 
+      <h1 class="title">Become a Promoter</h1>
+      <p class="subtitle">Join our community and promote events</p>
 
-         <div class="col-12 col-lg-5 d-flex align-items-center justify-content-center">
-        <div class="panel mx-3 my-5 my-lg-0 w-100" style="max-width: 520px;">
-          <h2 class="title mb-1">Promote Events</h2>
-          <p class="lead mb-4">
-            Marketing assets and details will be sent to the email address provided.
-          </p>
+      <h3 class="block-title">What You’ll Do</h3>
+      <ul class="tasks">
+        <li>Share event information with your network</li>
+        <li>Post about events on social media</li>
+        <li>Get your audience excited about events</li>
+      </ul>
 
-          <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
-            <!-- Organization -->
-            <div class="field">
-              <label class="label">Organization Name</label>
-              <input class="form-control form-pill"
-                     [class.is-invalid]="f.orgName.invalid && (f.orgName.dirty || f.orgName.touched)"
-                     type="text" placeholder="Organization Name"
-                     formControlName="orgName">
-            </div>
+      <h2 class="form-title">Sign up to become a promoter</h2>
 
-            <!-- Contact -->
-            <div class="field">
-              <label class="label">Contact Name</label>
-              <input class="form-control form-pill"
-                     [class.is-invalid]="f.contactName.invalid && (f.contactName.dirty || f.contactName.touched)"
-                     type="text" placeholder="Contact Name"
-                     formControlName="contactName">
-            </div>
-
-            <!-- Email -->
-            <div class="field">
-              <label class="label">Contact Email</label>
-              <input class="form-control form-pill"
-                     [class.is-invalid]="f.contactEmail.invalid && (f.contactEmail.dirty || f.contactEmail.touched)"
-                     type="email" placeholder="name@company.com"
-                     formControlName="contactEmail">
-            </div>
-
-            <button class="btn btn-accent w-100 mt-2" type="submit" [disabled]="form.invalid">
-              Submit
-            </button>
-          </form>
+      <form class="promoter-form">
+        <div class="row " style="margin-left: 1px;">
+          <input type="text" placeholder="First Name">
+          <input type="text" placeholder="Last Name">
         </div>
-      </div>
+
+        <input type="text" placeholder="Organization Name">
+        <input type="email" placeholder="Email Address">
+        <select>
+          <option>Select country</option>
+        </select>
+
+        <button type="submit">Submit</button>
+      </form>
+
     </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="promoter-right">
+      <img src="/images/promote/promote.jpg" alt="Promoter">
+    </div>
+
   </div>
 </section>

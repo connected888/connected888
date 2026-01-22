@@ -18,7 +18,8 @@ type Profile = {
   avatar?: string;       // optional image url
   ribbon?: string;       // optional ribbon text
   coverColor?: string;   // optional cover color (hex)
-  coverImage?: string;   // optional cover image url
+  coverImage?: string; 
+  defaultcoverImage?: string;   // optional cover image url
 
   // 🆕 Social links (optional)
   linkedin?: string;
@@ -36,6 +37,7 @@ type Profile = {
   styleUrl: './searchprofiles.scss'
 })
 export class Searchprofiles implements OnInit{
+[x: string]: any;
   private fb = inject(FormBuilder);
 
   // ---- MOCK DATA (replace with API later) ----
@@ -51,6 +53,7 @@ private MOCK: Profile[] = [
     bio: 'Sophie is a holistic practitioner with over 10 years of experience in energy healing, mindfulness, and sound therapy.',
     avatar: 'images/p1.jpg',
     coverImage: 'images/c1.jpg',
+    defaultcoverImage:'images/defaultcover.jpg',
     ribbon: 'Practitioner',
     coverColor: '#9999CC',
     linkedin: 'https://linkedin.com/in/sophie',
@@ -69,6 +72,7 @@ private MOCK: Profile[] = [
     bio: 'A compassionate energy healer dedicated to helping others find harmony through yoga, meditation, Reiki, and therapeutic sound healing.',
     avatar: 'images/p5.jpg',
     coverImage: 'images/c2.jpg',
+    defaultcoverImage:'images/defaultcover.jpg',
     ribbon: 'Practitioner',
     coverColor: '#9999CC',
     linkedin: 'https://linkedin.com/in/pavan',
@@ -83,6 +87,7 @@ private MOCK: Profile[] = [
     bio: 'John specializes A compassionate energy healer dedicated to helping others find harmony through yoga, meditation, Reiki, and therapeutic sound healing.',
     avatar: 'images/p6.jpg',
     coverImage: 'images/c3.jpg',
+    defaultcoverImage:'images/defaultcover.jpg',
     ribbon: 'Practitioner',
     coverColor: '#9999CC',
     twitter: 'https://twitter.com/johnapple',
@@ -98,6 +103,7 @@ private MOCK: Profile[] = [
     bio: 'A compassionate energy healer dedicated to helping others find harmony through yoga, meditation, Reiki, and therapeutic sound healing.',
     avatar: 'images/p4.jpg',
     coverImage: 'images/c4.jpg',
+    defaultcoverImage:'images/defaultcover.jpg',
     ribbon: 'Practitioner',
     coverColor: '#9999CC',
     linkedin: 'https://linkedin.com/in/emily',
@@ -113,6 +119,7 @@ private MOCK: Profile[] = [
     bio: 'Energy healing for a better life.',
     avatar: 'images/p3.jpg',
     coverImage: 'images/c3.jpg',
+    defaultcoverImage:'images/defaultcover.jpg',
     ribbon: 'Practitioner',
     coverColor: '#9999CC',
     youtube: 'https://youtube.com/@liamsound',
@@ -128,6 +135,7 @@ private MOCK: Profile[] = [
     bio: 'Guiding you to inner peace.',
     avatar: 'images/p4.jpg',
     coverImage: 'images/c2.jpg',
+    defaultcoverImage:'images/defaultcover.jpg',
     ribbon: 'Practitioner',
     coverColor: '#9999CC',
     linkedin: 'https://linkedin.com/in/sophiaj',
@@ -143,6 +151,7 @@ private MOCK: Profile[] = [
     bio: 'A compassionate energy healer dedicated to helping others find harmony through yoga, meditation, Reiki, and therapeutic sound healing.',
     avatar: 'images/p5.jpg',
     coverImage: 'images/c1.jpg',
+    defaultcoverImage:'images/defaultcover.jpg',
     ribbon: 'Volunteer',
     coverColor: '#9999CC',
     facebook: 'https://facebook.com/ethanb',
@@ -158,6 +167,7 @@ private MOCK: Profile[] = [
     bio: 'A compassionate energy healer dedicated to helping others find harmony through yoga, meditation, Reiki, and therapeutic sound healing.',
     avatar: 'images/p6.jpg',
     coverImage: 'images/c4.jpg',
+    defaultcoverImage:'images/defaultcover.jpg',
     ribbon: 'Practitioner',
     coverColor: '#9999CC',
     instagram: 'https://instagram.com/oliviaflow'
@@ -172,6 +182,7 @@ private MOCK: Profile[] = [
     bio: 'A compassionate energy healer dedicated to helping others find harmony through yoga, meditation, Reiki, and therapeutic sound healing.',
     avatar: 'images/p7.jpg',
     coverImage: 'images/c2.jpg',
+    defaultcoverImage:'images/defaultcover.jpg',
     ribbon: 'Volunteer',
     coverColor: '#9999CC',
     linkedin: 'https://linkedin.com/in/noahw',
@@ -187,6 +198,7 @@ private MOCK: Profile[] = [
     bio: 'A compassionate energy healer dedicated to helping others find harmony through yoga, meditation, Reiki, and therapeutic sound healing.',
     avatar: 'images/p2.jpg',
     coverImage: 'images/c3.jpg',
+    defaultcoverImage:'images/defaultcover.jpg',
     ribbon: 'Volunteer',
     coverColor: '#9999CC',
     instagram: 'https://instagram.com/avaheals',
@@ -224,7 +236,7 @@ private MOCK: Profile[] = [
     q: [''],
     services: [[] as string[]],
     country: [''],
-    perPage: [6],
+    perPage: [0],
   });
 
   page$ = new BehaviorSubject(1);
@@ -290,7 +302,7 @@ private MOCK: Profile[] = [
   }
 
   clearAll() {
-    this.form.reset({ q: '', services: [], country: '', perPage: 6 });
+    this.form.reset({ q: '', services: [], country: '', perPage: 0 });
     this.setPage(1);
   }
 

@@ -15,64 +15,92 @@ import { AdminDashbaord } from './components/AdminDashboard/admin-dashbaord/admi
 import { BulkEmailSender } from './components/AdminDashboard/bulk-email-sender/bulk-email-sender';
 import { Flyer } from './components/flyer/flyer';
 import { Home } from './components/home/home';
+import { Sponsor } from './components/sponsor/sponsor';
+import { PageNotFound } from './components/page-not-found/page-not-found';
 
 export const routes: Routes = [
-    
-    { path: '', redirectTo: 'home', pathMatch: 'full' }, 
-    { path: 'home', component: Home },
-    { path: 'about', component: About },
-    {
-        path:'register',component:Register
-    },
-    {
-        path:'donate',component:Donate
-    },
-    {
-       path:'volunteer',component:Volunteer
-    },
-     {
-       path:'promote',component:Promote
-    },
-    {
-       path:'sign-in',component:SignIn
-    },
-     {
-       path:'create-profile',component:Createprofile
-    },
-     {
-       path:'search-profiles',component:Searchprofiles
-    },
-    {
-       path:'dashboard',component:Dashboard,
-       children:[{
-         path:'',redirectTo:'admin-dashboard',pathMatch:'full'
-       },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: Home },
+  { path: 'about', component: About },
+  {
+    path: 'register',
+    component: Register,
+  },
+  {
+    path: 'donate',
+    component: Donate,
+  },
+  {
+    path: 'volunteer',
+    component: Volunteer,
+  },
+  {
+    path: 'promote',
+    component: Promote,
+  },
+  {
+    path: 'sign-in',
+    component: SignIn,
+  },
+  {
+   path:'sponsor',
+   component:Sponsor
+  },
+  {
+    path: 'create-profile',
+    component: Createprofile,
+  },
+  {
+    path: 'search-profiles',
+    component: Searchprofiles,
+  },
+  {
+    path: 'dashboard',
+    component: Dashboard,
+    children: [
       {
-         path:'registrations-list',component:RegistrationsList,
+        path: '',
+        redirectTo: 'admin-dashboard',
+        pathMatch: 'full',
       },
       {
-         path:'volunteers-list',component:VolunteersList,
+        path: 'registrations-list',
+        component: RegistrationsList,
       },
       {
-         path:'admin-dashboard',component:AdminDashbaord,
+        path: 'volunteers-list',
+        component: VolunteersList,
       },
       {
-         path:'bulk-email-sender',component:BulkEmailSender,
+        path: 'admin-dashboard',
+        component: AdminDashbaord,
       },
-     
-      
       {
-         path:'**',redirectTo:'admin-dashboard'
-      }
-   ]
-    },
-    {
-     path:'hostinglist',component:Hostinglist
-    }, {
-         path:'flyer',component:Flyer
-   },
+        path: 'bulk-email-sender',
+        component: BulkEmailSender,
+      },
 
-    {
-        path:'**',redirectTo:'about'
-    }
+      {
+        path: '**',
+        redirectTo: 'admin-dashboard',
+      },
+    ],
+  },
+  {
+    path: 'hostinglist',
+    component: Hostinglist,
+  },
+  {
+    path: 'flyer',
+    component: Flyer,
+  },
+   {
+    path: 'pageNotFound',
+    component: PageNotFound,
+  },
+
+  {
+    path: '**',
+    redirectTo: 'pageNotFound',
+  },
 ];
