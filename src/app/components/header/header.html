@@ -2,7 +2,7 @@
   class="navbar navbar-expand-lg c888-nav fixed-top py-2"
   [class.scrolled]="isScrolled"
 >
-  <div class="container align-items-center">
+  <div class="container-fluid align-items-center">
     <!-- Brand -->
     <a class="navbar-brand d-flex align-items-center me-2" routerLink="/">
       <img src="images/logo-f.png" alt="Connected888" class="c888-logo" />
@@ -73,10 +73,9 @@
               >
             </li>
 
-            <li class="nav-item dropend ">
+            <li class="nav-item dropend">
               <a
-                class="nav-link c888-link dropdown-toggle dropdown-item-main"  
-                
+                class="nav-link c888-link dropdown-toggle dropdown-item-main"
                 id="contributeDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -110,7 +109,7 @@
             id="contributeDropdown"
             role="button"
             data-bs-toggle="dropdown"
-            aria-expanded="false"  
+            aria-expanded="false"
           >
             Contribute
           </a>
@@ -138,29 +137,28 @@
                 Volunteer
               </a>
             </li>
-       <li class="nav-item dropend ">
-          <a
-            class="nav-link c888-link dropdown-toggle text-md-start dropdown-item-main"
-            id="contributeDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            routerLink="/promote"
-          >
-            Promote
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="contributeDropdown">
-            <li>
+            <li class="nav-item dropend">
               <a
-                class="dropdown-item"
-                routerLink="/mediakit"
-                (click)="closeNav()"
+                class="nav-link c888-link dropdown-toggle text-md-start dropdown-item-main"
+                id="contributeDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
               >
-                Media Kit
+                Promote
               </a>
+              <ul class="dropdown-menu" aria-labelledby="contributeDropdown">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    routerLink="/donate"
+                    (click)="closeNav()"
+                  >
+                    Media Kit
+                  </a>
+                </li>
+              </ul>
             </li>
-          </ul>
-        </li>
           </ul>
         </li>
 
@@ -212,13 +210,12 @@
       >
         <!-- pretty language select -->
         <div class="dropdown">
-
           <button
             class="btn dropdown-toggle d-flex gap-2 lang-btn"
             type="button"
             data-bs-toggle="dropdown"
           >
-            <i class="bi bi-translate lang-icon"></i> {{ lang | uppercase}}
+            <i class="bi bi-translate lang-icon"></i> {{ lang | uppercase }}
           </button>
 
           <ul class="dropdown-menu dropdown-menu-end btng">
@@ -233,7 +230,7 @@
           </ul>
         </div>
 
-        <button class="reg-btn " (click)="register()">Register</button>
+        <button class="reg-btn" (click)="register()">Register</button>
       </div>
     </div>
   </div>
