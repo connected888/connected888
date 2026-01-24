@@ -28,9 +28,7 @@
 
 .hero-1-text {
   padding-top: 62px;
-  width: 660px;
   height: 243px;
-
   opacity: 1;
 }
 
@@ -64,6 +62,8 @@
   margin: 50px;
   margin-left: 6rem;
   border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
   padding: 10px 20px;
   background-color: #434343;
   color: $white;
@@ -84,7 +84,6 @@
   }
 }
 .hero-2 {
-  width: 100%;
   opacity: 1;
   padding-right: 72px;
   padding-left: 72px;
@@ -97,7 +96,6 @@
 }
 
 .event-container {
-  width: 509px;
   padding-top: 56px;
   padding-left: 24px;
   padding-right: 24px;
@@ -108,7 +106,7 @@
   font-family: $font-lato;
   font-weight: 700;
   font-style: Bold;
-  font-size: 40px;
+  font-size: 2.5rem;
   line-height: 100%;
   letter-spacing: 0%;
   vertical-align: middle;
@@ -120,7 +118,7 @@
   font-family: $font-eb-garamond;
   font-weight: 700;
   font-style: Bold;
-  font-size: 38px;
+  font-size: 2.375rem;
   line-height: 120%;
   letter-spacing: 0%;
   vertical-align: middle;
@@ -131,7 +129,7 @@
   font-family: $font-lato;
   font-weight: 400;
   font-style: Regular;
-  font-size: 22px;
+  font-size: 1.375rem;
   line-height: 140%;
   letter-spacing: 0%;
   vertical-align: middle;
@@ -269,6 +267,8 @@
   background-color: rgba($primary-60, 0.2);
   border: none;
   border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
   width: 110px;
   height: 110px;
   cursor: pointer;
@@ -287,6 +287,8 @@
   width: 80%;
   height: 55px;
   border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
   padding: 10px 20px;
   background-color: $primary-60;
   font-family: $font-lato;
@@ -438,6 +440,8 @@
   height: 36px;
   background-color: $primary-10;
   border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -466,6 +470,8 @@
 .profile-btn {
   margin: 50px;
   border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
   padding: 10px 20px;
   background-color: $primary-main;
   font-family: $font-lato;
@@ -518,14 +524,13 @@
   }
 
   .event-h2 {
-    font-size: 16px;
+    font-size: 1rem;
   }
   .event-para {
-    font-size: 14px;
-    width: 80%;
+    font-size: 0.875rem;
   }
   .ulist {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 600;
     padding-top: 0px;
   }
@@ -534,17 +539,19 @@
     padding-right: 0px;
   }
   .free-reg {
-    width: 94%;
+    width: 90%;
     height: auto;
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
     border-radius: 12px;
-    margin: 20px 10px;
+    margin: 20px 15px;
   }
   .circle-btn {
     background-color: rgba($primary-60, 0.2);
     border: none;
     border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
     width: 50px;
     height: 50px;
   }
