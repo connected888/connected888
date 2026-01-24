@@ -1,7 +1,7 @@
 // src/app/createprofile/createprofile.ts
 import { Component, inject, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormArray } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormArray, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-createprofile',
@@ -9,102 +9,115 @@ import { ReactiveFormsModule, FormBuilder, FormArray } from '@angular/forms';
   templateUrl: './createprofile.html',
   styleUrl: './createprofile.scss',
 })
-export class Createprofile implements OnDestroy {
-  private fb = inject(FormBuilder);
+export class Createprofile {
 
-  form = this.fb.group({
-    firstName: [''],
-    lastName: [''],
-    organizationName: [''],
+  step = 1;
+  totalSteps = 3;
 
-    languages: [[] as string[]],
-    country: [''],
+  form:any;
 
-    email: [''],
-    showEmail: [false],
-    phone: [''],
-    showPhone: [false],
+  constructor(private fb: FormBuilder) {
+  this.form = this.fb.group({
+    // Step 1 – Personal Info
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    country: ['', Validators.required],
+    language: ['', Validators.required],
+    modality: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    headline: [''],
+    statement: [''],
 
-    avatar: [null as null | { name: string; size: number; type: string }],
+    // Step 2 – Contact Info
+  contactEmail: ['', [Validators.required, Validators.email]],
+  phone: [''],
+  website: [''],
 
-    socials: this.fb.group({
-      website: [''],
-      youtube: [''],
-      instagram: [''],
-      tiktok: [''],
-      facebook: [''],
-      meetup: [''],
-      linkedin: [''],
-    }),
+  youtube: [''],
+  facebook: [''],
+  linkedin: [''],
+  instagram: [''],
+  meetup: [''],
+  tiktok: [''],
 
-    sectionTitle: [''],
-    sectionDescription: [''],
+  footerStatement: [''],
 
-    serviceList: this.fb.array(Array.from({ length: 6 }, () => this.fb.control(''))),
+    // Step 3 – Services
+     services: this.fb.array([this.createService()]),
 
-    images: this.fb.array([this.fb.control(null), this.fb.control(null), this.fb.control(null)]),
-
-    services: this.fb.array([
-      this.fb.group({ title: [''], link: [''], date: [''], price: [''], description: [''] }),
-      this.fb.group({ title: [''], link: [''], date: [''], price: [''], description: [''] }),
-      this.fb.group({ title: [''], link: [''], date: [''], price: [''], description: [''] }),
-    ]),
-
-    closing: [''],
+    // Images
+    profilePhoto: [null],
+    backgroundImage: [null]
   });
 
-  get serviceList(): FormArray { return this.form.get('serviceList') as FormArray; }
-  get images(): FormArray { return this.form.get('images') as FormArray; }
-  get services(): FormArray { return this.form.get('services') as FormArray; }
+  }
 
-  avatarPreview: string | null = null;
-  servicePreviews: string[] = ['', '', ''];
 
-  private revoke(url?: string) { if (url) URL.revokeObjectURL(url); }
 
-  onAvatarChange(ev: Event) {
-    const input = ev.target as HTMLInputElement;
-    const file = input.files?.[0] ?? null;
 
-    if (this.avatarPreview) this.revoke(this.avatarPreview);
 
-    if (file) {
-      this.form.patchValue({ avatar: { name: file.name, size: file.size, type: file.type } });
-      this.avatarPreview = URL.createObjectURL(file);
-    } else {
-      this.form.patchValue({ avatar: null });
-      this.avatarPreview = null;
+
+  get progress(): number {
+    return (this.step / this.totalSteps) * 100;
+  }
+
+  next() {
+    if (this.step < this.totalSteps) {
+      this.step++;
     }
   }
 
-  clearAvatar() {
-    if (this.avatarPreview) this.revoke(this.avatarPreview);
-    this.avatarPreview = null;
-    this.form.patchValue({ avatar: null });
+  back() {
+    if (this.step > 1) {
+      this.step--;
+    }
   }
 
-  onServiceImageChange(index: number, ev: Event) {
-    const input = ev.target as HTMLInputElement;
-    const file = input.files?.[0] ?? null;
-
-    if (this.servicePreviews[index]) this.revoke(this.servicePreviews[index]);
-
-    this.images.at(index).setValue(file ? { name: file.name, size: file.size, type: file.type } : null);
-    this.servicePreviews[index] = file ? URL.createObjectURL(file) : '';
-  }
-
-  onSubmit() {
-    console.clear();
-    console.log('%cCreateProfile payload', 'color:#1da3dd;font-weight:700');
+  submit() {
     console.log(this.form.value);
-    this.form.reset();
-    this.clearAvatar();
   }
 
-  ngOnDestroy(): void {
-    this.revoke(this.avatarPreview || undefined);
-    this.servicePreviews.forEach(u => this.revoke(u));
+  onFileSelect(event: any, field: string) {
+    const file = event.target.files[0];
+    if (file) {
+      this.form.patchValue({ [field]: file });
+    }
   }
 
-  trackByIndex = (i: number) => i;
+
+
+  get services(): FormArray {
+  return this.form.get('services') as FormArray;
+}
+
+createService() {
+  return this.fb.group({
+    name: ['', Validators.required],
+    description: [''],
+    startDate: [''],
+    endDate: [''],
+    startTime: [''],
+    endTime: [''],
+    price: [''],
+    scheduleUrl: [''],
+    image: [null]
+  });
+}
+
+addService() {
+  this.services.push(this.createService());
+}
+
+removeService(i: number) {
+  this.services.removeAt(i);
+}
+
+onServiceImageSelect(event: any, index: number) {
+  const file = event.target.files[0];
+  if (file) {
+    this.services.at(index).patchValue({ image: file });
+  }
+  
+ 
+}
 }

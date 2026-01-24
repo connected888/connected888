@@ -1,135 +1,108 @@
-<section class="sp-wrap py-4 py-lg-5">
-  <div class="container">
-    <h4 class="display-7 fw-semibold mb-4">Search Profiles</h4>
+<section class="search-page" *ngIf="(vm$ | async) as vm">
 
-    <!-- Filters -->
-    <form [formGroup]="form" class="sp-filters card p-3 p-lg-4 mb-4">
-      <div class="row g-3 align-items-end">
-        <div class="col-12 col-lg-4">
-          <label class="form-label">Search by Name</label>
-          <div class="input-group">
-            <span class="input-group-text"><i class="bi bi-search"></i></span>
-            <input class="form-control" formControlName="q" placeholder="Search by name or bio…" />
+  <!-- TOP SEARCH PANEL -->
+  <div class="search-panel">
+    <h1>Find Spiritual Guides and Practices</h1>
+    <p>Explore profiles, events, and teachings that resonate with you.</p>
+
+    <div class="search-bar">
+
+      <div class="bar">
+
+    
+
+      <!-- SEARCH -->
+      <div class="search-input">
+        <i class="bi bi-search"></i>
+        <input type="text"
+               placeholder="Search by name or bio"
+               [formControl]="form.controls.q">
+      </div>
+
+      
+
+      <!-- SERVICES FILTER -->
+      <div class="select-box">
+        <div class="divider"></div>
+        <i class="bi bi-card-list"></i>
+        <select (change)="toggleService($any($event.target).value, $event)">
+          <option value="">Select Category</option>
+          <option *ngFor="let s of allServices" [value]="s">{{ s }}</option>
+        </select>
+      </div>
+
+     
+
+      <!-- PER PAGE -->
+      <div class="select-box">
+         <div class="divider"></div>
+        <select [formControl]="form.controls.perPage" (change)="setPage(1)">
+           <option [value]="0">Profiles Per Page</option>
+          <option [value]="6">6</option>
+          <option [value]="12">12</option>
+          <option [value]="24">24</option>
+        </select>
+      </div>
+  </div>
+      <button class="search-btn" (click)="setPage(1)">Search</button>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results-section">
+    <h2>Search Result</h2>
+
+    <div class="card-grid">
+
+      <!-- CARD -->
+      <div class="profile-card" *ngFor="let p of vm.rows; trackBy: trackById">
+
+        <!-- HEADER -->
+        <div class="card-header">Connected888</div>
+
+        <!-- COVER -->
+        <div class="card-cover"
+             [style.background-image]="p.coverImage ? 'url(' + p.coverImage + ')' : 'url(' + p.defaultcoverImage + ')' "
+             [style.background-color]="p.coverColor">
+
+          <span class="badge">{{ p.ribbon || 'Practitioner' }}</span>
+
+          <img class="avatar"
+               [src]="p.avatar || 'images/default-user.png'"
+               [alt]="p.name">
+        </div>
+
+        <!-- BODY -->
+        <div class="card-body">
+          <h3>{{ p.name }}</h3>
+
+          <div class="tags">
+            <span *ngFor="let s of p.services">{{ s }}</span>
           </div>
-        </div>
 
-        <div class="col-12 col-md-6 col-lg-3">
-          <label class="form-label">Services</label>
-          <div class="dropdown w-100">
-            <button class="btn btn-outline-secondary w-100 text-start d-flex justify-content-between align-items-center"
-                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <span class="text-truncate">
-                {{ (form.value.services?.length || 0) ? (form.value.services?.join(', ')) : 'Nothing selected' }}
-              </span>
-              <i class="bi bi-chevron-down"></i>
-            </button>
-            <ul class="dropdown-menu w-100 p-2 sp-service-menu">
-              <li *ngFor="let s of allServices">
-                <button class="btn btn-sm me-2 mb-2" [class.btn-primary]="form.value.services?.includes(s)"
-                        [class.btn-outline-secondary]="!form.value.services?.includes(s)"
-                        (click)="toggleService(s, $event)">{{ s }}</button>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-3">
-          <label class="form-label">Country</label>
-          <select class="form-select" formControlName="country">
-            <option value="">Select Country…</option>
-            <option *ngFor="let c of allCountries" [value]="c">{{ c }}</option>
-          </select>
-        </div>
-
-        <div class="col-6 col-lg-1">
-          <label class="form-label">Per Page</label>
-          <select class="form-select" formControlName="perPage" (change)="setPage(1)">
-            <option>6</option>
-            <option>12</option>
-            <option>18</option>
-            <option>24</option>
-          </select>
-        </div>
-
-        <div class="col-6 col-lg-12 col-xl-1 text-lg-end">
-          <button type="button" class="btn btn-warning w-100 w-lg-auto mt-2 mt-lg-0" (click)="clearAll()">Clear All</button>
-        </div>
-      </div>
-    </form>
-
-    <!-- Results -->
-    <ng-container *ngIf="(vm$ | async) as vm">
-
-      <!-- Summary + Pagination -->
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <div class="text-muted small">
-          Showing <strong>{{ vm.startIndex }}</strong>–<strong>{{ vm.endIndex }}</strong> of
-          <strong>{{ vm.total }}</strong> results
-        </div>
-      </div>
-
-      <!-- Practitioner Cards -->
-<!-- Practitioner Cards -->
-<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 gx-3 gy-4 m-0" *ngIf="!(loading$ | async)">
-  <div class="col" *ngFor="let p of vm.rows; trackBy: trackById">
-    <article class="sp-card practitioner-card text-center mx-auto">
-      <div class="ribbon">{{ p.ribbon || 'Practitioner' }}</div>
-
-      <div
-        class="cover"
-        [style.background-color]="p.coverColor || '#9999CC'"
-        [style.background-image]="p.coverImage ? 'url(' + p.coverImage + ')' : 'none'">
-      </div>
-
-      <img [src]="p.avatar || '/images/default-user.png'" alt="{{p.name}}" class="profile-pic" />
-
-      <h3 class="name">{{ p.name }}</h3>
-
-      <div class="tags" *ngIf="p.services?.length">
-        <span *ngFor="let s of p.services" class="tag">{{ s }}</span>
-      </div>
-
-   <div class="social-icons pt-2" *ngIf="p">
-  <a *ngIf="p.linkedin" [href]="p.linkedin" target="_blank" class="text-muted me-3">
-    <i class="bi bi-linkedin"></i>
-  </a>
-  <a *ngIf="p.instagram" [href]="p.instagram" target="_blank" class="text-muted me-3">
-    <i class="bi bi-instagram"></i>
-  </a>
-  <a *ngIf="p.twitter" [href]="p.twitter" target="_blank" class="text-muted me-3">
-    <i class="bi bi-twitter-x"></i>
-  </a>
-  <a *ngIf="p.facebook" [href]="p.facebook" target="_blank" class="text-muted me-3">
-    <i class="bi bi-facebook"></i>
-  </a>
-  <a *ngIf="p.youtube" [href]="p.youtube" target="_blank" class="text-muted">
-    <i class="bi bi-youtube"></i>
-  </a>
-</div>
-
-
-<p class="description">
+     <p>
   {{
-    (p.bio || '').length > 100
-      ? (p.bio | slice:0:100) + '...'
+    (p.bio && p.bio.length > 90)
+      ? (p.bio | slice:0:90) + '...'
       : (p.bio || 'No description available.')
   }}
 </p>
 
+          <div class="location">
+            <i class="bi bi-geo-alt"></i> {{ p.country }}
+          </div>
 
-      <button class="btn" (click)="fullListing()">View Profile</button>
-    </article>
-  </div>
-</div>
-
-
-
-      <!-- Empty -->
-      <div class="text-center text-muted py-5" *ngIf="!vm.total && !(loading$ | async)">
-        <i class="bi bi-search display-6 d-block mb-2"></i>
-        No profiles match your filters. Try clearing filters.
+          <button (click)="fullListing()" class="view-p">View Profile</button>
+        </div>
       </div>
 
-    </ng-container>
+    </div>
+
+    <!-- EMPTY STATE -->
+    <div class="no-results" *ngIf="!vm.rows.length">
+      No profiles found. Try adjusting your filters.
+    </div>
+
   </div>
+
 </section>

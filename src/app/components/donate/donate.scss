@@ -1,0 +1,213 @@
+@use "variables" as *;
+@use "typography" as *;
+@use "buttons" as *;
+
+:root {
+  --primary: #9999CC;
+}
+
+/* PAGE */
+.donate-page {
+  background: #f2f3f5;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-right: 20px;
+  padding-right: 20px;
+  font-family: Inter, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+/* WRAPPER */
+.donate-wrapper {
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: minmax(480px, 520px) 1fr;
+  gap: 20px;
+  justify-content: center;
+  align-items: start;
+}
+.m{
+    border: 1px solid #9999CC;
+}
+/* LEFT FORM */
+.donate-left {
+  background: white;
+  border-radius: 6px;
+ 
+  padding-bottom: 40px;
+  height: 1000px;
+}
+.video-box iframe {
+  width: 100%;
+  height: 320px;
+  border-radius: 6px;
+}
+/* HEADERS */
+.form-header {
+  background: #9999CC;
+  color: $white;
+  font-weight: 600;
+  padding: 12px 20px;
+  margin-bottom: 40px;
+}
+
+.mt {
+  margin-top: 40px;
+}
+
+/* TOGGLE */
+.donate-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.donate-toggle button {
+  border: 1px solid var(--primary);
+  padding: 6px 16px;
+  background: white;
+  border-radius: 6px;
+}
+
+.donate-toggle .active {
+  background: #9999CC;
+  color: white;
+}
+
+/* AMOUNTS */
+.amounts {
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-left: 40px;
+  margin-bottom: 24px;
+}
+
+.amounts button {
+  border: 1px solid #ccc;
+  background: white;
+  padding: 6px 16px;
+  border-radius: 6px;
+}
+
+/* LABELS */
+.label {
+  display: block;
+  margin-left: 40px;
+  margin-bottom: 8px;
+}
+
+/* INPUTS */
+.input {
+  height: 48px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  padding: 10px 14px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.amount-input {
+  width: 277px;
+  margin-left: 40px;
+}
+
+.textarea {
+  height: 80px;
+}
+
+/* FORM ROW */
+.row {
+  display: flex;
+  gap: 32px;
+  padding: 0 40px;
+}
+
+.field {
+  width: 282px;
+}
+
+.field.full {
+  padding: 0 40px;
+  width: 100%;
+}
+
+/* BUTTON */
+.btn-wrap {
+  padding-right: 40px;
+  text-align: right;
+}
+
+.pay-btn {
+  background: #f9c74f;
+  border: none;
+  padding: 10px 26px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* RIGHT CONTENT */
+.donate-right {
+  background: white;
+  border-radius: 6px;
+  padding: 40px;
+ 
+  width: 100%;
+  max-width: 600px;
+  height: 1000px;
+}
+
+.video-box {
+  margin: 40px 0;
+  position: relative;
+}
+
+.video-box img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .donate-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .donate-left,
+  .donate-right {
+    max-width: 100%;
+    margin: auto;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .field {
+    width: 100%;
+  }
+
+  .amount-input {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .label {
+    margin-left: 0;
+  }
+
+  .btn-wrap {
+    padding-right: 0;
+    text-align: center;
+  }
+}
