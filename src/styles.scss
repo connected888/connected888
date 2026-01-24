@@ -1,4 +1,3 @@
-
 @use "variables" as *;
 @use "typography" as *;
 @use "buttons" as *;
@@ -7,7 +6,7 @@
 :root {
   --energy-primary: #9999cc; /* violet */
   --energy-accent: #eab444; /* golden */
-  --energy-white: #ffffff;
+  /*  --energy-white: #ffffff;
   --c888-black: #000000;
   --c888-font-primary: "Kumbh Sans", Segoe, "Segoe UI", "DejaVu Sans",
     "Trebuchet MS", Verdana, "sans-serif";
@@ -18,10 +17,11 @@
   --c888-h3-size: 1.125rem;
   --c888-light-grey: #444444;
   --c888-line: #e1e1e1;
-  --c888-primary-text: #7a7ab9;
+  --c888-primary-text: #7a7ab9; */
 }
-
-
+* {
+  border: 1 solid red;
+}
 body {
   // padding-top: 80px; /* same as navbar height */
 
@@ -82,14 +82,18 @@ body {
 
 /* ensure overlay sits on top */
 
-.ngx-spinner-overlay { z-index: 999999 !important; }
-.ngx-spinner { z-index: 1000000 !important; }
+.ngx-spinner-overlay {
+  z-index: 999999 !important;
+}
+.ngx-spinner {
+  z-index: 1000000 !important;
+}
 
-.c888-logo { 
+.c888-logo {
   height: 54px;
-   width: 85px; 
-   top: 17px;
-   left:72px
+  width: 85px;
+  top: 17px;
+  left: 72px;
 }
 
 .ngx-spinner-overlay {
@@ -104,4 +108,3 @@ body {
 p {
   font-family: var(--c888-font-primary);
 }
-

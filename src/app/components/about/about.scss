@@ -1,0 +1,182 @@
+@use "variables" as *;
+@use "typography" as *;
+@use "buttons" as *;
+
+// *{
+//     outline: solid 1px red;
+//     border: 1px solid blue;
+// }
+.container-fluid,
+.row,
+.col-12 {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.about-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+.about-header .line {
+  width: 5%;
+  height: 2px;
+  background-color: #000000;
+  margin-left: 8%;
+  margin-top: 25px;
+}
+.intro-text {
+  margin: 0;
+  font-family: $font-eb-garamond;
+  font-size: 16px;
+  font-weight: 600;
+  color: $black;
+  white-space: nowrap;
+  text-transform: uppercase;
+  width: 100%;
+  display: block;
+  margin-top: 25px;
+}
+.main-title {
+  margin: 0;
+  font-family: $font-eb-garamond;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-left: 24%;
+  padding-top: 15px;
+}
+.right {
+  margin: 20px 20px 50px;
+}
+.highlight-text {
+  font-family: $font-eb-garamond;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.para {
+  font-family: $font-lato;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.section-2 {
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  background-color: #efeeed;
+  padding-bottom: 20px;
+  position: relative;
+  top: 100px;
+}
+h2 {
+  margin: 20px 50px;
+  text-transform: uppercase;
+  font-family: $font-lato;
+  font-size: 16px;
+  font-weight: 700;
+}
+.section-2 p {
+  margin: 20px 50px;
+}
+.section-2 img {
+  position: relative;
+  bottom: 80px;
+  width: 100%;
+  height: auto;
+  padding: 0px 50px;
+}
+.logos-row {
+  margin-top: 90px;
+}
+.section-3 {
+  margin-top: 100px;
+}
+.section-3 .heading {
+  font-family: "EB Garamond", serif;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: capitalize;
+  color: #434343;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 50px;
+}
+.section-3 h4 {
+  font-family: "EB Garamond", serif;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 20px;
+  color: #434343;
+  padding-top: 30px;
+}
+.section-3 .team {
+  padding: 20px 20px;
+  margin: 20px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+.section-4 {
+  background-color: #efeeed;
+  position: relative;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  margin: 50px 15px !important;
+}
+.section-4 h3 {
+  font-family: $font-lato;
+  font-size: 48px;
+  font-weight: 700;
+}
+.section-4 .info,
+.founders {
+  padding: 0px 25px;
+  margin: 20px;
+}
+
+.section-4 img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 30px;
+}
+.section-5 {
+  margin: 20px 0px 70px;
+}
+@media (max-width: 1024px), (max-width: 780px), (max-width: 450px) {
+  .line {
+    width: 15%;
+  }
+  .main-title {
+    font-size: 2.5rem;
+    margin-left: 5%;
+    padding-top: 20px;
+  }
+  .section-2 {
+    position: relative;
+    top: 0px;
+  }
+  .section-2 img {
+    padding: 0px 30px;
+    position: relative;
+    bottom: 20px !important;
+  }
+  .section-3 {
+    margin-top: 10px;
+  }
+  .section-3 .team {
+    margin: 0px;
+  }
+  .section-4 {
+    margin: 10px !important;
+  }
+}
