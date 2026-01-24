@@ -3,25 +3,8 @@
 @use "buttons" as *;
 @use "iconography" as *;
 
-:root {
-  --energy-primary: #9999cc; /* violet */
-  --energy-accent: #eab444; /* golden */
-  /*  --energy-white: #ffffff;
-  --c888-black: #000000;
-  --c888-font-primary: "Kumbh Sans", Segoe, "Segoe UI", "DejaVu Sans",
-    "Trebuchet MS", Verdana, "sans-serif";
-  --c888-body-text: 1rem;
-  --c888-h1-size: 1.625rem;
-  --c888-h2-size: 1.5625rem;
-  --c888-h2-blue-text: #4646b9;
-  --c888-h3-size: 1.125rem;
-  --c888-light-grey: #444444;
-  --c888-line: #e1e1e1;
-  --c888-primary-text: #7a7ab9; */
-}
-* {
-  border: 1 solid red;
-}
+
+
 body {
   // padding-top: 80px; /* same as navbar height */
 
